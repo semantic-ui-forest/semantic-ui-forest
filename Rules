@@ -1,0 +1,97 @@
+#!/usr/bin/env ruby
+# coding: utf-8
+
+# A few helpful tips about the Rules file:
+#
+# * The string given to #compile and #route are matching patterns for
+#   identifiers--not for paths. Therefore, you can’t match on extension.
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
+
+pandoc_ext_from = {
+  'org'      => :org,
+  'md'       => :markdown,
+  'markdown' => :markdown
+}
+
+route '/static/favicons/**/*' do
+  '/' + item.identifier.to_s.split('/')[-1]
+end
+
+compile '/static/**/*.sass' do
+  filter :sass
+end
+
+route '/static/**/*.sass' do
+  item.identifier.without_ext + '.css'
+end
+
+route '/posts/static/**/*' do
+  item.identifier.to_s.sub('/posts', '')
+end
+
+route '/nojekyll' do
+  '/.nojekyll'
+end
+
+passthrough '/static/**/*'
+passthrough '/posts/static/**/*'
+passthrough '/humans.txt'
+passthrough '/robots.txt'
+
+compile '/posts/**/*' do
+  ext = item[:extension]
+  case ext
+  when /slim/
+    filter :slim
+  when /md|markdown|org/
+    filter :pandoc, args: [:mathjax, {:from => pandoc_ext_from[ext], :to => :html5}, :toc]
+  end
+  layout '/post.*'
+  layout '/content.*'
+  layout item[:layout] || '/default.*'
+end
+
+compile '/{index,about}.*' do
+  case item[:extension]
+  when /slim|html/
+    filter :slim
+  end
+  layout item[:layout] || '/default.*'
+end
+
+compile '**/*' do
+  if item.binary?
+    # don't filter binary items
+  else
+    case item[:extension]
+    when /slim|html/
+      filter :slim
+    when /md|markdown|org/
+      filter :pandoc, args: [:mathjax, {:from => pandoc_ext_from[ext], :to => :html5}, :toc]
+    end
+    layout '/content.*'
+    layout item[:layout] || '/default.*'
+  end
+end
+
+route '/index.*' do
+  item.identifier.without_ext + '.html'
+end
+
+route '**/*' do
+  case item[:extension]
+  when /slim|md|markdown|org/
+    item.identifier.without_ext + '/index.html'
+  else
+    item.identifier.to_s
+  end
+end
+
+layout '**/*', :slim

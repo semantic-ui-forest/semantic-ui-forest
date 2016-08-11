@@ -1,0 +1,177 @@
+/* Some mixins
+=font-feature-settings($smcp, $onum)
+  -moz-font-feature-settings: "smcp" $smcp, "onum" $onum
+  -ms-font-feature-settings: "smcp" $smcp, "onum" $onum
+  -o-font-feature-settings: "smcp" $smcp, "onum" $onum
+  -webkit-font-feature-settings: "smcp" $smcp, "onum" $onum
+  font-feature-settings: "smcp" $smcp, "onum" $onum
+
+/* Basic style for some HTML elrements
+body
+  background-color: #F8F8F8
+
+footer
+  margin: 1rem 0
+  &.center.aligned p
+    text-align: center
+
+ul,
+ol
+  padding-left: 2rem
+
+p
+  line-height: 1.5rem
+  [lang='cn'] &
+    text-align: justify
+
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-bottom: 3px double #EEE
+  margin: 1rem 0
+  padding: 0
+  &.plain
+    border-bottom: 1px solid #DDD
+
+/* blockquote styles comes from bootstrap
+blockquote
+  padding: 0.6rem 1rem 0.4rem
+  margin: 0 0 0.8rem
+  border-left: 3px solid #eee
+  p
+    line-height: 1.2rem
+    margin-bottom: 0.3rem
+    text-align: start !important
+    &:last-child
+      margin-bottom: 0
+  ul:last-child,
+  ol:last-child
+    margin-bottom: 0
+  footer,
+  small,
+  .small
+    margin-bottom: 0.5rem
+    display: block
+    font-size: 80%
+    line-height: 1.428571429
+    color: #999
+    padding: 0
+  footer:before,
+  small:before,
+  .small:before
+    content: "\2014 \00A0"
+  cite:before
+    content: '«'
+  cite:after
+    content: '»'
+
+
+img
+  width: 100%
+  &.logo
+    width: 200px
+    margin: 3rem 0 1rem
+
+/* Styles for sremantic-ui elrements
+.ui
+  &.alternative.segment
+    background: #FFFFFF
+  &.vertical.stripe.segment
+    padding: 4rem 0
+  &.vertical.segment:first-child
+    padding-top: 0
+  &.vertical.segment
+    padding: 2rem 0
+
+.ui
+  &.menu
+    border-radius: 0
+    box-shadow: none
+    margin-bottom: 0
+    +font-feature-settings(0, 0)
+
+    form
+      font-size: 14px
+
+    input
+      +font-feature-settings(0, 0)
+      font-size: 14px
+
+.ui
+  &.progress
+    margin: 1rem 0
+    .ui.label
+      font-size: 0.8rem
+      padding-top: 0.5rem
+      padding-bottom: 0.2rem
+
+.ui.article
+  &.segment
+    font-feature-settings: "onum" 0
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.65)
+    margin: 1.5rem 0 2.5rem 0
+    padding-top: 2rem
+  > .ui.grid > .row
+    &.article-head
+      padding-bottom: 1rem
+    &.article-body
+      padding-top: 0
+      > aside
+        display: table
+        > .ui
+          &.header
+            margin-bottom: 0.2rem
+          &.list
+            margin-top: 0.5rem
+            margin-bottom: 0.5rem
+      .ui.header a
+        color: inherit
+
+/* Enable smallcaps and oldstyle-number OpenType features for English
+[lang='en']
+  +font-feature-settings(0, 1)
+
+/* Disable smallcaps and oldstyle-number OpenType features for Chinese
+[lang='cn']
+  +font-feature-settings(0, 0)
+
+/* TeX and LaTeX Logo in HTML
+.tex sub
+  text-transform: uppercase
+  top: auto
+  bottom: auto
+
+.latex
+  sub,
+  sup
+    text-transform: uppercase
+    top: auto
+    bottom: auto
+
+.tex sub,
+.latex sub
+  vertical-align: -0.5ex
+  margin-left: -0.1667rem
+  margin-right: -0.125rem
+
+.tex,
+.latex,
+.tex sub,
+.latex sub
+  font-size: 1rem
+
+/* disqus comment div
+#disqus_thread
+  margin-top: 2rem
+
+@media only screen and (max-width: 767px)
+  .ui.menu .item.desktop-only
+    display: none
+
+  .ui[class*="padded"].segment
+    padding: 1.5rem
+
+  .ui.grid .ui.stackable.grid
+    margin-left: 0 !important
+    margin-right: 0 !important

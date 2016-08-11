@@ -1,0 +1,35 @@
+header.row.article-head
+  .column
+    h1 == @item[:title]
+    hr
+.row.article-body
+  section.twelve.wide.column
+    == yield
+    hr
+    div#disqus_thread
+    noscript Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  aside.four.wide.column lang="en"
+    .ui.small.header Committed
+    date
+      == @item[:created_at].to_date
+
+    .ui.small.header Category
+    .ui.list
+      .item
+        a href="/categories##{@item[:category].downcase}"
+          .ui.label
+            = @item[:category]
+            sup == articles_with_attribute(:category, @item[:category]).length
+
+    .ui.small.header Tags
+    .ui.list
+      - @item[:tags].each do |tag|
+        .item
+          a href="/tags##{tag.downcase}"
+            .ui.label
+              = tag
+              sup == articles_with_attribute(:tags, tag).length
+    .ui.small.header Links
+    .ui.small.two.item.menu
+      == previous_link
+      == next_link

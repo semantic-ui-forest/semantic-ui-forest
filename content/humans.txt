@@ -1,0 +1,33 @@
+/* TEAM */
+Developer: Xiao Hanyu
+Contact: xiaohanyu1988 [at] gmail.com
+Github: @xiaohanyu
+
+Designer: Xiao Hanyu
+Contact: xiaohanyu1988 [at] gmail.com
+Github: @xiaohanyu
+
+Writer: Xiao Hanyu
+Contact: xiaohanyu1988 [at] gmail.com
+Github: @xiaohanyu
+
+Maintainer: Xiao Hanyu
+Contact: xiaohanyu1988 [at] gmail.com
+Github: @xiaohanyu
+
+/* THANKS */
+Nanoc(http://nanoc.ws/)
+Github(https://github.com)
+Git(http://www.git-scm.com/)
+Pandoc(http://pandoc.org/)
+Emacs(https://www.gnu.org/software/emacs/)
+Spacemacs(https://github.com/syl20bnr/spacemacs)
+Org-mode(http://orgmode.org/)
+Linux Libertine(www.linuxlibertine.org/)
+Ruby(https://www.ruby-lang.org/)
+Semantic-UI(http://semantic-ui.com/)
+
+/* SITE */
+Last updated: 2016/04/01
+Languages: Chinese/English
+Doctype: HTML5
