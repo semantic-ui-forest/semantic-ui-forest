@@ -1,4 +1,4 @@
-[[/content/static/images/gravatar.svg]]
+[[/content/static/images/gravatar-128x128.png]]
 
 * Nanoc-Plate(http://nanoc-plate.github.io)
 
