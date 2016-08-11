@@ -5,6 +5,7 @@ gem 'nanoc'
 gem 'slim'
 gem 'sass'
 gem 'pandoc-ruby'
+gem 'echoe'
 
 # nanoc plugins
 gem 'typogruby'
