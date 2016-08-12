@@ -6,3 +6,6 @@ script:
 env:
   global:
     GITHUB_PAGES_REPO: nanoc-plate/nanoc-plate.github.io
+notifications:
+  email:
+    on_failure: always
