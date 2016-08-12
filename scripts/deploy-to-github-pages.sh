@@ -18,12 +18,18 @@ bundle exec nanoc compile
 
 # deploy
 cd output
-git add .
-git commit -F- <<EOF
+
+if [ -z "$(git status --porcelain)" ]; then
+    echo "There are no changes, exit with 0";
+    exit 0;
+else
+    git add .
+    git commit -F- <<EOF
 Auto deployed by travis-ci.
 
 Projects used for this deployment:
 - https://github.com/nanoc-plate/nanoc-plate/commit/${nanoc_plate_rev}
 EOF
 
-git push -f "https://${GITHUB_TOKEN}@github.com/${GITHUB_PAGES_REPO}.git" master:master
+    git push -f "https://${GITHUB_TOKEN}@github.com/${GITHUB_PAGES_REPO}.git" master:master
+fi
