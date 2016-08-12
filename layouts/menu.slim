@@ -7,3 +7,14 @@ nav.ui.borderless.menu lang='en'
     a.item.desktop-only href="/tags" Tags
     a.item href="/notes" Notes
     a.item href="/#about" About
+    .right.menu
+      .item.desktop-only
+        form.ui.form target="_blank" method="get" action="https://www.google.com/search"
+          input type="hidden" value="site:nanoc-plate.github.io" name="q"
+          .ui.transparent.left.icon.input
+            input type="text" placeholder="Search..." name="q"
+            i.search.icon
+      a.item href="https://github.com/nanoc-plate"
+        i.github.icon
+          a.item.desktop-only href="/atom.xml"
+        i.feed.icon
