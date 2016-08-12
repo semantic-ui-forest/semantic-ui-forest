@@ -1,0 +1,8 @@
+language: ruby
+rvm:
+  - 2.3.0
+script:
+  - bash ./scripts/deploy-to-github-pages.sh
+env:
+  global:
+    GITHUB_PAGES_REPO: nanoc-plate/nanoc-plate.github.io
