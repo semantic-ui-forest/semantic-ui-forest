@@ -66,6 +66,10 @@ compile '/{index,about}.*' do
   layout item[:layout] || '/default.*'
 end
 
+compile '/{sitemap}.xml' do
+  filter :erb
+end
+
 compile '**/*' do
   if item.binary?
     # don't filter binary items

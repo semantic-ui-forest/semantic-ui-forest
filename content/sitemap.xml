@@ -1,0 +1,3 @@
+<%= xml_sitemap \
+    :items => @items.reject { |it| it.identifier.to_s.start_with? '/static' }
+%>
