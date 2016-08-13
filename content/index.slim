@@ -1,14 +1,109 @@
 ---
-lang: cn
+lang: en
 ---
 
-.ui.stackable.container
-  .ui.very.padded.segment.article
-    article.ui.stackable.divided.grid
-      header.row.article-head
-        .column
-          h1 Nanoc-Plate, a New Way to Build Websites.
-          hr
-      .row.article-body
-        section.twelve.wide.column
-          h2 About
+.ui.vertical.center.aligned.stripe.alternative.segment
+  .ui.container
+    img.logo src="/static/images/gravatar.svg"
+
+    h1 Nanoc-Plate
+    iframe src="http://ghbtns.com/github-btn.html?user=nanoc-plate&repo=nanoc-plate&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="24"
+    iframe src="http://ghbtns.com/github-btn.html?user=nanoc-plate&repo=nanoc-plate&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="24"
+    p A smooth work flow to build static websites happily.
+
+.ui.vertical.stripe.segment
+  .ui.grid.stackable.container
+    .row
+      .ui.four.column.stackable.divided.grid
+        h2 Features
+        .row
+          .column
+            h4 Beautiful
+            p Born to be beautiful. Elaborate cross-platform web fonts solution for both Chinese and English.
+            ul.ui.list
+              li <a href="http://semantic-ui.com/">Semantic-UI</a>, the foundation.
+              li <a href="https://github.com/zenozeng/fonts.css">fonts.css</a>, for Chinese.
+              li <a href="http://www.linuxlibertine.org/">Linux Libertine</a>, for English.
+          .column
+            h4 Versatile
+            p Support multiple <a href="http://en.wikipedia.org/wiki/Comparison_of_document_markup_languages">documentation markup language</a> via <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>.
+            ul.ui.list
+              li <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>
+              li <a href="http://orgmode.org/">Org</a>
+              li <a href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>
+              li <a href="https://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a>
+          .column
+            h4 Flexible
+            p Manage all kinds of resource files in a uniform and flexible way.
+            ul.ui.list
+              li Documents
+              li HTML & CSS & JavaScript
+              li Images & Videos
+              li Fonts
+          .column
+            h4 Batteries Included
+            p Builtin generators for multiple components of a modern website.
+            ul.ui.list
+              li <a href="http://www.robotstxt.org/">robots.txt</a>
+              li <a href="http://humanstxt.org/">humans.txt</a>
+              li <a href="https://en.wikipedia.org/wiki/Atom_(standard)">Atom Feed</a>
+              li <a href="https://en.wikipedia.org/wiki/Site_map">Sitemap</a>
+        hr.plain
+        .row
+          .column
+            h4 Dynamic
+            p Generate dynamic contents from static contents, sounds like a magic?
+            ul.ui.list
+              li Tags
+              li Categories
+              li Paginator
+              li List of Documents
+          .column
+            h4 Responsive
+            p Born to be <a href="https://en.wikipedia.org/wiki/Responsive_web_design">Responsive</a>. Write once, fit everywhere. Perfect experience on all devices.
+            ul.ui.list
+              li Phone
+              li Tablet
+              li Desktop
+          .column
+            h4 Scienticfic!
+            p Excellent math formula and syntax highlighting support for math and technical writings.
+            ul.ui.list
+              li <a href="https://www.mathjax.org/">MathJax</a>
+              li Optional PDF genaration
+              li Source code <a href="http://pandoc.org/MANUAL.html#syntax-highlighting">syntax highlighting</a>
+          .column
+            h4 Integrations
+            p Easy to integrate third-party services and bring lives and noises(I guess so) to your site.
+            ul.ui.list
+              li <a href="https://analytics.google.com">Google Analytics</a> for statistics
+              li <a href="https://disqus.com/">Disqus</a> for commenting
+        hr.plain
+        .row
+          .column
+            h4 Internationalization
+            p One click to switch languages for the whole site, or just a single post or note.
+            ul.ui.list
+              li Built-in localization for common UI components.
+          .column
+            h4 Guidance
+            p Best practice guidance for a smooth and happy work flow.
+            ul.ui.list
+              li <a href="http://guardgem.org/">Guard</a>
+              li <a href="http://browsersync.io/">Browsersync</a>
+              li <a href="https://pages.github.com/">Github Pages</a>
+              li <a href="https://travis-ci.org/">Travis-CI</a>
+          .column
+            h4 Compatible
+            p Nanoc-Plate is just a bundle of <a href="nanoc.ws">nanoc</a>. No wonder that we have all features of nanoc.
+            ul.ui.list
+              li Free-form metadata
+              li Programmable filters and helpers
+              li Various templating languages
+          .column
+            h4 Customizable
+            p Want to do some more in-depth customization? Not that hard, we've made great choices already.
+            ul.ui.list
+              li <a href="http://slim-lang.com/">Slim</a>, a better HTML.
+              li <a href="http://slim-lang.com/">Sass</a>, a better CSS.
+              li Vanilla JavaScript? Plus <a href="https://jquery.com/">jQuery</a>, just enough here.
