@@ -1,0 +1,35 @@
+require 'rake/clean'
+
+# `rake clean`
+CLEAN.include('\#*\#', '.\#*', '*~', '**/*.aux', '**/*.log', '**/*.out')
+
+# `rake clobber`
+CLOBBER.include('**/*.pdf', '**/*.jpg', '**/*.png', '**/*.svg')
+
+rule '.pdf' => '.tex' do |t|
+  sh "xelatex #{t.source}"
+end
+
+rule '.svg' => '.pdf' do |t|
+  sh "pdf2svg #{t.source} #{t.name}"
+end
+
+rule '.png' => '.pdf' do |t|
+  sh "convert -density 2000 -quality 2000 #{t.source} #{t.name}"
+end
+
+rule '.jpg' => '.pdf' do |t|
+  sh "convert -density 2000 -quality 2000 #{t.source} #{t.name}"
+end
+
+source_files = Rake::FileList.new("**/*.tex")
+
+task :default => :pdf
+desc "Build pdf files from tex file"
+task :pdf => source_files.ext('.pdf')
+desc "Build png files from tex file"
+task :png => source_files.ext('.png')
+desc "Build jpg files from tex file"
+task :jpg => source_files.ext('.jpg')
+desc "Build svg files from tex file"
+task :svg => source_files.ext('.svg')

@@ -1,0 +1,9 @@
+* gravatar
+
+Need imagemagick and ~brew cask install xquartz~.
+
+#+BEGIN_SRC sh
+xelatex gravatar.tex
+convert -density 2000 -quality 2000 gravatar.pdf gravatar.png
+pdf2svg gravatar.pdf gravatar.svg
+#+END_SRC

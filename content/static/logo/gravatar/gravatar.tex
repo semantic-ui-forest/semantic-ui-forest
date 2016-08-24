@@ -1,0 +1,16 @@
+\documentclass[preview]{standalone}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz,ifthen,fullpage}
+\usetikzlibrary{intersections}
+
+\begin{document}
+\thispagestyle{empty}
+\definecolor{lightblue}{rgb}{0.13,0.52,0.82}
+
+\begin{tikzpicture}[fill=lightblue]
+  \clip (-2,-2) rectangle (2,2);
+  \filldraw[double distance=2mm, thick]
+  plot[smooth cycle] coordinates{(-1.28,-1.28) (1.28,1.28) (1.28,-1.28) (-1.28,1.28)};
+\end{tikzpicture}
+\end{document}
