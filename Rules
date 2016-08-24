@@ -20,7 +20,7 @@ pandoc_ext_from = {
   'markdown' => :markdown
 }
 
-route '/static/favicons/**/*' do
+route '/static/logo/favicons/**/*' do
   '/' + item.identifier.to_s.split('/')[-1]
 end
 
