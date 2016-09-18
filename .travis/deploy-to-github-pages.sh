@@ -27,7 +27,7 @@ if [ -z "$(git status --porcelain)" ]; then
     echo "There are no changes, exit with 0";
     exit 0;
 else
-    git add .
+    git add -A .
     git commit -F- <<EOF
 Auto deployed by travis-ci.
 
