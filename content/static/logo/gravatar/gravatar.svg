@@ -1,15 +1,91 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="113.39pt" height="113.39pt" viewBox="0 0 113.39 113.39" version="1.1">
-<defs>
-<clipPath id="clip1">
-  <path d="M 0 0 L 113.382812 0 L 113.382812 113.382812 L 0 113.382812 Z M 0 0 "/>
-</clipPath>
-</defs>
-<g id="surface1">
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(12.998962%,51.998901%,81.999207%);fill-opacity:1;" d="M 92.972656 20.40625 C 103.042969 20.40625 103.042969 92.972656 92.972656 92.972656 C 82.90625 92.972656 30.476562 20.40625 20.40625 20.40625 C 10.335938 20.40625 10.335938 92.972656 20.40625 92.972656 C 30.476562 92.972656 82.90625 20.40625 92.972656 20.40625 Z M 92.972656 20.40625 "/>
-<g clip-path="url(#clip1)" clip-rule="nonzero">
-<path style="fill:none;stroke-width:7.2634;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 36.282656 36.28375 C 46.352969 36.28375 46.352969 -36.282656 36.282656 -36.282656 C 26.21625 -36.282656 -26.213437 36.28375 -36.28375 36.28375 C -46.354062 36.28375 -46.354062 -36.282656 -36.28375 -36.282656 C -26.213437 -36.282656 26.21625 36.28375 36.282656 36.28375 Z M 36.282656 36.28375 " transform="matrix(1,0,0,-1,56.69,56.69)"/>
-<path style="fill:none;stroke-width:5.66934;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,100%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 36.282656 36.28375 C 46.352969 36.28375 46.352969 -36.282656 36.282656 -36.282656 C 26.21625 -36.282656 -26.213437 36.28375 -36.28375 36.28375 C -46.354062 36.28375 -46.354062 -36.282656 -36.28375 -36.282656 C -26.213437 -36.282656 26.21625 36.28375 36.282656 36.28375 Z M 36.282656 36.28375 " transform="matrix(1,0,0,-1,56.69,56.69)"/>
-</g>
-</g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 227.2 227.2" style="enable-background:new 0 0 227.2 227.2;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#80FF80;}
+	.st1{fill:none;stroke:#00FF00;stroke-width:0.3985;stroke-miterlimit:10;}
+	.st2{fill:#FFF799;}
+	.st3{fill:none;stroke:#FFF200;stroke-width:0.3985;stroke-miterlimit:10;}
+	.st4{fill:#FF8080;}
+	.st5{fill:none;stroke:#FF0000;stroke-width:0.3985;stroke-miterlimit:10;}
+	.st6{fill:#F49AC1;}
+	.st7{fill:none;stroke:#EC008C;stroke-width:0.3985;stroke-miterlimit:10;}
+	.st8{fill:#8080FF;}
+	.st9{fill:none;stroke:#0000FF;stroke-width:0.3985;stroke-miterlimit:10;}
+	.st10{fill:#6DCFF6;}
+	.st11{fill:none;stroke:#00AEEF;stroke-width:0.3985;stroke-miterlimit:10;}
+</style>
+<polygon class="st0" points="170.3,113.6 227,113.6 226.5,103.7 170.1,108.6 "/>
+<polygon class="st1" points="170.3,113.6 227,113.6 226.5,103.7 170.1,108.6 "/>
+<polygon class="st0" points="169.4,103.7 225.3,93.9 223.1,84.2 168.3,98.9 "/>
+<polygon class="st1" points="169.4,103.7 225.3,93.9 223.1,84.2 168.3,98.9 "/>
+<polygon class="st0" points="166.9,94.2 220.1,74.8 216.3,65.7 165,89.6 "/>
+<polygon class="st1" points="166.9,94.2 220.1,74.8 216.3,65.7 165,89.6 "/>
+<polygon class="st0" points="162.7,85.2 211.8,56.9 206.5,48.5 160,81.1 "/>
+<polygon class="st1" points="162.7,85.2 211.8,56.9 206.5,48.5 160,81.1 "/>
+<polygon class="st0" points="157,77.1 200.4,40.7 193.8,33.4 153.7,73.5 "/>
+<polygon class="st1" points="157,77.1 200.4,40.7 193.8,33.4 153.7,73.5 "/>
+<polygon class="st0" points="150,70.2 186.5,26.7 178.6,20.7 146.1,67.1 "/>
+<polygon class="st1" points="150,70.2 186.5,26.7 178.6,20.7 146.1,67.1 "/>
+<polygon class="st2" points="141.9,64.5 170.3,15.4 161.5,10.8 137.5,62.2 "/>
+<polygon class="st3" points="141.9,64.5 170.3,15.4 161.5,10.8 137.5,62.2 "/>
+<polygon class="st2" points="133,60.3 152.4,7 142.9,4.1 128.3,58.8 "/>
+<polygon class="st3" points="133,60.3 152.4,7 142.9,4.1 128.3,58.8 "/>
+<polygon class="st2" points="123.4,57.8 133.3,1.9 123.5,0.6 118.5,57.1 "/>
+<polygon class="st3" points="123.4,57.8 133.3,1.9 123.5,0.6 118.5,57.1 "/>
+<polygon class="st2" points="113.6,56.9 113.6,0.2 103.7,0.6 108.6,57.1 "/>
+<polygon class="st3" points="113.6,56.9 113.6,0.2 103.7,0.6 108.6,57.1 "/>
+<polygon class="st2" points="103.7,57.8 93.9,1.9 84.2,4.1 98.9,58.8 "/>
+<polygon class="st3" points="103.7,57.8 93.9,1.9 84.2,4.1 98.9,58.8 "/>
+<polygon class="st2" points="94.2,60.3 74.8,7 65.7,10.8 89.6,62.2 "/>
+<polygon class="st3" points="94.2,60.3 74.8,7 65.7,10.8 89.6,62.2 "/>
+<polygon class="st4" points="85.2,64.5 56.9,15.4 48.5,20.7 81.1,67.1 "/>
+<polygon class="st5" points="85.2,64.5 56.9,15.4 48.5,20.7 81.1,67.1 "/>
+<polygon class="st4" points="77.1,70.2 40.7,26.7 33.4,33.4 73.5,73.5 "/>
+<polygon class="st5" points="77.1,70.2 40.7,26.7 33.4,33.4 73.5,73.5 "/>
+<polygon class="st4" points="70.2,77.1 26.7,40.7 20.7,48.5 67.1,81.1 "/>
+<polygon class="st5" points="70.2,77.1 26.7,40.7 20.7,48.5 67.1,81.1 "/>
+<polygon class="st4" points="64.5,85.2 15.4,56.9 10.8,65.7 62.2,89.6 "/>
+<polygon class="st5" points="64.5,85.2 15.4,56.9 10.8,65.7 62.2,89.6 "/>
+<polygon class="st4" points="60.3,94.2 7,74.8 4.1,84.2 58.8,98.9 "/>
+<polygon class="st5" points="60.3,94.2 7,74.8 4.1,84.2 58.8,98.9 "/>
+<polygon class="st4" points="57.8,103.7 1.9,93.9 0.6,103.7 57.1,108.6 "/>
+<polygon class="st5" points="57.8,103.7 1.9,93.9 0.6,103.7 57.1,108.6 "/>
+<polygon class="st6" points="56.9,113.6 0.2,113.6 0.6,123.5 57.1,118.5 "/>
+<polygon class="st7" points="56.9,113.6 0.2,113.6 0.6,123.5 57.1,118.5 "/>
+<polygon class="st6" points="57.8,123.4 1.9,133.3 4.1,142.9 58.8,128.3 "/>
+<polygon class="st7" points="57.8,123.4 1.9,133.3 4.1,142.9 58.8,128.3 "/>
+<polygon class="st6" points="60.3,133 7,152.4 10.8,161.5 62.2,137.5 "/>
+<polygon class="st7" points="60.3,133 7,152.4 10.8,161.5 62.2,137.5 "/>
+<polygon class="st6" points="64.5,141.9 15.4,170.3 20.7,178.6 67.1,146.1 "/>
+<polygon class="st7" points="64.5,141.9 15.4,170.3 20.7,178.6 67.1,146.1 "/>
+<polygon class="st6" points="70.2,150 26.7,186.5 33.4,193.8 73.5,153.7 "/>
+<polygon class="st7" points="70.2,150 26.7,186.5 33.4,193.8 73.5,153.7 "/>
+<polygon class="st6" points="77.1,157 40.7,200.4 48.5,206.5 81.1,160 "/>
+<polygon class="st7" points="77.1,157 40.7,200.4 48.5,206.5 81.1,160 "/>
+<polygon class="st8" points="85.2,162.7 56.9,211.8 65.7,216.3 89.6,165 "/>
+<polygon class="st9" points="85.2,162.7 56.9,211.8 65.7,216.3 89.6,165 "/>
+<polygon class="st8" points="94.2,166.9 74.8,220.1 84.2,223.1 98.9,168.3 "/>
+<polygon class="st9" points="94.2,166.9 74.8,220.1 84.2,223.1 98.9,168.3 "/>
+<polygon class="st8" points="103.7,169.4 93.9,225.3 103.7,226.5 108.6,170.1 "/>
+<polygon class="st9" points="103.7,169.4 93.9,225.3 103.7,226.5 108.6,170.1 "/>
+<polygon class="st8" points="113.6,170.3 113.6,227 123.5,226.5 118.5,170.1 "/>
+<polygon class="st9" points="113.6,170.3 113.6,227 123.5,226.5 118.5,170.1 "/>
+<polygon class="st8" points="123.4,169.4 133.3,225.3 142.9,223.1 128.3,168.3 "/>
+<polygon class="st9" points="123.4,169.4 133.3,225.3 142.9,223.1 128.3,168.3 "/>
+<polygon class="st8" points="133,166.9 152.4,220.1 161.5,216.3 137.5,165 "/>
+<polygon class="st9" points="133,166.9 152.4,220.1 161.5,216.3 137.5,165 "/>
+<polygon class="st10" points="141.9,162.7 170.3,211.8 178.6,206.5 146.1,160 "/>
+<polygon class="st11" points="141.9,162.7 170.3,211.8 178.6,206.5 146.1,160 "/>
+<polygon class="st10" points="150,157 186.5,200.4 193.8,193.8 153.7,153.7 "/>
+<polygon class="st11" points="150,157 186.5,200.4 193.8,193.8 153.7,153.7 "/>
+<polygon class="st10" points="157,150 200.4,186.5 206.5,178.6 160,146.1 "/>
+<polygon class="st11" points="157,150 200.4,186.5 206.5,178.6 160,146.1 "/>
+<polygon class="st10" points="162.7,141.9 211.8,170.3 216.3,161.5 165,137.5 "/>
+<polygon class="st11" points="162.7,141.9 211.8,170.3 216.3,161.5 165,137.5 "/>
+<polygon class="st10" points="166.9,133 220.1,152.4 223.1,142.9 168.3,128.3 "/>
+<polygon class="st11" points="166.9,133 220.1,152.4 223.1,142.9 168.3,128.3 "/>
+<polygon class="st10" points="169.4,123.4 225.3,133.3 226.5,123.5 170.1,118.5 "/>
+<polygon class="st11" points="169.4,123.4 225.3,133.3 226.5,123.5 170.1,118.5 "/>
 </svg>
