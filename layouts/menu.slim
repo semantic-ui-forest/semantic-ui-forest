@@ -2,10 +2,44 @@ nav.ui.borderless.menu lang='en'
   .ui.container
     a.item href="/"
       img src="/static/logo/gravatar/gravatar.svg"
-    a.item href="/posts" Posts
-    a.item.desktop-only href="/categories" Categories
-    a.item.desktop-only href="/tags" Tags
-    a.item href="/notes" Notes
+    .ui.pointing.dropdown.item
+      | Themes
+      .i.dropdown.icon
+      .menu
+        .item
+          i.dropdown.icon
+          .text Bootswatch
+          .menu
+            a.item href="/themes/bootswatch/bootswatch/" Bootswatch
+            a.item href="/themes/bootswatch/cerulean/" Cerulean
+            a.item href="/themes/bootswatch/cosmo/" Cosmo
+            a.item href="/themes/bootswatch/cyborg/" Cyborg
+            a.item href="/themes/bootswatch/darkly/" Darkly
+            a.item href="/themes/bootswatch/flatly/" Flatly
+            a.item href="/themes/bootswatch/journal/" Journal
+            a.item href="/themes/bootswatch/lumen/" Lumen
+            a.item href="/themes/bootswatch/paper/" Paper
+            a.item href="/themes/bootswatch/readable/" Readable
+            a.item href="/themes/bootswatch/sandstone/" Sandstone
+            a.item href="/themes/bootswatch/simplex/" Simplex
+            a.item href="/themes/bootswatch/slate/" Slate
+            a.item href="/themes/bootswatch/spacelab/" Spacelab
+            a.item href="/themes/bootswatch/superhero/" Superhero
+            a.item href="/themes/bootswatch/united/" United
+            a.item href="/themes/bootswatch/yeti/" Yeti
+        .item
+          i.dropdown.icon
+          .text Semantic-UI
+          .menu
+            a.item href="/themes/semantic-ui/amazon/" Amazon
+            a.item href="/themes/semantic-ui/bootstrap3/" Bootstrap3
+            a.item href="/themes/semantic-ui/chubby/" Chubby
+            a.item href="/themes/semantic-ui/flat/" Flat
+            a.item href="/themes/semantic-ui/github/" Github
+            a.item href="/themes/semantic-ui/material/" Material
+            a.item href="/themes/semantic-ui/twitter/" Twitter
+    a.item href="/posts" Blog
+    a.item href="/notes" Help
     .right.menu
       .item.desktop-only
         form.ui.form target="_blank" method="get" action="https://www.google.com/search"
