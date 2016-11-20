@@ -1,30 +1,10 @@
 [[/content/static/logo/gravatar/gravatar-128x128.png]]
 
-* Nanoc-Plate(http://nanoc-plate.github.io)
+* Semantic-UI-Forest(http://semantic-ui-forest.com)
 
 ** Introduction
 
-Nanoc-Plate is a [[http://nanoc.ws/][nanoc]] bundle for building static web sites happily.
+Semantic-UI-Forest is a collection of design, themes and templates for [[http://semantic-ui.com/][Semantic-UI]].
 
-** Internals
-
-- [[https://github.com/nanoc/nanoc][Nanoc]]
-- [[https://jquery.com][jQuery]]
-- [[http://semantic-ui.com/][Semantic-UI]]
-- [[http://pandoc.org/][Pandoc]]
-- [[http://www.linuxlibertine.org/][Linux Libertine]]
-
-** Features
-- Support multiple [[http://en.wikipedia.org/wiki/Comparison_of_document_markup_languages][documentation markup language]] via [[http://johnmacfarlane.net/pandoc/][pandoc]]
-  - [[http://johnmacfarlane.net/pandoc/][markdown]]
-  - [[http://orgmode.org][org]]
-  - [[http://docutils.sourceforge.net/rst.html][rst]]
-- Smooth workflow based on [[http://nanoc.ws/][nanoc]], [[https://github.com/ruby/rake][rake]], [[http://guardgem.org/][guard]] and [[http://browsersync.io/][browsersync]]
-- Posts
-  - categories support
-  - tags support
-  - atom generation
-- Sitemap generation
-- [[http://www.robotstxt.org/][robots.txt]] and [[http://humanstxt.org/][humans.txt]]
-- [[http://www.google.com/analytics/][Google Analytics]] for web statistics
-- [[https://disqus.com/][Disqus]] for commenting
+This repo contains the source code for http://semantic-ui-forest.com, it is
+based on [[https://nanoc-plate.github.io/][Nanoc-Plate]].
