@@ -53,8 +53,7 @@ index_filenames:
 enable_output_diff: false
 
 prune:
-  # Whether to automatically remove files not managed by Nanoc from the output
-  # directory.
+  # Whether to automatically remove fi
   auto_prune: true
 
   # Which files and directories you want to exclude from pruning. If you version
@@ -121,11 +120,11 @@ checks:
     #   exclude_files: ['blog/page']
     exclude_files: []
 
-base_url: http://nanoc-plate.github.io
+base_url: http://semantic-ui-forest.com
 
 meta:
   # Default title, that is added to an item's own title
-  title: Nanoc-Plate, a New Way to Build Websites.
+  title: Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI.
 
   # Default author of a page
   author: Xiao Hanyu
@@ -134,7 +133,7 @@ meta:
   email: xiaohanyu1988@gmail.com
 
   # Default keywords to use when an item does not specify its own
-  keywords: Nanoc, Websites, Blog, Static
+  keywords: Semantic-UI, Theme, Design, Template
 
   # Default description to use when an item does not specify its own
-  description: Nanoc-Plate, a New Way to Build Websites.
+  description: Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI.
