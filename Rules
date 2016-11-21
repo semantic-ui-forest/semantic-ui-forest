@@ -58,6 +58,14 @@ compile '/posts/**/*' do
   layout item[:layout] || '/default.*'
 end
 
+compile '/themes/**/*' do
+  case item[:extension]
+  when /slim|html/
+    filter :slim
+  end
+  layout item[:layout] || '/default.*'
+end
+
 compile '/{index,about}.*' do
   case item[:extension]
   when /slim|html/
@@ -85,7 +93,7 @@ compile '**/*' do
   end
 end
 
-route '/index.*' do
+route '**/*/index.*' do
   item.identifier.without_ext + '.html'
 end
 

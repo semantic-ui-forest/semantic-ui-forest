@@ -1,0 +1,253 @@
+.header.segment
+  .ui.container
+    h2.ui.huge.header Semantic-UI
+    p Semantic-UI default theme
+
+.content.segment
+  .ui.container
+    h2.ui.header Menu
+    .ui.three.item.menu
+      .active.item Editorials
+      .item Reviews
+      .item Upcoming Events
+
+    .ui.secondary.menu
+      a.active.item
+        | Home
+      a.item
+        | Messages
+      a.item
+        | Friends
+      .right.menu
+        .item
+          .ui.icon.input
+            input placeholder="Search..." type="text" /
+            i.search.link.icon
+        a.ui.item
+          | Logout
+
+    .ui.pointing.menu
+      a.active.item
+        | Home
+      a.item
+        | Messages
+      a.item
+        | Friends
+      .right.menu
+        .item
+          .ui.transparent.icon.input
+            input placeholder="Search..." type="text" /
+            i.search.link.icon
+
+    .ui.top.attached.menu
+      .ui.dropdown.icon.item
+        i.wrench.icon
+        .menu
+          .item
+            i.dropdown.icon
+            span.text New
+            .menu
+              .item Document
+              .item Image
+          .item
+            | Open...
+          .item
+            | Save...
+          .item Edit Permissions
+          .divider
+          .header
+            | Export
+          .item
+            | Share...
+      .right.menu
+        .ui.right.aligned.category.search.item
+          .ui.transparent.icon.input
+            input.prompt placeholder=("Search animals...") type="text" /
+            i.search.link.icon
+          .results
+
+
+    h2.ui.header Button
+
+    .ui.grid.container
+      .row
+        button.ui.primary.button Primary
+        button.ui.secondary.button Secondary
+        button.ui.positive.button Positive
+        button.ui.negative.button Negative
+        button.ui.primary.basic.button Primary
+        button.ui.secondary.basic.button Secondary
+        button.ui.positive.basic.button Positive
+        button.ui.negative.basic.button Negative
+
+      .row
+        .ui.animated.button tabindex="-1"
+          .visible.content Next
+          .hidden.content
+            i.right.arrow.icon
+        .ui.vertical.animated.button tabindex="-1"
+          .hidden.content Shop
+          .visible.content
+            i.shop.icon
+        .ui.animated.fade.button tabindex="-1"
+          .visible.content Sign-up for a Pro account
+          .hidden.content
+            | $12.99 a month
+
+      .row
+        .ui.labeled.button tabindex="-1"
+          .ui.button
+            i.heart.icon
+            | Like
+          a.ui.basic.label
+            | 2,048
+        .ui.left.labeled.button tabindex="-1"
+          a.ui.basic.right.pointing.label
+            | 2,048
+          .ui.button
+            i.heart.icon
+            | Like
+        .ui.left.labeled.button tabindex="-1"
+          a.ui.basic.label
+            | 1,048
+          .ui.icon.button
+            i.fork.icon
+
+        .ui.labeled.button tabindex="-1"
+          .ui.red.button
+            i.heart.icon
+            | Like
+          a.ui.basic.red.left.pointing.label
+            | 1,048
+        .ui.labeled.button tabindex="-1"
+          .ui.basic.blue.button
+            i.fork.icon
+            | Forks
+          a.ui.basic.left.pointing.blue.label
+            | 1,048
+
+      .row
+        button.ui.labeled.icon.button
+          i.pause.icon
+          | Pause
+        button.ui.right.labeled.icon.button
+          i.right.arrow.icon
+          | Next
+
+        .ui.icon.buttons
+          button.ui.button
+            i.align.left.icon
+          button.ui.button
+            i.align.center.icon
+          button.ui.button
+            i.align.right.icon
+          button.ui.button
+            i.align.justify.icon
+        .ui.icon.buttons
+          button.ui.button
+            i.bold.icon
+          button.ui.button
+            i.underline.icon
+          button.ui.button
+            i.text.width.icon
+
+        .ui.buttons
+          button.ui.button Cancel
+          .or
+          button.ui.positive.button Save
+
+      .row
+        button.ui.facebook.button
+          i.facebook.icon
+          | Facebook
+        button.ui.twitter.button
+          i.twitter.icon
+          | Twitter
+        button.ui.google.plus.button
+          i.google.plus.icon
+          | Google Plus
+        button.ui.vk.button
+          i.vk.icon
+          | VK
+        button.ui.linkedin.button
+          i.linkedin.icon
+          | LinkedIn
+        button.ui.instagram.button
+          i.instagram.icon
+          | Instagram
+        button.ui.youtube.button
+          i.youtube.icon
+          | YouTube
+      .row
+        button.mini.ui.button
+          | Mini
+        button.tiny.ui.button
+          | Tiny
+        button.small.ui.button
+          | Small
+        button.medium.ui.button
+          | Medium
+        button.large.ui.button
+          | Large
+        button.big.ui.button
+          | Big
+        button.huge.ui.button
+          | Huge
+        button.massive.ui.button
+          | Massive
+
+      .row
+        button.ui.red.button Red
+        button.ui.orange.button Orange
+        button.ui.yellow.button Yellow
+        button.ui.olive.button Olive
+        button.ui.green.button Green
+        button.ui.teal.button Teal
+        button.ui.blue.button Blue
+        button.ui.violet.button Violet
+        button.ui.purple.button Purple
+        button.ui.pink.button Pink
+        button.ui.brown.button Brown
+        button.ui.grey.button Grey
+
+      .row
+        button.ui.red.basic.button Red
+        button.ui.orange.basic.button Orange
+        button.ui.yellow.basic.button Yellow
+        button.ui.olive.basic.button Olive
+        button.ui.green.basic.button Green
+        button.ui.teal.basic.button Teal
+        button.ui.blue.basic.button Blue
+        button.ui.violet.basic.button Violet
+        button.ui.purple.basic.button Purple
+        button.ui.pink.basic.button Pink
+        button.ui.brown.basic.button Brown
+        button.ui.grey.basic.button Grey
+
+    h2.ui.header Progress
+    .ui.red.progress data-percent="6%"
+      .bar
+    .ui.orange.progress data-percent="12%"
+      .bar
+    .ui.yellow.progress data-percent="18%"
+      .bar
+    .ui.olive.progress data-percent="24%"
+      .bar
+    .ui.green.progress data-percent="30%"
+      .bar
+    .ui.teal.progress data-percent="36%"
+      .bar
+    .ui.blue.progress data-percent="42%"
+      .bar
+    .ui.violet.progress data-percent="48%"
+      .bar
+    .ui.purple.progress data-percent="54%"
+      .bar
+    .ui.pink.progress data-percent="60%"
+      .bar
+    .ui.brown.progress data-percent="66%"
+      .bar
+    .ui.grey.progress data-percent="72%"
+      .bar
+    .ui.black.progress data-percent="78%"
+      .bar
