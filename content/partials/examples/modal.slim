@@ -1,0 +1,68 @@
+.ui.standard.demo.button
+  | Standard Modal
+.ui.minimal.demo.button
+  | Basic Modal
+.ui.fullscreen.demo.button
+  | Full-Screen Modal
+.ui.standard.demo.modal
+  i.close.icon
+  .header
+    |  Profile Picture
+  .image.content
+    .ui.medium.image
+      img[src="/images/avatar/large/chris.jpg"]
+    .description
+      .ui.header
+        | We've auto-chosen a profile image for you.
+      p
+        | We've grabbed the following image from the
+        a[href="https://www.gravatar.com" target="_blank"]
+          | gravatar
+        |  image associated with your registered e-mail address.
+      p
+        | Is it okay to use this photo?
+  .actions
+    .ui.black.button
+      |  Nope
+    .ui.positive.right.labeled.icon.button
+      |  Yep, that's me
+      i.checkmark.icon
+.ui.basic.demo.modal
+  .header
+    |  Archive Old Messages
+  .image.content
+    .image
+      i.archive.icon
+    .description
+      p
+        | Your inbox is getting full, would you like us to enable automatic archiving of old messages?
+  .actions
+    .two.fluid.ui.inverted.buttons
+      .ui.red.basic.cancel.inverted.button
+        i.remove.icon
+        |  No
+      .ui.green.ok.basic.inverted.button
+        i.checkmark.icon
+        |  Yes
+.ui.fullscreen.demo.modal
+  i.close.icon
+  .header
+    |  Update Your Settings
+  .content
+    .ui.form
+      h4.ui.dividing.header
+        | Give us your feedback
+      .field
+        label
+          | Feedback
+        textarea
+      .field
+        .ui.checkbox
+          input[type="checkbox" checked="checked" name="contact-me"]
+          label
+            | It's okay to contact me.
+  .actions
+    .ui.button
+      | Cancel
+    .ui.green.button
+      | Send

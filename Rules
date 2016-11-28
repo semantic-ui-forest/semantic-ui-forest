@@ -78,6 +78,12 @@ compile '/{sitemap}.xml' do
   filter :erb
 end
 
+# let compile rule do nothing
+# compile '/partials/**/*' do ; end
+
+# let route rule return nil, so that no output file is created
+route '/partials/**/*' do ; nil ; end
+
 compile '**/*' do
   if item.binary?
     # don't filter binary items

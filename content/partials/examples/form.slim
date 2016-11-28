@@ -1,0 +1,163 @@
+.ui.form.segment
+  .two.fields
+    .field
+      label
+        | Selection Dropdown
+      .ui.selection.dropdown
+        .default.text
+          | Select
+        i.dropdown.icon
+        input[name="hidden-field" type="hidden"]
+        .menu
+          .item[data-value="1"]
+            | Choice 1
+          .item[data-value="2"]
+            | Choice 2
+    .field
+      label
+        | HTML Select
+      select
+        option[value=""]
+          | Select
+        option[value="1"]
+          | 1
+        option[value="2"]
+          | 2
+  .field
+    label
+      | Text Area
+    textarea
+  .three.required.fields
+    .field
+      label
+        | Required Input
+      input[placeholder="Text Input" type="text"]
+    .field
+      label
+        | Required Input
+      input[placeholder="Text Input" type="text"]
+    .disabled.field
+      label
+        | Disabled Input
+      input[placeholder="Text Input" disabled="disabled" type="text"]
+  .grouped.fields
+    label
+      | Radio Selection
+    .field
+      .ui.radio.checkbox
+        input[type="radio" name="fruit" checked="checked"]
+        label
+          | Radio Option
+    .field
+      .ui.radio.checkbox
+        input[type="radio" name="fruit"]
+        label
+          | Radio Option
+    .field
+      .ui.radio.checkbox
+        input[type="radio" name="fruit"]
+        label
+          | Radio Option
+    .field
+      .ui.radio.checkbox
+        input[type="radio" name="fruit"]
+        label
+          | Radio Option
+  .field
+    label
+      | Password
+    .ui.left.icon.input
+      i.lock.icon
+      input[type="password"]
+  .inline.field
+    .ui.checkbox
+      input[type="checkbox"]
+      label
+        | Checkbox
+  .grouped.inline.fields
+    label
+      | Inline Radio Selection
+    .field
+      .ui.radio.checkbox
+        input[type="radio" name="fruit" checked="checked"]
+        label
+          | Radio Option
+    .field
+      .ui.radio.checkbox
+        input[type="radio" name="fruit"]
+        label
+          | Radio Option
+    .field
+      .ui.radio.checkbox
+        input[type="radio" name="fruit"]
+        label
+          | Radio Option
+    .field
+      .ui.radio.checkbox
+        input[type="radio" name="fruit"]
+        label
+          | Radio Option
+  .inline.fields
+    .field
+      label
+        | Multiple Inline Fields
+      input[placeholder="(xxx)" type="text"]
+    .field
+      input[placeholder="xxx" type="text"]
+    .field
+      input[placeholder="xxxx" type="text"]
+  .inline.field
+    label
+      | Inline Field
+    input[placeholder="Text Input" type="text"]
+  h4.ui.header
+    | Sub-header
+  .field
+    .ui.toggle.checkbox
+      input[name="privacy" type="radio"]
+      label
+        | Toggle
+  .field
+    .ui.slider.checkbox
+      input[name="top-posts" type="checkbox"]
+      label
+        | Option
+  .ui.submit.button
+    | Submit
+.ui.warning.form.segment
+  .ui.warning.message
+    .header
+      | Warning Message
+    ul.list
+      li
+        | Problem #1
+      li
+        | Problem #2
+  .two.fields
+    .field
+      label
+        | Input
+      input[placeholder="Text Input" type="text"]
+    .field
+      label
+        | Input
+      input[placeholder="Text Input" type="text"]
+  .ui.submit.button
+    | Submit
+.ui.error.form.segment
+  .ui.error.message
+    .header
+      | Error Message
+    p
+      | Error message long description
+  .two.fields
+    .field.error
+      label
+        | Errored Input
+      input[placeholder="Text Input" type="text"]
+    .field.error
+      label
+        | Errored Input
+      input[placeholder="Text Input" type="text"]
+  .ui.submit.button
+    | Submit
