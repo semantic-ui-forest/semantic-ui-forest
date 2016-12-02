@@ -1,0 +1,127 @@
+.ui.vertical.segment
+  .ui.container
+    h2.ui.huge.header Semantic-UI
+    p Semantic-UI default theme
+
+    .ui.four.item.stackable.tabs.menu
+      a.item.active data-tab="elements" Elements
+      a.item data-tab="collections" Collections
+      a.item data-tab="views" Views
+      a.item data-tab="modules" Modules
+
+.ui.demo.container
+  .ui.tab.active data-tab="elements"
+    .example
+      h4.ui.header Button
+      == @items['/partials/examples/button.slim'].compiled_content
+    .example
+      h4.ui.header Divider
+      == @items['/partials/examples/divider.slim'].compiled_content
+    .example
+      h4.ui.header Flag
+      == @items['/partials/examples/flag.slim'].compiled_content
+    .example
+      h4.ui.header Header
+      == @items['/partials/examples/header.slim'].compiled_content
+    .example
+      h4.ui.header Icon
+      == @items['/partials/examples/icon.slim'].compiled_content
+    .example
+      h4.ui.header Image
+      == @items['/partials/examples/image.slim'].compiled_content
+    .example
+      h4.ui.header Input
+      == @items['/partials/examples/input.slim'].compiled_content
+    .example
+      h4.ui.header Label
+      == @items['/partials/examples/label.slim'].compiled_content
+    .example
+      h4.ui.header List
+      == @items['/partials/examples/list.slim'].compiled_content
+    .example
+      h4.ui.header Loader
+      == @items['/partials/examples/loader.slim'].compiled_content
+    .example
+      h4.ui.header Reveal
+      == @items['/partials/examples/reveal.slim'].compiled_content
+    .example
+      h4.ui.header Segment
+      == @items['/partials/examples/segment.slim'].compiled_content
+    .example
+      h4.ui.header Step
+      == @items['/partials/examples/step.slim'].compiled_content
+  .ui.tab data-tab="collections"
+    .example
+      h4.ui.header Breadcrumb
+      == @items['/partials/examples/breadcrumb.slim'].compiled_content
+    .example
+      h4.ui.header Form
+      == @items['/partials/examples/form.slim'].compiled_content
+    .example
+      h4.ui.header Grid
+      == @items['/partials/examples/grid.slim'].compiled_content
+    .example
+      h4.ui.header Menu
+      == @items['/partials/examples/menu.slim'].compiled_content
+    .example
+      h4.ui.header Message
+      == @items['/partials/examples/message.slim'].compiled_content
+    .example
+      h4.ui.header Table
+      == @items['/partials/examples/table.slim'].compiled_content
+  .ui.tab data-tab="views"
+    .example
+      h4.ui.header Card
+      == @items['/partials/examples/card.slim'].compiled_content
+    .example
+      h4.ui.header Feed
+      == @items['/partials/examples/feed.slim'].compiled_content
+    .example
+      h4.ui.header Item
+      == @items['/partials/examples/item.slim'].compiled_content
+    .example
+      h4.ui.header Statistic
+      == @items['/partials/examples/statistic.slim'].compiled_content
+  .ui.tab data-tab="modules"
+    .example
+      h4.ui.header Accordion
+      == @items['/partials/examples/accordion.slim'].compiled_content
+    .example
+      h4.ui.header Checkbox
+      == @items['/partials/examples/checkbox.slim'].compiled_content
+    .example
+      h4.ui.header Dimmer
+      == @items['/partials/examples/dimmer.slim'].compiled_content
+    .example
+      h4.ui.header Dropdown
+      == @items['/partials/examples/dropdown.slim'].compiled_content
+    .example
+      h4.ui.header Modal
+      == @items['/partials/examples/modal.slim'].compiled_content
+    .example
+      h4.ui.header Popup
+      == @items['/partials/examples/popup.slim'].compiled_content
+    .example
+      h4.ui.header Progress
+      == @items['/partials/examples/progress.slim'].compiled_content
+    .example
+      h4.ui.header Rating
+      == @items['/partials/examples/rating.slim'].compiled_content
+    .example
+      h4.ui.header Search
+      == @items['/partials/examples/search.slim'].compiled_content
+    .example
+      h4.ui.header Shape
+      == @items['/partials/examples/shape.slim'].compiled_content
+    .example
+      h4.ui.header Sidebar
+      == @items['/partials/examples/sidebar.slim'].compiled_content
+    .example
+      h4.ui.header Tab
+      == @items['/partials/examples/tab.slim'].compiled_content
+    .example
+      h4.ui.header Transition
+      == @items['/partials/examples/transition.slim'].compiled_content
+
+link href="/static/kitchen-sink/stylesheets/kitchen-sink.css" rel="stylesheet" type="text/css"
+script src="/static/kitchen-sink/javascripts/kitchen-sink.js"
