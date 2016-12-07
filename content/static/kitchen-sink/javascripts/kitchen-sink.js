@@ -547,7 +547,7 @@ $(document)
     // tab
     $('.tab.demo .menu .item')
       .tab({
-        history: true,
+     // history: true,
         context: $('.tab.demo')
       })
     ;
