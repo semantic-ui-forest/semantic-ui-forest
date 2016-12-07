@@ -61,7 +61,7 @@ $(document)
         ;
       },
       page: function() {
-        $('body > .demo.page.dimmer')
+        $('.demo.page.dimmer')
           .dimmer('show')
         ;
       }
