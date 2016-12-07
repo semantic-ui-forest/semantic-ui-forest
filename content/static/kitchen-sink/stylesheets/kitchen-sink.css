@@ -68,3 +68,62 @@ h4 + .dimmer.demo {
 .transition.demo .ui.hidden.image {
   display: inline-block !important;
 }
+
+/* Popup, 8 heart icons in square */
+.position.no.example .segment {
+  width: 250px;
+  height: 250px;
+}
+
+.position.example .icon {
+  position: absolute;
+  margin: 0em;
+  width: auto;
+  font-size: 1.5em;
+  height: auto;
+  padding: 0.5em !important;
+}
+
+.position.no.example .segment .icon:nth-of-type(1) {
+  top: 0em;
+  left: 0em;
+}
+
+.position.no.example .segment .icon:nth-of-type(2) {
+  top: 0em;
+  left: 50%;
+  margin-left: -1em;
+}
+
+.position.no.example .segment .icon:nth-of-type(3) {
+  top: 0em;
+  right: 0em;
+}
+
+.position.no.example .segment .icon:nth-of-type(4) {
+  top: 50%;
+  right: 0em;
+  margin-top: -1em;
+}
+
+.position.no.example .segment .icon:nth-of-type(5) {
+  bottom: 0em;
+  right: 0em;
+}
+
+.position.no.example .segment .icon:nth-of-type(6) {
+  bottom: 0em;
+  left: 50%;
+  margin-left: -1em;
+}
+
+.position.no.example .segment .icon:nth-of-type(7) {
+  bottom: 0em;
+  left: 0em;
+}
+
+.position.no.example .segment .icon:nth-of-type(8) {
+  top: 50%;
+  left: 0em;
+  margin-top: -1em;
+}
