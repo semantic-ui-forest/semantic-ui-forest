@@ -61,7 +61,7 @@ $(document)
         ;
       },
       page: function() {
-        $('body > .demo.page.dimmer')
+        $('.demo.page.dimmer')
           .dimmer('show')
         ;
       }
@@ -547,7 +547,7 @@ $(document)
     // tab
     $('.tab.demo .menu .item')
       .tab({
-        history: true,
+     // history: true,
         context: $('.tab.demo')
       })
     ;
