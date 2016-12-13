@@ -137,6 +137,23 @@ nav.ui.menu .ui.container
       .ui.header a
         color: inherit
 
+/* Position, width, margin modifications for right rail
+/* Only for screen wider than 1200px
+.right.rail
+  left: 827px!important
+  .header
+    margin-top: 3em!important
+
+.ui.demo.container
+  margin-left: calc((100% - 1127px)/2) !important
+  margin-right: 387px!important
+  .tab
+    width: 827px
+    .example:last-child:not(.position)
+      padding-bottom: 35em
+  &.basic.segment
+    padding-left: 0em
+
 /* Enable smallcaps and oldstyle-number OpenType features for English
 [lang='en']
   +font-feature-settings(0, 1)
