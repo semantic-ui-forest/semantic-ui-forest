@@ -1,7 +1,7 @@
 .example {
   margin: 2em 0em;
   padding: 2em 0em;
-  position: relative
+  position: relative;
 }
 
 .dimmer.demo:not(.page) {
