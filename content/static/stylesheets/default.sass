@@ -82,7 +82,7 @@ nav.ui.menu .ui.container
   > .right.menu > a.item:last-child
     padding-right: 0
 
-/* Styles for sremantic-ui elements
+/* Styles for semantic-ui elements
 .ui
   &.alternative.segment
     background: #FFFFFF
@@ -136,6 +136,76 @@ nav.ui.menu .ui.container
             margin-bottom: 0.5rem
       .ui.header a
         color: inherit
+
+/* Position, width, margin modifications for right rail
+.right.rail
+  .header
+    margin-top: 3em!important
+
+.ui.demo.container
+  .tab
+    .example:last-child:not(.position)
+      padding-bottom: auto
+  &.basic.segment
+    padding-left: 0em
+
+/* Width and position on <- 768 - 992 - 1200 -> px screens
+@media only screen and (min-width: 1200px)
+  .right.rail
+    left: 827px!important
+
+  .ui.demo.container
+    margin-left: calc((100% - 1127px)/2) !important
+    margin-right: 387px!important
+    .tab
+      width: 827px
+
+  #content .vertical.segment .container
+    width: 827px
+    margin-left: calc((100% - 1127px)/2) !important
+
+@media only screen and (min-width: 992px) and (max-width: 1199px)
+  .right.rail
+    left: 732px!important
+    width: 200px!important
+
+  .ui.demo.container
+    margin-left: calc((100% - 933px)/2) !important
+    margin-right: 250px!important
+    .tab
+      width: 732px
+
+  #content .vertical.segment .container
+    width: 732px
+    margin-left: calc((100% - 933px)/2) !important
+
+@media only screen and (min-width: 768px) and (max-width: 991px)
+  .right.rail
+    left: 550px!important
+    width: 160px!important
+
+  .ui.demo.container
+    margin-left: calc((100% - 723px)/2) !important
+    margin-right: 250!important
+    .tab
+      width: 550px
+
+  #content .vertical.segment .container
+    width: 550px
+    margin-left: calc((100% - 723px)/2) !important
+
+@media only screen and (max-width: 767px)
+  .right.rail
+    display: none
+
+  .ui.demo.container
+    margin-left: auto
+    margin-right: auto
+    .tab
+      width: auto
+
+  #content .vertical.segment .container
+    width: auto
 
 /* Enable smallcaps and oldstyle-number OpenType features for English
 [lang='en']
