@@ -28,6 +28,29 @@ semantic.ready = function() {
     $pageTabs            = $('.vertical.segment .tabs.menu .item'),
     $example             = $('.example'),
 
+    $swap                = $('.theme.menu .item'),
+    $footer              = $('.page > .footer'),
+    $pageDropdown        = $('.ui.main.menu .page.dropdown'),
+    $popupExample        = $example.not('.no'),
+    $shownExample        = $example.filter('.shown'),
+    $prerenderedExample  = $example.has('.ui.checkbox, .ui.dropdown, .ui.search, .ui.progress, .ui.rating, .ui.dimmer, .ui.embed'),
+    $visibilityExample   = $example.filter('.visiblity').find('.overlay, .demo.segment, .items img'),
+
+    $code                = $('div.code').not('.existing'),
+    $existingCode        = $('.existing.code'),
+
+    expertiseLevel       = ($.cookie !== undefined)
+      ? $.cookie('expertiseLevel') || 0
+      : 0,
+    languageDropdownUsed = false,
+
+    requestAnimationFrame = window.requestAnimationFrame
+      || window.mozRequestAnimationFrame
+      || window.webkitRequestAnimationFrame
+      || window.msRequestAnimationFrame
+      || function(callback) { setTimeout(callback, 0); },
+
+
     // alias
     handler
   ;
@@ -408,6 +431,463 @@ semantic.ready = function() {
       $footer.visibility('refresh');
     },
 
+    createIcon: function() {
+      $example
+        .each(function(){
+          var
+            $insertPoint = $(this).is('.another')
+              ? $(this).children().eq(0)
+              : $(this).children().eq(1)
+          ;
+          $('<i/>')
+            .addClass('icon code')
+            .insertBefore( $insertPoint )
+          ;
+        })
+        .find('i.code')
+          .on('click', handler.createCode)
+      ;
+    },
+
+    less: {
+
+      parseFile: function(content) {
+        var
+          variables = {},
+          lines = content.match(/^\s*(@[\s|\S]+?;)/gm),
+          name,
+          value
+        ;
+        if(lines) {
+          $.each(lines, function(index, line) {
+            // clear whitespace
+            line = $.trim(line);
+            // match variables only
+            if(line[0] == '@') {
+              name = line.match(/^@(.+?):/);
+              value = line.match(/:\s*([\s|\S]+?;)/);
+              if( ($.isArray(name) && name.length >= 2) && ($.isArray(value) && value.length >= 2) ) {
+                name = name[1];
+                value = value[1];
+                variables[name] = value;
+              }
+            }
+          });
+        }
+        console.log(variables);
+        return variables;
+      },
+    },
+
+    getIndent: function(text) {
+      var
+        lines           = text.split("\n"),
+        firstLine       = (lines[0] === '')
+          ? lines[1]
+          : lines[0],
+        spacesPerIndent = 2,
+        leadingSpaces   = (firstLine !== undefined)
+          ? firstLine.length - firstLine.replace(/^\s*/g, '').length
+          : false,
+        indent
+      ;
+      if(!leadingSpaces) {
+        return ($pageTabs.length > 0)
+          ? 6
+          : 4
+        ;
+      }
+      if(leadingSpaces !== 0) {
+        indent = leadingSpaces;
+      }
+      else {
+        // string has already been trimmed, get first indented line and subtract 2
+        $.each(lines, function(index, line) {
+          leadingSpaces = line.length - line.replace(/^\s*/g, '').length;
+          if(leadingSpaces !== 0) {
+            indent = leadingSpaces - spacesPerIndent;
+            return false;
+          }
+        });
+      }
+      return indent || 4;
+    },
+
+    generateCode: function() {
+      var
+        $example    = $(this).closest('.example'),
+        $annotation = $example.find('.annotation'),
+        $code       = $annotation.find('.code'),
+        $intro      = $example.children().not('.ignored, h4:first-child').filter('.ui, i:not(.code)').eq(0).prevAll(),
+        $ignored    = $('i.code:last-child, .wireframe, .anchor, .code, .existing, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
+        $demo       = $example.children().not($intro).not($ignored),
+        code        = ''
+      ;
+      if( $code.length === 0) {
+        $demo
+          .each(function() {
+            var
+              $this      = $(this).clone(false),
+              $wireframe = $this.find('.wireframe').add($this.filter('.wireframe'))
+            ;
+            $wireframe
+              .each(function() {
+                var
+                  src       = $(this).attr('src'),
+                  image     = (src.search('image') !== -1),
+                  paragraph = (src.search('paragraph') !== -1)
+                ;
+                if(paragraph) {
+                  $(this).replaceWith('<p></p>');
+                }
+                else if(image) {
+                  $(this).replaceWith('<img>');
+                }
+              })
+            ;
+
+            // remove wireframe images
+            $this.find('.wireframe').remove();
+
+            if($this.not('br').not('.wireframe')) {
+              // allow inline styles only with this one class
+              if($this.is('.my-container')) {
+                code += $this.get(0).outerHTML + "\n";
+              }
+              else {
+                code += $this.removeAttr('style').get(0).outerHTML + "\n";
+              }
+            }
+          })
+        ;
+      }
+      $example.data('code', code);
+      return code;
+    },
+
+    copyCode: function() {
+      $(this)
+        .popup('change content', 'Copied to clipboard')
+      ;
+    },
+
+    createCode: function() {
+      var
+        $example        = $(this).closest('.example'),
+        $intro          = $example.children().not('.ignored, h4:first-child').filter('.ui, i:not(.code)').eq(0).prevAll(),
+        $annotation     = $example.find('.annotation'),
+        $code           = $annotation.find('.code'),
+        $html           = $example.children('.html'),
+        $ignoredContent = $('.ui.popup, i.code:last-child, .anchor, .code, .existing.segment, .instructive, .language.label, .annotation, .ignore, style, script, .ignored'),
+        $demo           = $example.children().not($intro).not($ignoredContent),
+        code            = $example.data('code') || $.proxy(handler.generateCode, this)(),
+        $copyCode,
+        $label
+      ;
+
+      // process existing code first
+      if( $code.hasClass('existing') ) {
+        $code.removeClass('existing');
+        $.proxy(handler.initializeCode, $code)(true);
+      }
+
+      // create annotation wrapper
+      if($annotation.length === 0) {
+        $annotation = $('<div/>')
+          .addClass('annotation')
+          .hide()
+          .insertAfter($demo.last())
+        ;
+      }
+
+      if($html.length === 0) {
+        $html     = $('<div class="html">').insertBefore($annotation);
+        $label    = $('<div class="ui top attached label">').html('Example <i data-content="Copy code" class="copy link icon"></i>');
+        $copyCode = $label.find('i.copy');
+        $copyCode
+          .on('click', handler.copyCode)
+          .popup({
+            variation    : 'inverted',
+            offset       : -12,
+            distanceAway : 6
+          })
+        ;
+        $label
+          .prependTo($html)
+        ;
+        new Clipboard($copyCode.get(0), {
+          text: function() {
+            var
+              code = $copyCode.closest('.example').data('code') || ''
+            ;
+            return handler.formatCode(code);
+          }
+        });
+        if($demo.length === 0) {
+          $html.addClass('empty');
+        }
+        else {
+          $demo
+            .detach()
+            .prependTo($html)
+          ;
+        }
+      }
+
+      // create code inside annotation wrapper
+      if( $example.find('.instructive').length === 0) {
+        $code = $('<div/>')
+          .data('type', 'html')
+          .addClass('code')
+          .html(code)
+          .hide()
+          .appendTo($annotation)
+        ;
+        $.proxy(handler.initializeCode, $code)(true);
+      }
+      if( $annotation.hasClass('visible') ) {
+        $annotation.transition('hide');
+        $html.removeClass('ui top attached segment');
+      }
+      else {
+        $html.addClass('ui top attached segment');
+        $intro.css('display', '');
+        $annotation.transition('show');
+      }
+      setTimeout(function() {
+        handler.refreshSticky();
+      }, 400);
+    },
+
+
+    refreshSticky: function() {
+      $sectionHeaders.visibility('refresh');
+      $sectionExample.visibility('refresh');
+      $('.ui.sticky').sticky('refresh');
+      $footer.visibility('refresh');
+      $visibilityExample.visibility('refresh');
+    },
+
+    createAnnotation: function() {
+      if(!$(this).data('type')) {
+        $(this).data('type', 'html');
+      }
+      $(this)
+        .wrap('<div class="annotation">')
+        .parent()
+        .hide()
+      ;
+    },
+
+    makeCode: function() {
+      if(window.hljs !== undefined) {
+        $code
+          .filter(':visible')
+          .each(handler.initializeCode)
+        ;
+        $existingCode
+          .each(handler.createAnnotation)
+        ;
+      }
+      else {
+        console.log('Syntax highlighting not found');
+      }
+    },
+
+   formatCode: function(code) {
+      var
+        indent     = handler.getIndent(code) || 2,
+        whiteSpace = new RegExp('\\n\\s{' + indent + '}', 'g')
+      ;
+      return $.trim(code).replace(whiteSpace, '\n');
+    },
+
+    initializeCode: function(codeSample) {
+      var
+        $code         = $(this).show(),
+        $codeTag      = $('<code />'),
+        codeSample    = codeSample || false,
+        code          = $code.html(),
+        existingCode  = $code.hasClass('existing'),
+        evaluatedCode = $code.hasClass('evaluated'),
+        contentType   = $code.data('type')     || 'html',
+        title         = $code.data('title')    || false,
+        less          = $code.data('less')     || false,
+        demo          = $code.data('demo')     || false,
+        eval          = $code.data('eval')     || false,
+        preview       = $code.data('preview')  || false,
+        label         = $code.data('label')    || false,
+        preserve      = $code.data('preserve') || false,
+        escape        = $code.data('escape') || false,
+        displayType   = {
+          html       : 'HTML',
+          javascript : 'Javascript',
+          css        : 'CSS',
+          text       : 'Command Line',
+          sh         : 'Command Line'
+        },
+        padding    = 20,
+        name = (codeSample === true)
+          ? 'instructive bottom attached'
+          : 'existing',
+        formattedCode = code,
+        styledCode,
+        $example,
+        $label,
+        codeHeight
+      ;
+      var entityMap = {
+        "&amp;"  : "&",
+        "&lt;"   : "<",
+        "&gt;"   : ">",
+        '&quot;' : '"',
+        '&#39;'  : "'",
+        '&#x2F;' : "/"
+      };
+      contentType = contentType.toLowerCase();
+
+      function escapeHTML(string) {
+        return $('<div>').html(string).text();
+      }
+
+
+      // escape html entities
+      if(contentType != 'html' || escape) {
+        code = escapeHTML(code);
+      }
+
+      // evaluate if specified
+      if(evaluatedCode) {
+        window.eval(code);
+      }
+
+      // should trim whitespace
+      if(preserve) {
+        formattedCode = code;
+      }
+      else {
+        formattedCode = handler.formatCode(code);
+      }
+
+      // color code
+      formattedCode = window.hljs.highlightAuto(formattedCode);
+
+      // create <code> tag
+      $codeTag
+        .addClass($code.attr('class'))
+        .addClass(formattedCode.language) 
+        .html(formattedCode.value)
+      ;
+
+      // replace <div> with <code>
+      $code.replaceWith($codeTag);
+      $code = $codeTag;
+      $code
+        .wrap('<div class="ui ' + name + ' segment"></div>')
+        .wrap('<pre></pre>')
+      ;
+
+      // add label
+      if(title) {
+        $('<div>')
+          .addClass('ui attached top label')
+          .html('<span class="title">' + title + '</span>' + '<em>' + (displayType[contentType] || contentType) + '</em>')
+          .prependTo( $code.closest('.segment') )
+        ;
+      }
+      if(label) {
+        $('<div>')
+          .addClass('ui pointing below ignored language label')
+          .html(displayType[contentType] || contentType)
+          .insertBefore ( $code.closest('.segment') )
+        ;
+      }
+      // add apply less button
+      if(less) {
+        $('<a>')
+          .addClass('ui black pointing below ignored label')
+          .html('Apply Theme')
+          .on('click', function() {
+            window.less.modifyVars( handler.less.parseFile( code ) );
+          })
+          .insertBefore ( $code.closest('.segment') )
+        ;
+      }
+      // add run code button
+      if(demo) {
+        $('<a>')
+          .addClass('ui black pointing below ignored label')
+          .html('Run Code')
+          .on('click', function() {
+            if(eval) {
+              window.eval(eval);
+            }
+            else {
+              window.eval(code);
+            }
+          })
+          .insertBefore ( $code.closest('.segment') )
+        ;
+      }
+      // add preview if specified
+      if(preview) {
+        $(code)
+          .insertAfter( $code.closest('.segment') )
+        ;
+      }
+
+      $code.removeClass('hidden');
+
+    },
+
+    selectAll: function () {
+      this.setSelectionRange(0, this.value.length);
+    },
+
+    chooseStandalone: function() {
+      $downloads
+        .find('.grid')
+        .hide()
+        .filter('.standalone.grid')
+          .show()
+      ;
+      $downloadPopup.popup('reposition');
+    },
+
+    chooseFramework: function() {
+      $downloads
+        .find('.grid')
+        .hide()
+        .filter('.framework.grid')
+          .show()
+      ;
+      $downloadPopup.popup('reposition');
+    },
+
+    swapStyle: function() {
+      var
+        theme = $(this).data('theme')
+      ;
+      $(this)
+        .addClass('active')
+        .siblings()
+          .removeClass('active')
+      ;
+      $('head link.ui')
+        .each(function() {
+          var
+            href         = $(this).attr('href'),
+            subDirectory = href.split('/')[3],
+            newLink      = href.replace(subDirectory, theme)
+          ;
+          $(this)
+            .attr('href', newLink)
+          ;
+        })
+      ;
+    }
+
+
   };
 
   semantic.handler = handler;
@@ -462,7 +942,72 @@ semantic.ready = function() {
     $(window).on('resize.menu', function() {
       handler.tryCreateMenu();
     });
+  };
+
+  // code highlighting languages
+  window.hljs.configure({
+    classPrefix : '',
+    languages   : [
+      'xml',
+      'bash',
+      'css',
+      'less',
+      'javascript'
+    ]
+  });
+
+  // register less files
+  window.less.registerStylesheets();
+
+  $shownExample
+    .each(handler.createCode)
+  ;
+  $prerenderedExample
+    .each(handler.generateCode)
+  ;
+
+  handler.createIcon();
+
+  if(expertiseLevel < 2 && $(window).width() > 640) {
+    $popupExample
+      .each(function() {
+        $(this)
+          .popup({
+            preserve: false,
+            on       : 'hover',
+            variation: 'inverted',
+            delay: {
+              show: 100,
+              hide: 100
+            },
+            position : 'top left',
+            offset   : -5,
+            content  : 'View Source',
+            target   : $(this).find('i.code')
+          })
+          .find('i.code')
+            .on('click', function() {
+              $.cookie('expertiseLevel', 2, {
+                expires: 365
+              });
+            })
+        ;
+      })
+    ;
   }
+
+  $swap
+    .on('click', handler.swapStyle)
+  ;
+
+  $pageDropdown
+    .dropdown({
+      on       : 'hover',
+      action   : 'nothing',
+      allowTab : false
+    })
+  ;
+
 };
 
 
