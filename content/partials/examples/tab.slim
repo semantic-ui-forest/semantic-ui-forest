@@ -1,50 +1,51 @@
-.tab.demo
-  .ui.secondary.menu
-    a.item[data-tab="first"]
-      | First
-    a.item.active[data-tab="second"]
-      | Second
-    a.item[data-tab="third"]
-      | Third
-  .ui.tab.segment[data-tab="first"]
-    .ui.top.attached.tabular.menu
-      a.active.item[data-tab="first/a"]
+.ui
+  .tab.demo
+    .ui.secondary.menu
+      a.item[data-tab="first"]
+        | First
+      a.item.active[data-tab="second"]
+        | Second
+      a.item[data-tab="third"]
+        | Third
+    .ui.tab.segment[data-tab="first"]
+      .ui.top.attached.tabular.menu
+        a.active.item[data-tab="first/a"]
+          | 1A
+        a.item[data-tab="first/b"]
+          | 1B
+        a.item[data-tab="first/c"]
+          | 1C
+      .ui.bottom.attached.active.tab.segment[data-tab="first/a"]
         | 1A
-      a.item[data-tab="first/b"]
+      .ui.bottom.attached.tab.segment[data-tab="first/b"]
         | 1B
-      a.item[data-tab="first/c"]
+      .ui.bottom.attached.tab.segment[data-tab="first/c"]
         | 1C
-    .ui.bottom.attached.active.tab.segment[data-tab="first/a"]
-      | 1A
-    .ui.bottom.attached.tab.segment[data-tab="first/b"]
-      | 1B
-    .ui.bottom.attached.tab.segment[data-tab="first/c"]
-      | 1C
-  .ui.tab.segment.active[data-tab="second"]
-    .ui.top.attached.tabular.menu
-      a.item[data-tab="second/a"]
+    .ui.tab.segment.active[data-tab="second"]
+      .ui.top.attached.tabular.menu
+        a.item[data-tab="second/a"]
+          | 2A
+        a.item[data-tab="second/b"]
+          | 2B
+        a.item.active[data-tab="second/c"]
+          | 2C
+      .ui.bottom.attached.tab.segment[data-tab="second/a"]
         | 2A
-      a.item[data-tab="second/b"]
+      .ui.bottom.attached.tab.segment[data-tab="second/b"]
         | 2B
-      a.item.active[data-tab="second/c"]
+      .ui.bottom.attached.tab.segment.active[data-tab="second/c"]
         | 2C
-    .ui.bottom.attached.tab.segment[data-tab="second/a"]
-      | 2A
-    .ui.bottom.attached.tab.segment[data-tab="second/b"]
-      | 2B
-    .ui.bottom.attached.tab.segment.active[data-tab="second/c"]
-      | 2C
-  .ui.tab.segment[data-tab="third"]
-    .ui.top.attached.tabular.menu
-      a.item[data-tab="third/a"]
+    .ui.tab.segment[data-tab="third"]
+      .ui.top.attached.tabular.menu
+        a.item[data-tab="third/a"]
+          | 3A
+        a.item[data-tab="third/b"]
+          | 3B
+        a.item[data-tab="third/c"]
+          | 3C
+      .ui.bottom.attached.tab.segment[data-tab="third/a"]
         | 3A
-      a.item[data-tab="third/b"]
+      .ui.bottom.attached.tab.segment[data-tab="third/b"]
         | 3B
-      a.item[data-tab="third/c"]
+      .ui.bottom.attached.tab.segment[data-tab="third/c"]
         | 3C
-    .ui.bottom.attached.tab.segment[data-tab="third/a"]
-      | 3A
-    .ui.bottom.attached.tab.segment[data-tab="third/b"]
-      | 3B
-    .ui.bottom.attached.tab.segment[data-tab="third/c"]
-      | 3C
