@@ -3,9 +3,13 @@ html
   head
     == render '/header.*'
   body lang == (@item[:lang] || 'cn')
-    #content
-      == render '/menu.*'
-      == yield
+    .pusher
+      #content
+        == render '/menu.*'
+        == yield
 
-    #footer
-      == render '/footer.*'
+      #footer
+        == render '/footer.*'
+
+    == render '/sidebar.*'
+
