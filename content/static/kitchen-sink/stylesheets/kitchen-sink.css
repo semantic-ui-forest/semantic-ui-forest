@@ -201,3 +201,8 @@ h4 + .dimmer.demo {
 .example .html.ui.top.attached.segment {
   z-index: 1;
 }
+
+/* Let code icon be '\f121' on Material theme, same with others */
+.example > i.code.icon:before {
+  content: '\f121';
+}
