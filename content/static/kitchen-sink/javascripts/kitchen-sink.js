@@ -1,14 +1,17 @@
 $(document)
   .ready(function(){
-    $('.item[data-tab]').tab();
+   // $('.item[data-tab]').tab();
 
     // accordion
+    /*
     $('.demo .example .ui.accordion')
       .accordion()
     ;
+    */
 
     // button
-    $('.button.demo .follow')
+    /*
+    $('.button.follow')
       .state({
         text: {
           inactive : 'Follow',
@@ -16,8 +19,10 @@ $(document)
         }
       })
     ;
+    */
 
     // card
+    /*
     $('.demo .star.rating')
       .rating()
     ;
@@ -26,13 +31,17 @@ $(document)
         on: 'hover'
       })
     ;
+    */
 
     // checkbox
+    /*
     $('.demo .ui.checkbox')
       .checkbox()
     ;
+    */
 
     // dimmer
+    /*
     // selector cache
     var
         $pageDimmer = $('.demo.page.dimmer'),
@@ -80,8 +89,9 @@ $(document)
     $hideButton
       .on('click', handler.hide)
     ;
-
+*/
     // dropdown
+    /*
     $('.demo .ui.dropdown')
       .dropdown()
     ;
@@ -90,8 +100,9 @@ $(document)
         on: 'hover'
       })
     ;
-
+*/
     // menu
+    /*
     $('.demo .example .menu a.item')
       .on('click', function() {
         if(!$(this).hasClass('dropdown')) {
@@ -105,15 +116,19 @@ $(document)
         }
       })
     ;
+    */
 
     // message
-    $('.example .message .close')
+    /*
+    $('.example .message .close, .example .html .message .close')
       .on('click', function() {
         $(this).closest('.message').transition('scale out');
       })
     ;
+    */
 
     // modal
+    /*
     $('.demo.modal')
       .modal()
     ;
@@ -127,7 +142,9 @@ $(document)
       .modal('attach events', '.fullscreen.demo.button')
     ;
 
+    */
     // popup
+    /*
     $('.popup.demos .position .icon')
       .popup()
     ;
@@ -148,8 +165,10 @@ $(document)
         }
       })
     ;
+    */
 
     // progress
+    /*
     $('.attached.progress.demo')
       .progress({
         label   : false,
@@ -195,18 +214,22 @@ $(document)
     setInterval(function() {
       $('.demo.progress').progress('reset');
     }, 30000);
+    */
 
     // rating
-    $('.rating.demos .items .ui.rating')
+    /*
+    $('.demos .items .ui.rating')
       .rating()
     ;
-    $('.rating.demos .list .ui.rating')
+    $('.demos .list .ui.rating')
       .rating({
         clearable: true
       })
     ;
+    */
 
     // search
+    /*
     var content = [
       { title: 'Andorrs' },
       { title: 'United Arab Emirates' },
@@ -471,8 +494,10 @@ $(document)
         }
       })
     ;
+    */
 
     // shape
+    /*
     var
         $demo            = $('.shape.demos .ui.shape'),
         $directionButton = $('.shape.demos .direction .button'),
@@ -505,9 +530,11 @@ $(document)
         position  : 'bottom center'
       })
     ;
+    */
 
     // sidebar
-    $('.sidebar.direction.demo')
+    /*
+    $('.direction.demo')
       .find('.buttons .button')
         .on('click', function() {
           var
@@ -526,10 +553,10 @@ $(document)
         .on('click', function() {
           var
             transition = $(this).data('transition'),
-            direction  = $('.sidebar.direction.demo .buttons .button.active').data('direction'),
-            dimPage    = $('.sidebar.direction.demo .dim').checkbox('is checked')
+            direction  = $('.direction.demo .buttons .button.active').data('direction'),
+            dimPage    = $('.direction.demo .dim').checkbox('is checked')
           ;
-          if( $(this).filter('.disabled').size() === 0) {
+          if( $(this).filter('.disabled').length === 0) {
             $('.' + direction + '.demo.sidebar')
               .not('.styled')
               .sidebar('setting', {
@@ -543,16 +570,20 @@ $(document)
 
         })
     ;
+    */
 
     // tab
+    /*
     $('.tab.demo .menu .item')
       .tab({
      // history: true,
         context: $('.tab.demo')
       })
     ;
+    */
 
     // transition
+    /*
     $('.transition.demo .button')
       .on('click', function() {
         var animation = $(this).text();
@@ -567,5 +598,6 @@ $(document)
         ;
       })
     ;
+    */
   })
 ;

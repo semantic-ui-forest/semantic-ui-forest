@@ -28037,7 +28037,7 @@ select.ui.dropdown {
 /* Sub Menu */
 
 .ui.dropdown .menu .item .dropdown.icon:before {
-  content: '\f0da' ;
+  content: '\f05a' ;
 }
 
 .ui.dropdown .item .left.dropdown.icon:before,
