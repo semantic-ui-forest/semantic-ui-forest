@@ -40,6 +40,8 @@ route '/nojekyll' do
   '/.nojekyll'
 end
 
+ignore '/posts/LICENSE'
+
 passthrough '/static/**/*'
 passthrough '/posts/static/**/*'
 passthrough '/humans.txt'
@@ -59,7 +61,8 @@ compile '/posts/**/*' do
 end
 
 compile '/themes/**/*' do
-  case item[:extension]
+  ext = item[:extension]
+  case ext
   when /slim|html/
     filter :slim
   end
@@ -88,7 +91,8 @@ compile '**/*' do
   if item.binary?
     # don't filter binary items
   else
-    case item[:extension]
+    ext = item[:extension]
+    case ext
     when /slim|html/
       filter :slim
     when /md|markdown|org/
