@@ -1,0 +1,83 @@
+#+TITLE: PPResume，新的起点
+#+AUTHOR: Xiao Hanyu(xiaohanyu1988@gmail.com)
+
+** 缘起
+
+转瞬间，从事自由职业达三年之久。
+
+这个时间甚至超过了我在商业公司“服役”的时长。
+
+完全是计划之外。
+
+三年间睡了 80% 的自然醒，做了 15% 的饭，熬了 5% 的夜；平均每年任性两次说走就走的旅行；做了各种各样但实际上都不怎么样的项目，服务了北京、长沙、香港、加拿大等各地的客户；读了几百本书看了几百部电影；唯一不变的，应该就是那永远空空如也的钱包了。
+
+看上去还不错？也许吧。但自由职业的最大弊端在于，你的认真你的态度客户看不到，甚至根本就不想去看。单元测试？代码风格检查？更好的文档？规范的 Git Commit？别逗了……事实是，这些东西很好，但是，nobody cares。客户想要的，更多的是物美价廉。
+
+职业生涯终归不能在散碎的项目中消磨殆尽。
+
+我能做什么？我擅长做什么？我喜欢做什么？什么样的事情是我能做且有可能做好但是别人不能做或者想做也有可能做不好的事呢？What's the difference between the world with and without you?
+
+我不是一个优秀的后端工程师，因为我从未有机会直面过大规模的生产系统；我也不是一个合格的前端工程师，你现在看到的还算干净整洁的页面是我花了无数时间一点一点 Google 打磨出来的；我也不是一个设计师，虽然上个月才买了套正版的 Adobe CC，来补习一些设计基础。
+
+“你可以去搞大数据人工智能呀！”
+
+“别逗了，我已经十年没有碰过数学了好不好！”
+
+或许，我真正的长处在于整合。我当下的技术水准可以覆盖一个中小型网站前后端 80% 的需求；我深入理解开源软件的理念，对以 Github 为中心的开源软件工作流程有着深刻的理解；我擅长自动化，可以使用已有工具甚至重新发明一套工具来自动化手头的工作；我懂一些字体排印方面的知识，也许更准确的说法是，我是工程师中最懂字体排印的，设计师中写程序写得最好的；我可以写出不错的文案，多年来坚持的阅读思考与不间断的写作，让我有了缜密的思维和将事情条分缕析清晰阐述的能力。
+
+三年的自由职业生涯最大的好处在于，让我有了充足的时间在方方面面强化自己的能力。所以我终于有时间也有能力，一个人写代码、做设计、写文案，唯愿在自己的全盘掌控下能做出一个还不错的产品吧。
+
+** 选择
+
+温饱之后是什么？小康。小康之后呢？是更宽敞的房子？更智能的家电？更遥远的旅行？
+
+二十年前，我们对产品的要求是：基本可用。
+
+二十年后，我们对产品的要求是：做到极致。
+
+一代人的时间，我们的消费观已经从追求功能上的可用，逐渐转变成了追求品质上的卓越。
+
+所以 Apple 能够在智能手机市场上一骑绝尘、雄霸天下；所以绿城可以在杭城锦绣之地木秀于林、树大根深。
+
+在这样的潮流下，“什么样的事情是我能做且有可能做好但是别人不能做或者想做也有可能做不好的事呢？”
+
+上下求索多年，最终的答案是：数字出版。
+
+这是一个非常小众的行业。因为小众，所以不需要资本运作，这就意味着我不用花太多的时间去担心资本运作问题，唯一的投入就是我的时间成本。
+
+这是一个需要深耕的行业。小众并不意味着简单，在“看上去简单”的土地上深耕，也有可能耕种出不错的收成。
+
+这是一个需要匠人的行业。数字出版的核心是什么？是精益求精的品质追求，是匠人打磨的一丝不苟。
+
+友问，如果 BAT 或是任何一个资本雄厚的团队参与进来，你能有多大赢面？
+
+我答，一个产品最后做成什么形态，基本上只取决于创始人的品味偏好。互联网上充斥满屏的排版混乱的文章，何尝不是一个新的产品种子成长的土壤？
+
+未来几年，我会专注于数字出版服务，致力于让我们目之所视、赖以生存的数字空间，变得更好。
+
+** PPResume
+
+PPResume，Pretty Print Resume, Pretty Print World。是我在数字出版领域内的第一款产品
+
+PPResume 提供专业的简历定制服务，以市面上罕见的极高品质的排版质量，助力各应届毕业生、职场人士开启新的人生篇章。
+
+“极高品质的排版质量”？是的，你一定会有这个疑问。所以我写了一份《[[http://ppresume.com/notes/guide.html][中英文简历撰写排版指南]]》，用来解答你的疑问。
+
+“本指南将系统地阐述中英文简历撰写与排版的要点，并在排版方面有所侧重，力求帮助读者做出一份形神兼备的简历。针对特定议题，本指南首先会阐述是什么（What），接下来论述为什么（Why），最后说明怎样做（How）。”
+
+这份文案发布以后，收到了极好的[[https://www.v2ex.com/t/303896][反馈]]，我甚至收到了来自陌生人的一笔捐款。还有很我相识的朋友和不相识的网友给我提交 typo fix，并且我还成功地卖出了几份 PDF，实现了 PPResume 的第一笔收入。这些鼓励也让我相信，用诚意做好的产品，会有人认可，会有人买单。
+
+#+CAPTION: V2EX 的反馈
+[[/static/image/ppresume/ppresume-v2ex-comments.png][file:/static/image/ppresume/ppresume-v2ex-comments.png]]
+
+整份《[[http://ppresume.com/notes/guide.html][中英文简历撰写排版指南]]》大约有两万字，读起来“也许”会蛮累的吧……所以我又写了一份《[[http://ppresume.com/notes/cheatsheet.html][中英文简历撰写排版指南-备忘单]]》，提炼出只有 4 页的大纲，并提供离线 PDF 格式下载，这样读者需要撰写简历的时候可以有一份简洁明晰的参考。
+
+如果你觉得我的文案写得不错，欢迎打赏购买 [[https://item.taobao.com/item.htm?spm=a1z10.1-c.w10836671-12595401221.2.BjL3qM&id=538120928825][PDF]] 版本，来支持我继续开发 PPResume。附上 PDF 目录及样张，希望喜欢。
+
+[[/static/image/ppresume/ppresume-guide-1.jpg][file:/static/image/ppresume/ppresume-guide-1.jpg]]
+[[/static/image/ppresume/ppresume-guide-2.jpg][file:/static/image/ppresume/ppresume-guide-2.jpg]]
+[[/static/image/ppresume/ppresume-guide-3.jpg][file:/static/image/ppresume/ppresume-guide-3.jpg]]
+[[/static/image/ppresume/ppresume-guide-4.jpg][file:/static/image/ppresume/ppresume-guide-4.jpg]]
+[[/static/image/ppresume/ppresume-guide-9.jpg][file:/static/image/ppresume/ppresume-guide-9.jpg]]
+[[/static/image/ppresume/ppresume-guide-26.jpg][file:/static/image/ppresume/ppresume-guide-26.jpg]]
+[[/static/image/ppresume/ppresume-guide-27.jpg][file:/static/image/ppresume/ppresume-guide-27.jpg]]

@@ -1,0 +1,12 @@
+---
+title: Build Static Site with Nanoc (I)
+created_at: 2014-05-04 20:00:00
+kind: article
+abstract:
+  Introduction to general rules about how to build a static site with nanoc, together with some internal details about how this blog was built, such as Emacs with org-mode, pandoc, etc.
+category: Technology
+tags:
+  - Nanoc
+  - Ruby
+  - Pandoc
+  - Emacs

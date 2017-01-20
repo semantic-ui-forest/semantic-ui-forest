@@ -1,0 +1,212 @@
+#+TITLE: Build Static Site with Nanoc (I)
+
+07 年我开始学会上网，那时候写 blog 应该还是一件相当时髦的事情。而我个人，作为一枚外表木讷闷骚，内心感情丰富的三好有为青年，自然对 blog 保持着强烈的好奇心，从一路转载，到絮叨自嗨，四五年坚持下来，总算找到了一点 blog 的感觉。所谓“工欲善其行，必先利其器”，头上顶了“书写是为了更好的思考”这面响当当的思想大旗，手头自然也希望能升级下一直以来残破不勘凑合能用的写作工具。于是祭出几年前刚开始折腾 Linux 时的那份耐性，断续折腾一年有余，总算略有小成。本文（及后续文章）尝试记录下这个 blog 的一些技术细节，希望对后来人有所启发。
+
+** Why Static?
+
+最原始的 blog 应该就是纯静态的个人主页，后来 blog 开始火的时候，各种线上平台一统天下，而对于有点折腾能力的人来说， [[https://wordpress.org/][WordPress]] 则一支独秀。现如今，在 GitHub 当道的年代，由 [[https://pages.github.com/][GitHub Pages]] 及其工具链 [[http://jekyllrb.com/][Jekyll]]/[[http://octopress.org/][Octopress]] 所组成的生态系统，则在程序员的圈子里吸引了足够的眼球和人气，也宣告着所谓 [[http://staticsitegenerators.net/][static site generator]]（本文简称为 SSG）在某种程度上的回归。
+
+So, why static?
+
+从技术上来讲，传统的 blog 就是一个简化的 [[http://en.wikipedia.org/wiki/Content_management_system][CMS]] 系统。相较于 CMS，blog 更多的是个人开放给外界的一个展示窗口，并不需要太多的交互和额外的用户注册管理系统（如各种 bbs/forum/group 等）， 其主要技术特性是：
+- 面向个人
+- 页面排版较为简单
+- 内容管理相对单一，基本上以 post 为主
+- 需求模块较少，基本上就是 Comments, Categories, Tags, Archives
+
+显然，动用各种 dynamic 语言和各种高大上的 SQL 数据库来实现这么几条简单的 blog 平台需求，有些牛刀杀鸡之嫌。在这方面，SSG 所遵循的 fast, lightweight, easy-deployment 是很有优势的。最简单的 blog 完全可以只是一个 post list 页面。但是纯静态的 blog 又太简陋了，因此需要通过一些 hack 的手段，在 static 的页面上加入一些 dynamic 的东西， 这个 hack 的手段，就是各种 SSG 中所谓的 compile 步骤。
+
+compile 步骤是所有 SSG 的核心，它的设计好坏决定了一个 SSG 的品质。大体上讲，SSG 的工作方式如下：
+1. *格式转换：* 扫描所有 post， 进行初步 compile（这步 compile 主要作用是进行格式转换，比如 markdown/textile -> html）。
+2. *汇总 metadata：* 汇总所有 post 的 metadata（比如 tag/category 可以用来做反向映射，datetime 可以用来给 post 进行排序），这些 metadata 信息可以在 template 渲染的时候访问。
+3. *渲染模板：* 根据相应的 layout 规则，将 compile 后的 content 以及已有的 metadata 信息渲染成相应的页面 （比如每篇 post 都需要有 navbar 和 footbar， 这可以设定一下基础的页面 layout，包含公用的页面元素，然后通过模板继承或组合的方式，将 post 的内容以及相应的 metadata 信息渲染到这个 layout 中合适的位置，这就形成了你最终看到的 static page）。
+
+SSG 最终会生成一坨静态的 html/css/js 文件，只要将其上传托管起来，所谓的 static site 就算大功告成了。不需要配置数据库，也不需要装什么 php/python(wsgi)/WordPress，怎么样，够简单吧？ 与 static site 部署简单相对的就是本地写作环境搭建的复杂，多数情况下，你需要至少掌握一门编程语言的工具链，从头到尾搭建一套完整的写作环境；你需要自己设计前端，页面排版（layout）；你还需要找到自己钟意的 Editor 和自己喜欢的 [[http://en.wikipedia.org/wiki/Comparison_of_document_markup_languages][document markup language]] 。选择意味着纠结，也意味着灵活。 *没有了浏览器的牵绊，你可以在自己钟爱的 Editor 里运指如飞，畅写欲言。*
+
+不同的 SSG 有不同的设计侧重点，有的提供内建的 out-of-box 的主题（[[http://octopress.org/][Octopress]] 基本上千篇一律），有的只提供机制（[[http://nanoc.ws/][Nanoc]]）;有的只支持一种模板语言（[[http://ruhoh.com/][Ruhoh]] 默认支持 [[http://mustache.github.io/][mustache]]），有的只提供机制（[[http://nanoc.ws/][Nanoc]]）;有的只支持一种标记语言（多数默认支持 [[http://en.wikipedia.org/wiki/Markdown][Markdown]]），有的只提供机制（[[http://nanoc.ws/][Nanoc]]）;
+
+相较于广大人民群众，程序员群体对于 blog 平台往往还有一些特别的需求：
+- 没有代码高亮是不能忍的
+- 能支持数学公式的话就很高大上
+- 没有版本控制你叫我怎么活？
+- 不能一键 deploy，自动 compile/refresh，还叫程序员吗？
+
+SSG 的先天不足在于，传统 blog 平台所必须的一些模块，如 Comments, Search 等必须借助第三方的服务来实现。比如 Comments 可以用 [[https://disqus.com/][Disqus]] ， 而 Search 可以用 google site search。
+
+总得来说，SSG 的门槛还是比较高的。高效灵活的背后，是耐心和时间。这或许就是 hack 的乐趣所在吧。
+
+** Org-mode
+
+我选择 SSG 的第一个标准就是必须支持 [[http://orgmode.org/][org-mode]] 。
+
+Why org-mode?
+
+其实 [[http://en.wikipedia.org/wiki/Markdown][Markdown]] 是相当好的文档标记语言，绝大多数 SSG 对 Markdown 都有良好的支持。多数线上服务如 GitHub、Stackoverflow 也是以 Markdown 为默认文档标记语言。Markdown 的生态圈也相当繁荣， 有很多优秀的线上线下的 Editor[1]。不过 Markdown 的先天不足在于， 其设计初衷导致 Markdown 的标准过于简单，功能不够，而各方英雄为了一已之私，不得不提出各种 Markdown 扩展来满足自己的日常需求。这样看来，Markdown 生态圈一片繁荣百花争春的背后，实则是一片混乱，没有一个统一的标准，容易“厂商锁定”。所有的扩展 Markdown 语言之中， [[https://help.github.com/articles/github-flavored-markdown][GitHub Flavored Markdown]] 和 [[http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown][Pandoc's markdown]] 是比较不错的。特别是 Pandoc's Markdown，功能完善、规范、强大，如果你不是我这样的 org-mode 死忠，那么我强烈推荐你用 Pandoc's Markdown。
+
+而我之所以离不开 org-mode，其一在于我个人患有严重的 Emacs 依赖症，其二是 [[http://orgmode.org/worg/org-contrib/babel/][org-babel]] ，一个你用上了就再也离不开的东西。org-babel 让简单静态的文档变成了完整的 live 的 workflow，关于这点，学术界甚至有一些专门的 [[http://orgmode.org/worg/org-papers.html][Papers]] 论述。限于篇幅，不在这里展开讨论。Emacs 配上 org-mode，更如香车搭上美女，快感连连，高潮不断也。
+
+但是很不幸，对 org-mode 的坚持让我被迫放弃了一大半的 SSG。事实上，在我刚开始着手调研 SSG 的时候，没有一个 SSG 提供对 org-mode 的良好支持。org-mode 本身有一个非常原始并且极其难用的 [[http://orgmode.org/manual/Publishing.html][org-publish]] ，稍加配置也可以当成一个原始的 SSG 来用。还有一些 [[http://orgmode.org/worg/org-blog-wiki.html][Emacs packages]] ，基于 org-publish， 可以用来生成 static site，但是大多数都非常难用。 [[http://renard.github.io/o-blog/][o-blog]] 看上去很漂亮，但是我始终没有搞明白怎么用。后来又尝试了下 [[https://github.com/kelvinh/org-page][org-page]] ，还提了几个 patch，但终究也不是很满意。于是就只能自己操刀，开始写 [[https://github.com/xiaohanyu/org-site][org-site]] 。断续写了一个月，出来一个原型，但最终还是放弃：
+- Elisp 写起来并不是很 happy，没有 namespace 是一大硬伤。
+- Org-mode 的代码设计并没有为开放式的 API 做过考虑。理论上，我可以把 Emacs org-mode 当成一个文档格式转换器，将 org-mode 转换成 html/pdf，但是由于 Emacs 的特殊性，很多 Elisp API 都是以 Emacs [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Buffers.html][buffer]] 而不是 file 为操作对象，这就让我必须写很多的 wrapper 代码，然后通过类似于 ~(with-temp-buffer (do-some-thing))~ 的手段来绕过这个限制。
+- org-publish API 依赖很多全局变量，写起来很别扭，经常要去翻原代码才能搞明白某个变量的意思。
+- org-mode 7.x 和 8.x 之间变动很大，代码兼容性维护任重道远。
+- org-mode 生成的 html 模块性太差，需要用各种 regexp 提取有用的 body/[[http://en.wikipedia.org/wiki/Table_of_contents][TOC]] 并过滤掉不需要的 header/footer，不美。
+- 一个优秀的 SSG，除了格式转换，还需要很多配套的模块，比如自动检测文件改动、自动编译、灵活的路由规则等，而这些用 Elisp 实现起来都很麻烦。
+
+至此，自动动手丰衣足食的计划宣告破产，被迫寻找并尝试 hack 一些成型的 SSG，来支持 org-mode 写作。我最终的选择是 [[http://nanoc.ws/][Nanoc]] 。
+
+** Nanoc
+
+[[http://nanoc.ws/][Nanoc]] 是我用过的所有 SSG 中最为灵活，也是使用门槛最高的一个。Nanoc 官方的入门 [[http://nanoc.ws/docs/tutorial/][Tutorial]] 中明确说明，你必须 "have a basic understanding of Ruby and command line"， 才有可能玩得通 Nanoc。在我个人看来，Nanoc 的设计基本上严格遵循了 Unix 中 "Provide mechanism, not policy" 的哲学。用软件工程的术语来说，Nanoc 提供的是 library，而非一套成型的 SSG 软件。Nanoc 既不限定你所用的文档标记语言 --- 你可以用 Markdown/Textile/Org-mode，也不指定相应的编译规则，更不提供默认的 out-of-box 的主题样式。总之，一切要自己来，学习曲线颇为陡峭，但学成之后可以随心所欲。
+
+Nanoc 创造了自己的术语体系，每个概念相互独立又彼此联系。理解了这些术语也就理解了 nanoc 的工作原理：
+- item: 是 nanoc 要处理的实体。一个 item 可以是 html/css/markdown 等文本文件，也可以是图片，还可以是你自己凭空创造出来的虚拟文件。
+- rule: 决定 nanoc 处理 item 的步骤。rule 分为两种，compilation rule 和 routing rule。 其中 compilation rule 又分为 filter rule 和 layout rule。filter rule 一般用于文档格式转换，而 layout rule 则用于页面布局排版。routing rule 决定 item 在 compile 之后在 output 中的路径。
+- helper: 一些辅助代码，用于扩展 nanoc。
+- metadata: 元信息。nanoc 对于每个 item 可附加的 metadata 没有任何限制。典型的 metadata 可以是 tag/category/datatime。
+- representation: 可以理解为输出格式。比如，同一个 item 可以同时 compile 为 html/pdf 两种格式。每种格式可以用自己独立的 rule。
+
+可以说，nanoc 为 SSG 的领域制定了一套相当棒的 standard。事实上， 确实有人仿照着 nanoc 的 standard，用 Haskell 重新实现了 nanoc，这就是 [[http://jaspervdj.be/hakyll/][hakyll]][2] 。我曾经短暂尝试过 hakyll，但最终放弃，回到了 nanoc 的怀抱。而这基本上要归功于 Ruby。
+
+** Ruby
+
+我并不是某一门编程语言的死忠。如果让我用一个字来形容 Ruby，那就是“舒服”。是的， [[http://en.wikipedia.org/wiki/Yukihiro_Matsumoto][Matz]] 没有骗你，Ruby 是写起来相当舒服的一门语言。Ruby 的包管理机制 [[http://bundler.io/][bundler]] + [[https://rubygems.org/][gem]] 是我用过的所有包管理器中最先进最好用的， 比之于什么 Python 的 [[http://www.virtualenv.org/en/latest/][virtualenv]] + [[http://www.pip-installer.org/en/latest/][pip]] 之流要好用太多。至于 Haskell 的 [[http://www.haskell.org/cabal/][cabal]] 基本上就是个奇葩的存在，连基本的 uninstall 功能都没有（是不是想起了 Python 的 ~easy_install~ ？），更不用提类似于 virtualenv/sandbox 这类先进功能了。不过这些都还可以忍受，Haskell 的 cabal 最蛋疼最奇葩的一点就是，好好的用着 ~cabal install~ ，说不定哪一天就会蹦出来各种莫名其妙的依赖问题， [[http://en.wikipedia.org/wiki/Dependency_hell][dependency hell]] ， 唯一的解决办法就是 ~rm -rf $HOME/.cabal~ ， 然后重装然后祈祷……而 Haskell 又是一门编译型的静态语言，这就使得装 package 的时间很长，令人不快。
+
+语言层面，Ruby 中内置的 regexp（对比下 Python 的 ~re.compile~ ） 强大易用；其完整的对 lambda/block 的支持（对比下 Python 中阉割的 lambda），能让每一个有点 Lisp 基础的人找到熟悉的感觉；Ruby 从 Unix Shell 以及 Perl 中借鉴而来的很多小聪明如 [[http://en.wikipedia.org/wiki/Here_document][here document]]/[[http://en.wikipedia.org/wiki/String_interpolation][string interpolation]]/command interpolation(Ruby backticks)， 使 Ruby 超越了 Python/Perl/Shell，成为写 quick and dirty 的 Unix Script 的上上之选；Ruby 社区一些极富创造力的一些 package 如 [[http://rake.rubyforge.org/][rake]]/[[https://github.com/guard/guard][guard]] ，则让你的 hack 之旅充满了快乐。
+
+尽管 Ruby 这样那样好，但是 Haskell 社区有一枚神器，让人欲罢不能，这就是文档格式转换的瑞士军刀 --- [[http://johnmacfarlane.net/pandoc/][Pandoc]] 。
+
+** Pandoc
+
+文档格式转换一直是一大难题，究其原因，是在于不同的文档格式有不同的表现能力和设计侧重点。比如原始的 Markdown 格式没有 table（表格）的支持，你怎么把 html 转换成 Markdown ? 反过来，html 中的 form 转换成其它格式，又该如何表现？Microsoft Word 2003 及之前版本的文档格式都是二进制且没有公开的文档格式标准， 想要完整的支持这种格式需要做大量的反向工程（ [[https://www.openoffice.org/][OpenOffice]] 和 [[https://www.libreoffice.org/][LibreOffice]] 干的就是这事，可想这工作量）。
+
+文档格式转换的软件千千万万，但是多数都只是 ad-hoc 的办法，pandoc 的创新之处在于发明了一种中间格式（[[http://johnmacfarlane.net/pandoc/scripting.html][json-formatted AST]]），即先将原始文档格式先解析并转换成这种中间格式，然后经过系列处理转换成目标文档格式，从而提供了大一统的解决方案。
+
+#+BEGIN_EXAMPLE
+                         source format
+                              ↓
+                           (pandoc)
+                              ↓
+                      JSON-formatted AST
+                              ↓
+                           (filter)
+                              ↓
+                      JSON-formatted AST
+                              ↓
+                           (pandoc)
+                              ↓
+                        target format
+#+END_EXAMPLE
+
+Pandoc 对于每种支持的输入格式，都提供了完整的 parser（pandoc 中叫做 reader），通过 parser 将输入文档转换成结构化 json 格式的 [[http://en.wikipedia.org/wiki/Abstract_syntax_tree][AST]] 。然后我们可以根据自己的需求，写一些脚本来操作 pandoc AST，再转换成最终的输出目标格式（Pandoc 中叫做 writer）。Pandoc 把这个操作 AST 的程序脚本叫做 [[http://johnmacfarlane.net/pandoc/scripting.html#json-filters][filter]] ，借助 filter，理论上可以实现非常丰富的功能。至于调用 filter 的方法，最简单的是通过 Unix 管道操作，比如：
+
+#+BEGIN_SRC sh
+pandoc -f SOURCEFORMAT -t json | runhaskell filter.hs | pandoc -f json -t TARGETFORMAT
+#+END_SRC
+
+Pandoc 的首选格式语言是 Markdown。为了弥补 Markdown 的先天不足，pandoc 在原始 Markdown 的基础上增加了许多有用的扩展。通过这些扩展， [[http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown][Pandoc's markdown]] 自成一套完备、规范、通用、强大的文档标记语言。
+
+Pandoc 在 1.12.3.2 版本之前是不支持 org-mode 作为输入格式的。这也让我头疼了许久。我最原始的想法是将 Emacs 当成一个 org-mode 的文档格式转换器，定制 emacs org-mode filter 集成到 nanoc：
+
+#+BEGIN_SRC ruby
+module Nanoc::Filters
+
+  class OrgModeHtml < Nanoc::Filter
+    identifier :org_mode_html
+    type :text => :text
+
+    require 'systemu'
+    require 'tempfile'
+
+    def run(content, params = {})
+      # Run command
+
+      tmp_org_file = Tempfile.new('nanoc_tmp_org_file', '/tmp')
+      tmp_org_file << content
+      tmp_org_file.close(nil)
+
+      elisp_code = %{
+(progn
+  (require 'org)
+  (find-file-read-only "#{tmp_org_file.path}")
+  (org-mode)
+  (if (version< org-version "8.0")
+      (progn
+        (setq org-export-html-postamble nil)
+        (org-export-as-html 3))
+    (progn
+      (setq org-html-postamble nil)
+      (org-html-export-as-html)))
+  (message "%s" (buffer-string)))
+}
+
+      cmd = ['emacs', '-Q', '--batch',
+             '--eval', elisp_code]
+
+      stdout = ''
+      stderr = ''
+      status = systemu(cmd,
+                       'stdout' => stdout,
+                       'stderr' => stderr)
+
+      # Show errors
+      unless status.success?
+        $stderr.puts stderr
+        raise "Emacs org-mode filter failed with status #{status}"
+      end
+
+      # Get result
+      body = /<body>.*<\/body>/m.match(stderr)
+      body[0]
+    end
+
+  end
+
+end
+#+END_SRC
+
+这段代码的大体思路是将 emacs 当成 elisp 的解释器，喂给其一段 elisp 代码，调用 org-mode 的 export 功能 （org-mode 7.x 版本中调用 ~(org-export-as-html)~ ，8.x 版本中调用 ~(org-html-export-as-html)~ ），然后再通过 regexp 正则匹配的方式提取出 html 中的 body 部分作为 nanoc filter 的返回值。显而易见，这段代码冗长，乏味，别扭，不美。
+
+好在我生逢其时，英雄出世， [[http://zeitlens.com/][Albert Krewinkel]] 大手笔横空祭出几个 patch，给 pandoc 提供了一个完备的 org-reader，把我感动得一塌糊涂，我还特别写了封邮件感谢人家。一番 ~cabal install~ 之后，pandoc 总算能支持 org-mode 作为其输入格式了，很完美。
+
+最后要解决的问题就是 pandoc 和 nanoc 的集成。nanoc 本身有一个内建的 ~Nanoc::Filters::Pandoc~ ，调用的是 [[https://github.com/alphabetum/pandoc-ruby][PandocRuby]] 。但是 nanoc 本身的 API 和 PandocRuby API 并不是很匹配，无法传递一些参数来启用 pandoc 的某些高级特性 （参考 [[http://stackoverflow.com/questions/14646741/nanoc-how-can-i-pass-options-to-pandoc-ruby][stackoverflow]] ）。万般无奈之下，只能自己动手，重写一个 nanoc pandoc filter，完整代码参考 [[https://gist.github.com/xiaohanyu/9866531][github gist]] 。
+
+#+BEGIN_SRC ruby
+module Nanoc::Filters
+
+  class PandocHtml < Nanoc::Filter
+    identifier :pandoc_html
+    type :text => :text
+
+    def run(content, params = {})
+      input_format = case item[:extension]
+                     when 'org'
+                       'org'
+                     when 'md', 'markdown'
+                       'markdown'
+                     end
+
+      `pandoc --mathjax -f #{input_format} -t html5 < #{item.raw_filename}`
+    end
+
+  end
+
+end
+#+END_SRC
+
+代码思路很简单，就是通过 Ruby backticks 直接调用 pandoc，然后将 pandoc 命令的 stdout 作为 nanoc filter 的返回值。通过进一步配置，nanoc 可以调用 pandoc 同时生成 html 和 pdf，这样一来，同样的文章，即可以线上浏览，也可以打印下载，得益于 pandoc 的优秀设计，html 和 pdf 版本的文章具有一致出色的排版效果。
+
+至此，核心的技术问题已经基本解决，剩下的就是前端设计了，这是我的弱项，为了能让这个 blog 有一个“不那么难看”的样式，我特别花时间学习系统地学习了下 HTML5 和 CSS3。这部分内容冗长乏味，非核心所在，下篇再表。
+
+** Reference
+
+- «[[http://freemind.pluskid.org/technology/the-unbearable-madness-of-static-blog-generators/][The Unbearable Madness of Static Blog Generators]]»，pluskid 的 blog，重点介绍了 ruhoh。
+- «[[http://clarkdave.net/2012/02/building-a-static-blog-with-nanoc/][Building a static blog with nanoc]]»，nanoc 入门教程，简洁明了 。
+- nanoc powered 的网站包括：
+  - [[https://developer.github.com/][GitHub Developer Site]]
+  - [[http://guides.spreecommerce.com/api/][Spree Commerce API site]]
+- SSG 名录大全：http://staticsitegenerators.net/
+- «[[http://kelvinh.github.io/blog/2012/11/27/growth-process-of-org-page/][Org-page 的成长史]]»，介绍了基于 org-mode 的 SSG。
+
+[1] 线上 Editor： [[http://dillinger.io/][Dillinger]]/[[https://stackedit.io/][StackEdit]] ；线下 Editor： [[http://mouapp.com/][Mou]] 。
+[2] 这其中有个八卦，hakyll 的作者 [[http://jaspervdj.be/][Jasper]] 和 nanoc 的作者 [[http://stoneship.org/][Denis Defreyne]] 在生活中是好朋友。而在某一年的 April fools' day，Denis 写了篇 <[[http://nanoc.ws/the-road-to-nanoc-4-0/][The road to nanoc 4.0]]> ， 大意是要用 haskell 重写 nanoc。

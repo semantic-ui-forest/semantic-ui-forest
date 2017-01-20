@@ -1,0 +1,119 @@
+#+TITLE: Build Static Site with Nanoc (II)
+
+[[http://xiaohanyu.me/2014/05/04/build-static-site-with-nanoc-1/][上篇]]主要讲了用 nanoc 来构建一个 static site 的基本原理，这一篇专注于这个 blog 本身的一些设计。
+
+** Bootstrap
+
+[[http://getbootstrap.com/][Bootstrap]] 现在大概已经成为像我一样的半吊子前端写网站的标配了吧，简单，明了，快捷，简直是为我这种人量身定做的。最开始我也是想一切自己动手，奈何还是没有禁住 Bootstrap 各种漂亮主题及插件的诱惑，最终还是不能免俗，从了 Bootstrap。
+
+其实类似于 Bootstrap 的前端框架还是有一些的，比如 [[http://foundation.zurb.com/][Foundation]] 和 [[http://semantic-ui.com/][Semantic UI]] 。Semantic UI 甚至在其官方主页上指出了 Bootstrap 命名规则的混乱。不过 Bootstrap 最大的优势在于它的普及(+烂大街+)，这种普及甚至使得 Bootstrap 成了一个平台。
+
+较好的 Bootstrap 主题和模板：
+- http://startbootstrap.com/
+- https://wrapbootstrap.com/ ，很多收费
+- http://www.blacktie.co/ ，似乎是由个人设计师设计维护的 Bootstrap 主题站，质量都很不错
+- http://bootswatch.com/ ，免费的 CSS 主题文件，使用简单，替换原有 Bootstrap 的 CSS 文件即可。
+
+另外， [[http://bootsnipp.com/][Bootsnipp]] 提供了非常全面的各种有用的基于 Bootstrap 的 code snippets 和设计元素。本 blog 的 timeline 类型的 Archives 页面就来源于此。
+
+** JS/CSS compress
+
+JS/CSS compress/minify 应该是前端开发的基本常识了。nanoc 中提供了 [[http://nanoc.ws/docs/api/Nanoc/Filters/Rainpress.html][rainpress]] 和 [[http://nanoc.ws/docs/api/Nanoc/Filters/UglifyJS.html][uglify\_js]] 两个 filter，分别用于 CSS 和 JS 文件的压缩。但实际中，我们往往会有多个 JS/CSS 文件，而我们希望能将其压缩成单个 JS/CSS 文件。这方面 nanoc 没有提供内置的解决方案。好在 Google 是万能的，完美的[[http://jakoblaegdsmand.com/blog/2012/12/minifying-js-and-css-in-nanoc/][解决方案]]也是存在的，感谢 [[http://jakoblaegdsmand.com/][Jakob]] 。
+
+Jakob 的 blog 写得浅显易懂，其主要的优点是可以通过 ~nanoc.yml~ 中的 ~debug~ 选项来启停 JS/CSS 的压缩。具体的原理和代码我就不再这里重复了，看博文吧。
+
+** nanoc-cachebuster
+
+我们已经解决了 JS/CSS 的压缩问题，还差一步，就可以形成 nanoc static site frontend 的完美解决方案，那就是我们离不开的 cache。这个 cache 主要是浏览器端的 cache。Cache 是个好东西，只是有时会给开发人员造成一些小麻烦。比如我们修改 JS/CSS 文件并且 push 到“线上”的时候，在一定时间段内浏览器并不会请求最新的 JS/CSS 文件，而是会使用已有的尚未过期的 cache 中的 JS/CSS 文件，这就使得我们没有办法实时地看到 JS/CSS 修改后的前端效果。解决方案就是在开发时绕过 cache，让浏览器每次都请求最新的 JS/CSS 文件。这有两种办法，一是在浏览器端，可以强制刷新或者直接禁用浏览器的 cache，但是这种方案的局限性在于，每种浏览器都有自己的设置方法，并且做为开发人员，你没有办法保证你的用户都禁用 cache；第二种办法就是在服务器端做一些手脚，这就是 [[http://webassets.readthedocs.org/en/latest/expiring.html][cache busting]] 。
+
+Cache busting 的原理是每次修改 JS/CSS 文件后，通过在 JS/CSS 的文件名上加入一个版本号或者类似的手段，来保证浏览器请求的都是最新的 JS/CSS 文件，这样就能确保 JS/CSS 的效果能够实时地起到作用。Nanoc 有一个 [[http://avdgaag.github.io/nanoc-cachebuster/][nanoc-cachebuster]] ，其作者写了一篇详细的 [[http://arjanvandergaag.nl/blog/nanoc-cachebuster.html][post]] 来阐述 nanoc-cachebuster 的实现原理，我就不再多言了。
+
+** Font Selection
+
+就观感上来讲，除了基本的版面设计，字体选择是第二重要的因素。你至少要知道[[http://zh.wikipedia.org/wiki/%25E8%25A1%25AC%25E7%25BA%25BF%25E4%25BD%2593][衬线字体]]和[[http://zh.wikipedia.org/wiki/%25E6%2597%25A0%25E8%25A1%25AC%25E7%25BA%25BF%25E4%25BD%2593][无衬线字体]]的基本概念。而在 Web 上应用这些概念，你还需要了解一些有关以 [[http://en.wikipedia.org/wiki/Web_typography][web font]] 的一些知识。关于这点我就不展开写了，任何一本不错的 CSS 书籍都会用一章的内容来详细讲解字体以及 web font 的概念。我个人的选择是 [[https://www.google.com/fonts/specimen/Lora][Lora]] ，灵感来自于 [[http://bootswatch.com/readable/][bootswatch readable theme]] 。
+
+这里还有两个小技巧，和大家分享。一是在 CSS 中，字体的样式是依照 ~font-family~ 的值以及相应的字体本身的特性决定的。比如：
+
+#+BEGIN_SRC css
+body {
+  background-color: #ffffff;
+  font-family: 'Lora', Georgia, 'Times New Roman', 'SimSun', 'Microsoft YaHei', serif;
+}
+#+END_SRC
+
+这里指定 ~<body>~ 的字体为 Lora，但是 Lora 本身是一款英文字体，对于汉字是“无能为力”的，因此如果 ~<body>~ 中有汉字的话，浏览器会按照 ~font-family~ 所指定的值依次找下去，直到找到一款从 web 上加载的或者系统中已经存在的汉字字体。另外，在 Chrome 和 Firefox 的 Developer Tools 中可以看到浏览器渲染页面时所使用的字体的细节，具体参考 [[http://stackoverflow.com/questions/884177/how-can-i-determine-what-font-a-browser-is-actually-using-to-render-some-text][StackOverflow]]。
+
+** Third-party Plugins
+
+由于静态站点本身并没有数据库之类的标配的本地存储，因此像评论、站内搜索，以及统计这类功能需要借助第三方的服务。站内搜索比较简单，直接调用 Google 的 ~site:xiaohanyu.me~ 搜索即可：
+
+#+BEGIN_SRC html
+<form class="form-inline" target="_blank" method="get" action="http://google.com/search">
+  <input type="hidden" value="site:xiaohanyu.me" name="q">
+  <input type="text" class="form-control pull-left" placeholder="Search" name="q">
+</form>
+#+END_SRC
+
+至于评论系统，我用的也就是现今最流行的第三方评论系统 [[https://disqus.com/][Disqus]] 了。其安装设置非常简单，不再赘述。使用体验也不错。但是由于国内网络的原因，Disqus 加载的时候还是需要 2-4 秒的时间，因此我写了个 JS 函数，来按需加载 Disqus 评论。与此同时，我还在每篇 post 的 metadata 里面设置了新的属性： ~disable_disqus~ ，这样如果 ~disable_disqus~ 为真，那么相应的 post 就是禁用评论的。
+
+最后就是站点统计，最简单的就是传统 Blog 上的网站访问计数。这个我用的是 [[http://www.google.com/analytics/][Google Analytics]] ，很强大，安装配置也很简单，同样不再赘述。
+
+** Atom/Sitemap/Robots.txt
+
+除了以上，一个有节操有品味的网站还应该配备 atom/sitemap/robots.txt。在 nanoc 中，这三种的解决方案是差不多的。以 atom 为例，nanoc3 内置的 [[http://nanoc.ws/docs/api/Nanoc/Helpers/Blogging.html][Blogging]] 辅助模块提供了基本的 atom 生成函数 [[http://nanoc.ws/docs/api/Nanoc/Helpers/Blogging.html#atom_feed-instance_method][atom\_feed]] ，我们需要做的就是动态创建一个 nanoc item，而这个 item 的任务就是生成实际的 ~atom.xml~ 文件。nanoc 支持 [[http://nanoc.ws/docs/basics/][preprocess]] ，我们可以在 nanoc compile 之前做一些准备工作：
+
+- ~Rules~
+
+#+BEGIN_SRC ruby
+preprocess do
+  create_github_cname
+  create_robots_txt
+  create_sitemap
+  create_atom
+end
+
+compile %r{/sitemap/|/atom/|/robots/} do
+  filter :erb
+end
+
+route %r{/sitemap/|/atom/} do
+  item.identifier.chop + '.xml'
+end
+#+END_SRC
+
+在 ~create_atom~ 函数中，我们动态创建一个 [[http://nanoc.ws/docs/api/Nanoc/Item.html][nanoc item]] （所谓动态创建的 item 就是这个 item 在实际的文件系统中没有相对应的文件）。这样的 preprocess 之后，nanoc compile 会按照指定的规则来处理生成 atom 的 item，最终生成所需的 ~atom.xml~ 。
+
+- ~lib/preprocessors.rb~
+
+#+BEGIN_SRC ruby
+def create_atom
+  content = <<EOS
+<%= atom_feed \
+:title => '#{@site.config[:meta_data][:title]}',
+:author_name => '#{@site.config[:meta_data][:author]}',
+:author_uri => '#{@site.config[:base_url]}',
+:limit => 10 %>
+EOS
+
+  @items << Nanoc3::Item.new(content,
+                             {:extension => 'xml', :is_hidden => true},
+                             '/atom/')
+end
+
+#+END_SRC
+
+** Cute Things
+
+除此之外，我还设计了一些有趣的小东西，当然，如果您是资深的前端工程师，那么可以直接忽略这一节，我怕班门弄斧，贻笑大方。
+
+一是我给每篇 post 加上了 next 和 previous 的 link button， +当然如果有一天我的文章写的足够好能让人流连忘返的话+ ，这两个 button 或许是有用的。具体的技术细节可以参考[[https://ecarmi.org/writing/next-previous-links-nanoc/][这里]]。
+
+二是我在页面上加了一个 *back-to-top* 的 button，这样在页面滚了一点进度时，back-to-top button 会出现在右下角，然后你可以点击这个 button 回到页面的最顶端。
+
+三是我参考一些成型的设计，给自己的 blog 设计了一个还算满意的 [[http://xiaohanyu.me/does-not-exist][404 page]]。
+
+最后，我在 [[http://wxiaohanyu.me/about/index.html][about page]] 中加入了一些 random quotes 的小把戏，这样每次访问/刷新 about page 的时候，你看到的 quotes 都是随机的。至于原理，暂且不表 ^_^。
+
+** 总结
+
+以上，大概记录了我个人建站的基本过程，从基本的技术选型，到版式字体的设计，以及一些 nanoc 的小技巧，希望对您有用。
