@@ -13,9 +13,10 @@ body
   text-rendering: optimizeLegibility
 
 footer
-  margin: 1rem 0
   &.center.aligned p
     text-align: center
+  p
+    color: rgba(255,255,255,.5)
 
 ul,
 ol
@@ -88,8 +89,6 @@ nav.ui.menu .ui.container
     background: #FFFFFF
   &.vertical.stripe.segment
     padding: 4rem 0
-  &.vertical.segment:first-child
-    padding-top: 0
   &.vertical.segment
     padding: 2rem 0
 
@@ -148,13 +147,6 @@ nav.ui.menu .ui.container
       padding-bottom: auto
   &.basic.segment
     padding-left: 0em
-
-/* footer padding
-.ui.footer.inverted.vertical.segment
-  padding-bottom: 1em
-
-.ui.footer .container .grid .three.column
-  padding-top: 1.8em
 
 /* Width and position on <- 768 - 992 - 1200 -> px screens
 @media only screen and (min-width: 1200px)
