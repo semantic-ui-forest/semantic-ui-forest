@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.spacelab.min.css
+
+meta:
+  header: Spacelab
+  sub_header: "Bootswatch's spacelab theme"

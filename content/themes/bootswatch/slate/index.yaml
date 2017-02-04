@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.slate.min.css
+
+meta:
+  header: Slate
+  sub_header: "Bootswatch's slate theme"

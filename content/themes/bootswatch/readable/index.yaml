@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.readable.min.css
+
+meta:
+  header: Readable
+  sub_header: "Bootswatch's readable theme"

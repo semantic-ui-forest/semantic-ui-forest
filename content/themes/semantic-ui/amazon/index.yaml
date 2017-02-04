@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.amazon.min.css
+
+meta:
+  header: Amazon
+  sub_header: "Semantic-UI's amazon theme"

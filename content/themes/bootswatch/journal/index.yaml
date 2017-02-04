@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.journal.min.css
+
+meta:
+  header: Journal
+  sub_header: "Bootswatch's journal theme"

@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.flatly.min.css
+
+meta:
+  header: Flatly
+  sub_header: "Bootswatch's flatly theme"

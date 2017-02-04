@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.paper.min.css
+
+meta:
+  header: Paper
+  sub_header: "Bootswatch's paper theme"

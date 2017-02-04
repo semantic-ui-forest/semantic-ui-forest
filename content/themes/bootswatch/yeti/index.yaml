@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.yeti.min.css
+
+meta:
+  header: Yeti
+  sub_header: "Bootswatch's yeti theme"

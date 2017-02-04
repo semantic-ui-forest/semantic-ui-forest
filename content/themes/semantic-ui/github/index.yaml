@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.github.min.css
+
+meta:
+  header: Github
+  sub_header: "Semantic-UI's github theme"

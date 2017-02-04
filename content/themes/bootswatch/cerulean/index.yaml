@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.cerulean.min.css
+
+meta:
+  header: Cerulean
+  sub_header: "Bootswatch's cerulean theme"

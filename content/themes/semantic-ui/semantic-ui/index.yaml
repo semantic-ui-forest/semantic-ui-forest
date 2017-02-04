@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.semantic-ui.min.css
+
+meta:
+  header: Semantic-UI
+  sub_header: "Semantic-UI's default theme"

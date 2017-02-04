@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.chubby.min.css
+
+meta:
+  header: Chubby
+  sub_header: "Semantic-UI's chubby theme"

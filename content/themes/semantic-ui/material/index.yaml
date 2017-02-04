@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.material.min.css
+
+meta:
+  header: Material
+  sub_header: "Semantic-UI's material theme"

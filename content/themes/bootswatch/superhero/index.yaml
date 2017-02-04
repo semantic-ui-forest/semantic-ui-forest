@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.superhero.min.css
+
+meta:
+  header: Superhero
+  sub_header: "Bootswatch's superhero theme"

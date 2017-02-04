@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.cosmo.min.css
+
+meta:
+  header: Cosmo
+  sub_header: "Bootswatch's cosmo theme"

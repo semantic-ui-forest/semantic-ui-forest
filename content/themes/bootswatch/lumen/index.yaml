@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.lumen.min.css
+
+meta:
+  header: Lumen
+  sub_header: "Bootswatch's lumen theme"

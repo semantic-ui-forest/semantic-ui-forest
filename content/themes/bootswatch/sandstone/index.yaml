@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.sandstone.min.css
+
+meta:
+  header: Sandstone
+  sub_header: "Bootswatch's sandstone theme"

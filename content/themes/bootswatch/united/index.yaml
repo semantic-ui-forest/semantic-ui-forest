@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.united.min.css
+
+meta:
+  header: United
+  sub_header: "Bootswatch's united theme"

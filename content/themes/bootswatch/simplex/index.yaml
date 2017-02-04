@@ -1,2 +1,6 @@
 css:
   - /static/dist/semantic-ui/semantic.simplex.min.css
+
+meta:
+  header: Simplex
+  sub_header: "Bootswatch's simplex theme"
