@@ -77,6 +77,14 @@ compile '/{index,about}.*' do
   layout item[:layout] || '/default.*'
 end
 
+compile '/templates/**/*' do
+  case item[:extension]
+  when /slim|html/
+    filter :slim
+  end
+  layout item[:layout] || '/template.*'
+end
+
 compile '/{sitemap}.xml' do
   filter :erb
 end
@@ -98,7 +106,6 @@ compile '**/*' do
     when /md|markdown|org/
       filter :pandoc, args: [:mathjax, {:from => pandoc_ext_from[ext], :to => :html5}, :toc]
     end
-    layout '/content.*'
     layout item[:layout] || '/default.*'
   end
 end

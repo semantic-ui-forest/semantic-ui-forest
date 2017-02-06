@@ -1,0 +1,60 @@
+.ui.vertical.segment
+  .ui.container
+    h2.ui.huge.red.header
+      | Templates
+      .sub.header
+        | Collection of sample templates to demonstrate the power of Semantic-UI.
+    .ui.two.item.stackable.tabs.menu
+      a.item.active data-tab="bootstrap" Bootstrap
+      a.item data-tab="semantic-ui" Semantic-UI
+
+.ui.demo.container.basic.segment
+  .ui.tab.active data-tab="bootstrap"
+    h2.ui.dividing.header Bootstrap
+    .example
+      h4.ui.header Using the framework
+      .ui.three.stackable.doubling.cards
+        a.ui.card href="/templates/bootstrap/starter-template/"
+          .image
+            img src="/static/images/templates/bootstrap/thumbnails/starter-template-1280x800.png"
+          .content
+            .header Starter template
+            .description Nothing but the basics: compiled CSS and JavaScript along with a container.
+
+        a.ui.card href="/templates/bootstrap/theme/"
+          .image
+            img src="/static/images/templates/bootstrap/thumbnails/theme-1280x800.png"
+          .content
+            .header Bootstrap theme
+            .description Load the optional Bootstrap theme for a visually enhanced experience.
+  .ui.tab data-tab="semantic-ui"
+    h2.ui.dividing.header Semantic-UI
+    .example
+      h4.ui.header Pages
+      .ui.three.stackable.doubling.cards
+        a.ui.card href="/templates/semantic-ui/homepage/"
+          .image
+            img src="/static/images/templates/semantic-ui/thumbnails/homepage-1280x800.png"
+          .content
+            .header Homepage
+            .description A simple responsive homepage design with sidebar
+        a.ui.card href="/templates/semantic-ui/sticky/"
+          .image
+            img src="/static/images/templates/semantic-ui/thumbnails/sticky-1280x800.png"
+          .content
+            .header Sticky Menus
+            .description Using visibility API to fix content after passing position in page
+        a.ui.card href="/templates/semantic-ui/fixed/"
+          .image
+            img src="/static/images/templates/semantic-ui/thumbnails/fixed-1280x800.png"
+          .content
+            .header Fixed Menu
+            .description Using a fixed menu with page content
+        a.ui.card href="/templates/semantic-ui/login/"
+          .image
+            img src="/static/images/templates/semantic-ui/thumbnails/login-1280x800.png"
+          .content
+            .header Login Form
+            .description A full-screen login form
+
+css:
