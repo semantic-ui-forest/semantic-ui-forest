@@ -76,12 +76,14 @@ img
     width: 200px
     margin: 3rem 0 1rem
 
-nav.ui.menu .ui.container
-  > a.item:first-child
-    margin-left: -1.14285714em
+nav.ui.menu
+  border-radius: 0
+  &.ui.container
+    > a.item:first-child
+      margin-left: -1.14285714em
 
-  > .right.menu > a.item:last-child
-    padding-right: 0
+    > .right.menu > a.item:last-child
+      padding-right: 0
 
 /* Styles for semantic-ui elements
 .ui
@@ -151,7 +153,6 @@ nav.ui.menu .ui.container
       padding-bottom: auto
   &.basic.segment
     padding-left: 0em
-
 
 /* Width and position on <- 768 - 992 - 1200 -> px screens
 @media only screen and (min-width: 1200px)
