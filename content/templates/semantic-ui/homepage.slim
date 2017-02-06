@@ -1,0 +1,206 @@
+.ui.large.top.fixed.hidden.menu
+  .ui.container
+    a.active.item Home
+    a.item Work
+    a.item Company
+    a.item Careers
+    .right.menu
+      .item
+        a.ui.button Log in
+      .item
+        a.ui.primary.button Sign Up
+/! Sidebar Menu
+.ui.vertical.inverted.sidebar.menu
+  a.active.item Home
+  a.item Work
+  a.item Company
+  a.item Careers
+  a.item Login
+  a.item Signup
+/! Page Contents
+.pusher
+  .ui.inverted.vertical.masthead.center.aligned.segment
+    .ui.container
+      .ui.large.secondary.inverted.pointing.menu
+        a.toc.item
+          i.sidebar.icon
+        a.active.item Home
+        a.item Work
+        a.item Company
+        a.item Careers
+        .right.item
+          a.ui.inverted.button Log in
+          a.ui.inverted.button Sign Up
+    .ui.text.container
+      h1.ui.inverted.header
+        | Imagine-a-Company
+      h2 Do whatever you want when you want to.
+      .ui.huge.primary.button
+        | Get Started
+        i.right.arrow.icon
+  .ui.vertical.stripe.segment
+    .ui.middle.aligned.stackable.grid.container
+      .row
+        .eight.wide.column
+          h3.ui.header We Help Companies and Companions
+          p We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.
+          h3.ui.header We Make Bananas That Can Dance
+          p Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.
+        .six.wide.right.floated.column
+          img.ui.large.bordered.rounded.image src="/static/images/templates/semantic-ui/wireframe/white-image.png" /
+      .row
+        .center.aligned.column
+          a.ui.huge.button Check Them Out
+  .ui.vertical.stripe.quote.segment
+    .ui.equal.width.stackable.internally.celled.grid
+      .center.aligned.row
+        .column
+          h3 "What a Company"
+          p That is what they all say about us
+        .column
+          h3 "I shouldn't have gone with their competitor."
+          p
+            img.ui.avatar.image src="/static/images/templates/semantic-ui/avatar/nan.jpg" /
+            b Nan
+            | Chief Fun Officer Acme Toys
+  .ui.vertical.stripe.segment
+    .ui.text.container
+      h3.ui.header Breaking The Grid, Grabs Your Attention
+      p Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.
+      a.ui.large.button Read More
+      h4.ui.horizontal.header.divider
+        a href="#"  Case Studies
+      h3.ui.header Did We Tell You About Our Bananas?
+      p Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.
+      a.ui.large.button I'm Still Quite Interested
+  .ui.inverted.vertical.footer.segment
+    .ui.container
+      .ui.stackable.inverted.divided.equal.height.stackable.grid
+        .three.wide.column
+          h4.ui.inverted.header About
+          .ui.inverted.link.list
+            a.item href="#"  Sitemap
+            a.item href="#"  Contact Us
+            a.item href="#"  Religious Ceremonies
+            a.item href="#"  Gazebo Plans
+        .three.wide.column
+          h4.ui.inverted.header Services
+          .ui.inverted.link.list
+            a.item href="#"  Banana Pre-Order
+            a.item href="#"  DNA FAQ
+            a.item href="#"  How To Access
+            a.item href="#"  Favorite X-Men
+        .seven.wide.column
+          h4.ui.inverted.header Footer Header
+          p Extra space for a call to action inside the footer that could help re-engage users.
+
+script src="/static/dist/semantic-ui/semantic.min.js"
+
+css:
+  .hidden.menu {
+    display: none;
+  }
+
+  .masthead.segment {
+    min-height: 600px;
+    padding: 1em 0em;
+  }
+  .masthead .logo.item img {
+    margin-right: 1em;
+  }
+  .masthead .ui.menu .ui.button {
+    margin-left: 0.5em;
+  }
+  .masthead h1.ui.header {
+    margin-top: 2em;
+    margin-bottom: 0em;
+    font-size: 4em;
+    font-weight: normal;
+  }
+  .masthead h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+  }
+
+  .ui.vertical.stripe {
+    padding: 8em 0em;
+  }
+  .ui.vertical.stripe h3 {
+    font-size: 2em;
+  }
+  .ui.vertical.stripe .button + h3,
+  .ui.vertical.stripe p + h3 {
+    margin-top: 3em;
+  }
+  .ui.vertical.stripe .floated.image {
+    clear: both;
+  }
+  .ui.vertical.stripe p {
+    font-size: 1.33em;
+  }
+  .ui.vertical.stripe .horizontal.divider {
+    margin: 3em 0em;
+  }
+
+  .quote.stripe.segment {
+    padding: 0em;
+  }
+  .quote.stripe.segment .grid .column {
+    padding-top: 5em;
+    padding-bottom: 5em;
+  }
+
+  .footer.segment {
+    padding: 5em 0em;
+  }
+
+  .secondary.pointing.menu .toc.item {
+    display: none;
+  }
+
+  @media only screen and (max-width: 700px) {
+    .ui.fixed.menu {
+      display: none !important;
+    }
+    .secondary.pointing.menu .item,
+    .secondary.pointing.menu .menu {
+      display: none;
+    }
+    .secondary.pointing.menu .toc.item {
+      display: block;
+    }
+    .masthead.segment {
+      min-height: 350px;
+    }
+    .masthead h1.ui.header {
+      font-size: 2em;
+      margin-top: 1.5em;
+    }
+    .masthead h2 {
+      margin-top: 0.5em;
+      font-size: 1.5em;
+    }
+  }
+
+javascript:
+  $(document)
+    .ready(function() {
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+    })
+  ;

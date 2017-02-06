@@ -1,0 +1,73 @@
+.ui.middle.aligned.center.aligned.grid
+  .column
+    h2.ui.teal.image.header
+      img.image src="/static/images/templates/semantic-ui/logo.png"
+      .content
+        | Log-in to your account
+    form.ui.large.form
+      .ui.stacked.segment
+        .field
+          .ui.left.icon.input
+            i.user.icon
+            input name="email" placeholder=("E-mail address") type="text" /
+        .field
+          .ui.left.icon.input
+            i.lock.icon
+            input name="password" placeholder="Password" type="password" /
+        .ui.fluid.large.teal.submit.button Login
+      .ui.error.message
+    .ui.message
+      | New to us?
+      a href="#"  Sign Up
+
+css:
+  body {
+    background-color: #DADADA;
+  }
+  body > .grid {
+    height: 100%;
+  }
+  .image {
+    margin-top: -100px;
+  }
+  .column {
+    max-width: 450px;
+  }
+
+javascript:
+  $(document)
+    .ready(function() {
+      $('.ui.form')
+        .form({
+          fields: {
+            email: {
+              identifier  : 'email',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter your e-mail'
+                },
+                {
+                  type   : 'email',
+                  prompt : 'Please enter a valid e-mail'
+                }
+              ]
+            },
+            password: {
+              identifier  : 'password',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter your password'
+                },
+                {
+                  type   : 'length[6]',
+                  prompt : 'Your password must be at least 6 characters'
+                }
+              ]
+            }
+          }
+        })
+      ;
+    })
+  ;
