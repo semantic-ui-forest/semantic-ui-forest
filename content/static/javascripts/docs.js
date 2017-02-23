@@ -432,21 +432,23 @@ semantic.ready = function() {
     },
 
     createIcon: function() {
-      $example
-        .each(function(){
-          var
-            $insertPoint = $(this).is('.another')
-              ? $(this).children().eq(0)
-              : $(this).children().eq(1)
-          ;
-          $('<i/>')
-            .addClass('icon code')
-            .insertBefore( $insertPoint )
-          ;
-        })
-        .find('i.code')
-          .on('click', handler.createCode)
-      ;
+      if (window.location.pathname.startsWith('/themes')) {
+        $example
+          .each(function(){
+            var
+              $insertPoint = $(this).is('.another')
+                ? $(this).children().eq(0)
+                : $(this).children().eq(1)
+            ;
+            $('<i/>')
+              .addClass('icon code')
+              .insertBefore( $insertPoint )
+            ;
+          })
+          .find('i.code')
+            .on('click', handler.createCode)
+        ;
+      }
     },
 
     less: {
