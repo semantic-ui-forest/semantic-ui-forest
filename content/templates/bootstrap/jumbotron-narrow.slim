@@ -1,0 +1,74 @@
+.ui.container[id="narrow"]
+  .ui.borderless.massive.menu
+    a.header.item Project Name
+    .ui.right.secondary.menu
+        a.active.item Home
+        a.item Home
+        a.item Home
+
+  .ui.message.center.aligned.grid
+    h1.ui.huge.header  Jumbotron heading
+    p.lead
+      | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+    a.ui.massive.green.button Sign up today
+
+  .ui.two.column.grid
+    .column
+      .row
+        h2.ui.header Subheading
+        p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
+      .row
+        h2.ui.header Subheading
+        p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
+      .row
+        h2.ui.header Subheading
+        p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
+
+    .column
+      .row
+        h2.ui.header Subheading
+        p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
+      .row
+        h2.ui.header Subheading
+        p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
+      .row
+        h2.ui.header Subheading
+        p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
+
+  .ui.divider
+  footer &copy; 2017 Company, Inc.
+
+sass:
+  #narrow.ui.container
+    width: 50%
+
+    > .ui.menu
+      border-width: 0 0 1px 0
+      border-radius: 0
+      height: 4em
+      .header.item
+        padding-left: 0
+        font-size: 1.2em
+
+    .secondary.menu .item
+      color: rgb(51, 122, 183)
+      &.active
+        background-color: rgb(51, 122, 183)
+        color: white
+
+    .ui.message
+      background-color: rga(238, 238, 238)
+      box-shadow: none
+      padding: 4em 2em
+
+    h1.ui.header
+      font-size: 4.5em
+
+    p.lead
+      font-size: 1.3em
+      color: rgb(51, 51, 51)
+      line-height: 1.4
+      font-weight: 300
+
+    .ui.grid .row
+      margin-bottom: 1.5em
