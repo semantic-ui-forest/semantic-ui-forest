@@ -1,4 +1,4 @@
-.ui.inverted.huge.borderless.fixed.menu
+.ui.inverted.huge.borderless.fixed.fluid.menu
   a.header.item Project name
   .right.menu
     .item
@@ -10,28 +10,28 @@
     a.item Help
 
 .ui.grid
-  .pushable.row
-    .ui.visible.sidebar.three.wide.column.secondary.vertical.menu
-      a.active.item Overview
-      a.item Reports
-      a.item Analytics
-      a.item Export
-      .ui.hidden.divider
-      a.item Nav item
-      a.item Nav item again
-      a.item One more nav
-      a.item Another nav item
-      a.item More navigation
-      .ui.hidden.divider
-      a.item Macintosh
-      a.item Linux
-      a.item Windows
+  .row
+    .column[id="sidebar"]
+      .ui.secondary.vertical.fluid.menu
+        a.active.item Overview
+        a.item Reports
+        a.item Analytics
+        a.item Export
+        .ui.hidden.divider
+        a.item Nav item
+        a.item Nav item again
+        a.item One more nav
+        a.item Another nav item
+        a.item More navigation
+        .ui.hidden.divider
+        a.item Macintosh
+        a.item Linux
+        a.item Windows
 
-    .pusher.thirteen.wide.column
-      .ui.stackable.grid
+    .column[id="content"]
+      .ui.grid
         .row
           h1.ui.huge.header Dashboard
-
         .ui.divider
         .four.column.center.aligned.row
           .column
@@ -168,34 +168,47 @@
                 td in
                 td libero
 
+
 sass:
-  .ui.grid .pushable.row
-    padding: 0
-    margin-top: 51.8px
+  body
+    display: relative
 
-  .ui.sidebar.secondary.vertical.menu.column
-    padding-right: 0
-    font-size: 16px
-    background-color: lighten(#eee, 5%)
+  #sidebar
+    position: fixed
+    top: 51.8px
+    left: 0
+    bottom: 0
+    width: 18%
+    background-color: #f5f5f5
+    padding: 0px
 
-    > a.item
-      color: #337ab7
-      border-radius: 0 !important
-      &.active
-        background-color: #337ab7
-        color: white
-        border: none !important
-      &:hover
-        background-color: lighten(#337ab7, 10%)
-        color: white
+    .ui.menu
+      margin: 2em 0 0
+      font-size: 16px
+      > a.item
+        color: #337ab7
+        border-radius: 0 !important
+        &.active
+          background-color: #337ab7
+          color: white
+          border: none !important
+        &:hover
+          background-color: lighten(#337ab7, 10%)
+          color: white
 
+  #content
+    margin-left: 19%
+    width: 81%
+    margin-top: 3em
+    padding-left: 3em
+    float: left
 
-  .ui.grid .pusher.column
-    .ui.grid
-      margin-left: 2em
-      padding-right: 3em
-      h1
-        font-size: 36px
+    > .ui.grid
+      padding-right: 4em
+      padding-bottom: 3em
+
+    h1
+      font-size: 36px
 
     .ui.divider:not(.hidden)
       margin: 0
