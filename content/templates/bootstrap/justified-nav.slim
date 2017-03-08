@@ -1,0 +1,69 @@
+.ui.stackable.grid.container
+  .ui.hidden.divider
+  .row
+    h3.ui.large.header Project name
+    .ui.six.item.fluid.stackable.huge.menu
+      a.active.item Home
+      a.item Projects
+      a.item Services
+      a.item Downloads
+      a.item About
+      a.item Contact
+
+  .ui.hidden.section.divider
+  .ui.hidden.section.divider
+  .row
+    .ui.center.aligned.container
+      h1.ui.huge.header Marketing stuff!
+      p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+      .ui.green.massive.button Get started today
+
+  .ui.hidden.section.divider
+  .ui.hidden.section.divider
+  .three.column.row
+    .column
+      h1.ui.huge.header Heading
+      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+      .ui.small.primary.button View detailes &raquo;
+    .column
+      h1.ui.header Heading
+      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+      .ui.small.primary.button View detailes &raquo;
+    .column
+      h1.ui.header Heading
+      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+      .ui.small.primary.button View detailes &raquo;
+
+  .ui.hidden.section.divider
+  .row
+    .column
+      .ui.divider
+      footer &copy; 2017 Company, Inc.
+
+sass:
+  .ui.grid > .row
+    h3.header
+      margin-bottom: 0
+      margin-top: 10px
+
+    .ui.item.menu
+      border: none
+      .item
+        background-image: linear-gradient(to bottom, #f5f5f5 0, #e5e5e5 100%)
+        border: 1px solid rgb(213, 213, 213)
+        border-left-color: rgb(255, 255, 255)
+        &.active
+          border-left: 0px none rgb(119, 119, 119)
+          box-shadow: inset 1px 4px 7px rgba(0, 0, 0, 0.15)
+
+
+  .ui.grid .row .ui.center.aligned.container
+    h1
+      font-size: 63px
+    p
+      font-size: 21px
+      line-height: 1.5
+
+  .ui.grid .three.column.row
+    h1
+      font-size: 30px

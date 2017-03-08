@@ -1,0 +1,265 @@
+.ui.inverted.vertical.center.aligned.segment[id="whole"]
+  .ui.container
+    .ui.black.inverted.borderless.huge.fluid.menu
+      a.header.item Project Name
+      a.active.item Home
+      a.item About
+      a.item Contact
+      a.ui.dropdown.item
+        | Dropdown
+        i.dropdown.icon
+        .menu
+          .item Action
+          .item Another action
+          .item Something else here
+          .ui.divider
+          .header Navbar header
+          .item Seperated link
+          .item One more seperated link
+  .ui.grid
+    .three.column.row[id="slide"]
+      .active.column[data-tab="1"]
+        .ui.inverted.vertical.center.aligned.segment
+          .ui.active.text.container
+            h1.ui.inverted.header Example headline.
+            p
+              | Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.
+            .ui.huge.primary.button Sign up today
+      .column[data-tab="2"]
+        .ui.inverted.vertical.center.aligned.segment
+          .ui.active.text.container
+            h1.ui.inverted.header Another example headline.
+            p
+              | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+            .ui.huge.primary.button Learn more
+
+      .column[data-tab="3"]
+        .ui.inverted.vertical.center.aligned.segment
+          .ui.active.text.container
+            h1.ui.inverted.header One more for good measure
+            p
+              | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+            .ui.huge.primary.button Browse gallery
+
+    .row[id="bubble"]
+      .ui.center.aligned.container
+        .ui.circular.icon.green.mini.button
+        .ui.circular.icon.mini.button
+        .ui.circular.icon.mini.button
+
+  .ui.grid[id="control"]
+    .row
+      .three.wide.left.floated.column
+        .ui.basic.big.button[id="left"]
+          i.left.chevron.big.icon
+      .three.wide.right.floated.column
+        .ui.basic.big.button[id="right"]
+          i.right.chevron.big.icon
+
+.ui.section.hidden.divider
+
+.ui.three.column.center.aligned.stackable.grid.container
+  .column
+    img.ui.centered.small.circular.image src="/static/images/templates/semantic-ui/wireframe/square-image.png"
+    h1.ui.header Heading
+    p
+    | Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
+    .ui.basic.button
+      | View details &raquo;
+  .column
+    img.ui.centered.small.circular.image src="/static/images/templates/semantic-ui/wireframe/square-image.png"
+    h1.ui.header Heading
+    p
+     | Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
+    .ui.basic.button
+      | View details &raquo;
+  .column
+    img.ui.centered.small.circular.image src="/static/images/templates/semantic-ui/wireframe/square-image.png"
+    h1.ui.header Heading
+    p
+     | Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
+    .ui.basic.button
+      | View details &raquo;
+
+.ui.section.divider
+
+.ui.grid.container
+  .ui.relaxed.divided.items
+    .item
+      .middle.aligned.content
+        h1.ui.header First featurette heading. <span class="disabled">It'll blow your mind.</span>
+        .description
+          p Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+      .ui.right.floated.large.image
+        img src="/static/images/templates/semantic-ui/wireframe/square-image.png"
+
+    .item
+      .ui.large.image
+        img src="/static/images/templates/semantic-ui/wireframe/square-image.png"
+      .middle.aligned.content
+        h1.ui.header Oh yeah, <span class="disabled">it's that good.</span>
+        .description
+         p Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+
+    .item
+      .middle.aligned.content
+        h1.ui.header And lastly, <span class="disabled">this one.</span>
+        .description
+          p Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+      .ui.right.floated.large.image
+        img src="/static/images/templates/semantic-ui/wireframe/square-image.png"
+
+.ui.hidden.divider
+
+.ui.footer.container
+  .ui.divider
+  .ui.two.column.grid
+    .column
+      p
+        | &copy; 2017 Company, Inc.  ·
+        a href="#"
+          | Privacy  ·
+        a href="#"
+          | Terms
+    .right.floated.two.wide.column
+      a href="#"
+        | Back to top
+
+script src='/static/dist/semantic-ui/semantic.min.js'
+
+sass:
+  body .ui.inverted.segment
+    background-color: #777
+
+  #whole.segment
+    height: 500px
+
+  .ui.borderless.inverted.menu
+    background-color: lighten(rgb(34, 34, 34), 5%)
+    border-radius: 4px
+    .active.item
+      background-color: black
+
+  p code
+    background-color: white
+    border-radius: 4px
+
+
+  #slide.row
+    // the width of slide row is three times of the viewport width
+    width: 300vw !important
+    overflow: hidden
+    position: absolute
+    margin-top: 5em
+    .column
+      padding: 0!important
+
+      h1.header
+        font-size: 2.5em
+      p
+        font-size: 1.4em
+        line-height: 1.4
+
+  #control.grid
+    position: relative
+    top: 7em
+    .column
+    .ui.button
+      box-shadow: none
+      &:hover
+        background: transparent !important
+      .icon
+        color: darken(white, 25%)
+        &:hover
+          background: transparent
+          color: white
+
+  #bubble.row
+    position: absolute
+    bottom: 0
+
+  .ui.grid .ui.items .item .content
+    // content middle align
+    align-self: center
+    h1
+      font-size: 3.5em
+      span.disabled
+        color: grey
+    p
+      font-size: 1.5em
+      line-height: 1.5
+
+  .ui.footer.container
+    font-size: 1.2em
+
+javascript:
+  $(document).ready(function() {
+    $('.ui.dropdown').dropdown();
+
+    // make the corresponding bubble button change color
+    function activate() {
+      $('#bubble .button').eq($('#slide.row .column').first().attr('data-tab') - 1).addClass('green').siblings().removeClass('green');
+    };
+
+    // The slide or carousel effect here is actually a moving amination of a three viewport wide row
+    // left button: first make slide row animate to left
+    // then move the active column to the outer right
+    function leftMove() {
+      var columns = $('#slide .column');
+      var active = $('#slide .active.column');
+      var width = active.outerWidth();
+      $('#slide.row').animate({
+        left: -1 *width,
+        right: width
+        }, 600, "swing", function() {
+          active.removeClass('active');
+          active.next().addClass('active');
+          $(this).removeAttr('style');
+          active.detach().appendTo($('#slide.row'));
+          activate();
+      });
+    };
+    $('#left').click(leftMove);
+
+    // right button: first move the last column(right) to the first(left)
+    // at the same time, set the left and right position of the whole row, make visible column in the middle
+    // then make the row animate to right, and remove "left" and "right" style
+    function rightMove() {
+      var columns = $('#slide .column');
+      var active = $('#slide .active.column');
+      var width = active.outerWidth();
+      columns.last().detach().prependTo($('#slide.row'));
+      $('#slide.row').css({"left": -width, "right": -width});
+      $('#slide.row').animate({
+        left: 0,
+        right: -2 * width
+        }, 600, "swing", function() {
+          active.removeClass('active');
+          columns.last().addClass('active');
+          $(this).removeAttr('style');
+          activate();
+      });
+    };
+    $('#right').click(rightMove);
+
+    // when click the small circular button, these happen:
+    // 1. make the whole row animate left and the corresponding column visible(left=0)
+    // 2. move all the columns on the left(prevAll) to right
+    // 3. remove the "left" position style of the row, make the target column at the very left
+    // 4. make the button "green" or any other color
+    $('#bubble .button').click(function() {
+      var index = $(this).index() + 1;
+      var target = $('[data-tab=' + index + ']');
+      var targetLeft = target.position().left;
+      $('#slide.row').animate({
+        left: -1 * targetLeft
+        }, 600, "swing", function() {
+          target.prevAll().detach().appendTo($(this));
+          $(this).removeAttr('style');
+          activate();
+      });
+    });
+
+    // by default, slide every 10 seconds
+    setInterval(leftMove, 10000);
+  });

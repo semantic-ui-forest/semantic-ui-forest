@@ -1,0 +1,61 @@
+.ui.fixed.borderless.huge.menu
+  .ui.container.grid
+    .computer.only.row
+      a.header.item Project Name
+      a.active.item Home
+      a.item About
+      a.item Contact
+      a.ui.dropdown.item
+        | Dropdown
+        i.dropdown.icon
+        .menu
+          .item Action
+          .item Another action
+          .item Something else here
+          .ui.divider
+          .header Navbar header
+          .item Seperated link
+          .item One more seperated link
+
+.ui.basic.segment
+  .ui.container.grid
+    .row
+      .column
+        h1.ui.huge.header Sticky footer with fixed navbar
+        .ui.divider
+        p.lead Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with "ui fixed menu".
+        p Back to <a href="/templates/bootstrap/sticky-footer/">the default sticky footer</a> minus the navbar.
+
+.ui.footer.basic.segment
+  .ui.container
+    p Place sticky footer content here.
+
+script src='/static/dist/semantic-ui/semantic.min.js'
+
+sass:
+  body
+    display: flex
+    flex-direction: column
+
+  .ui.fixed.menu
+    background-color: #f5f5f5
+
+  .ui.container.grid
+    h1.ui.header
+      margin-top: 2em
+      font-size: 36px
+    p.lead
+      font-size: 21px
+      line-height: 1.5
+
+  .ui.footer.segment
+    position: fixed
+    bottom: 0
+    width: 100%
+    margin-bottom: 0
+    background-color: #f5f5f5
+
+javascript:
+  $(document).ready(function() {
+    $('.ui.dropdown').dropdown();
+  });

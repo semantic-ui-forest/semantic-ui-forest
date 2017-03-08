@@ -1,0 +1,59 @@
+.ui.inverted.vertical.center.aligned.segment
+  .ui.container
+    .ui.massive.borderless.inverted.menu
+      h1.header.item Color
+      .right.item
+        .ui.massive.secondary.inverted.pointing.menu
+          a.active.item Home
+          a.item Feature
+          a.item Contact
+
+  .ui.text.container
+    h1.ui.inverted.header Cover your page.
+    p
+      | Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.
+    .ui.massive.white.button Learn more
+
+  .ui.inverted.vertical.footer.segment
+    | Cover template for <a href="http://semantic-ui.com">Semantic-UI</a>, by <a href="https://github.com/semantic-ui-forest">@Semantic-UI-Forest</a>.
+
+
+sass:
+  .ui.inverted.vertical.segment
+    // Make the segment take up full screen
+    height: 100vh
+
+    h1.header.item
+      font-size: 2em
+    a.item
+      font-size: 1.2em
+
+    .ui.text.container
+      // This will put the text container in the middle of the page
+      height: 300px
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      margin: auto
+
+      h1.header
+        font-size: 3em
+      p
+        font-size: 1.6em
+        line-height: 1.6
+
+
+    .ui.footer.segment
+      // Make the footer segment stay at the bottom
+      height: 80px
+      width: 100%
+      position: absolute
+      bottom: 0
+      font-size: 1.2em
+
+      color: gray
+      a
+        color: white
+

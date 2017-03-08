@@ -1,0 +1,219 @@
+.ui.inverted.huge.borderless.fixed.fluid.menu
+  a.header.item Project name
+  .right.menu
+    .item
+      .ui.small.input
+        input[placeholder="Search..."]
+    a.item Dashboard
+    a.item Settings
+    a.item Profile
+    a.item Help
+
+.ui.grid
+  .row
+    .column[id="sidebar"]
+      .ui.secondary.vertical.fluid.menu
+        a.active.item Overview
+        a.item Reports
+        a.item Analytics
+        a.item Export
+        .ui.hidden.divider
+        a.item Nav item
+        a.item Nav item again
+        a.item One more nav
+        a.item Another nav item
+        a.item More navigation
+        .ui.hidden.divider
+        a.item Macintosh
+        a.item Linux
+        a.item Windows
+
+    .column[id="content"]
+      .ui.grid
+        .row
+          h1.ui.huge.header Dashboard
+        .ui.divider
+        .four.column.center.aligned.row
+          .column
+            img.ui.centered.small.circular.image src="/static/images/templates/semantic-ui/wireframe/square-image.png"
+            .ui.hidden.divider
+            .ui.large.green.label Label
+            p Something else
+          .column
+            img.ui.centered.small.circular.image src="/static/images/templates/semantic-ui/wireframe/square-image.png"
+            .ui.hidden.divider
+            .ui.large.blue.label Label
+            p Something else
+          .column
+            img.ui.centered.small.circular.image src="/static/images/templates/semantic-ui/wireframe/square-image.png"
+            .ui.hidden.divider
+            .ui.large.pink.label Label
+            p Something else
+          .column
+            img.ui.centered.small.circular.image src="/static/images/templates/semantic-ui/wireframe/square-image.png"
+            .ui.hidden.divider
+            .ui.large.red.label Label
+            p Something else
+
+        .ui.hidden.section.divider
+
+        .row
+          h1.ui.huge.header Section title
+        .ui.divider
+
+        .row
+          table.ui.single.line.striped.selectable.table
+            thead
+              tr
+                th #
+                th Header
+                th Header
+                th Header
+                th Header
+            tbody
+              tr
+                td 1,001
+                td Lorem
+                td ipsum
+                td dolor
+                td sit
+              tr
+                td 1,002
+                td amet
+                td consectetur
+                td adipiscing
+                td elit
+              tr
+                td 1,003
+                td Integer
+                td nec
+                td odio
+                td Praesent
+              tr
+                td 1,003
+                td libero
+                td Sed
+                td cursus
+                td ante
+              tr
+                td 1,004
+                td dapibus
+                td diam
+                td Sed
+                td nisi
+              tr
+                td 1,005
+                td Nulla
+                td quis
+                td sem
+                td at
+              tr
+                td 1,006
+                td nibh
+                td elementum
+                td imperdiet
+                td Duis
+              tr
+                td 1,007
+                td sagittis
+                td ipsum
+                td Praesent
+                td mauris
+              tr
+                td 1,008
+                td Fusce
+                td nec
+                td tellus
+                td sed
+              tr
+                td 1,009
+                td augue
+                td semper
+                td porta
+                td Mauris
+              tr
+                td 1,010
+                td massa
+                td Vestibulum
+                td lacinia
+                td arcu
+              tr
+                td 1,011
+                td eget
+                td nulla
+                td Class
+                td aptent
+              tr
+                td 1,012
+                td taciti
+                td sociosqu
+                td ad
+                td litora
+              tr
+                td 1,013
+                td torquent
+                td per
+                td conubia
+                td nostra
+              tr
+                td 1,014
+                td per
+                td inceptos
+                td himenaeos
+                td Curabitur
+              tr
+                td 1,015
+                td sodales
+                td ligula
+                td in
+                td libero
+
+
+sass:
+  body
+    display: relative
+
+  #sidebar
+    position: fixed
+    top: 51.8px
+    left: 0
+    bottom: 0
+    width: 18%
+    background-color: #f5f5f5
+    padding: 0px
+
+    .ui.menu
+      margin: 2em 0 0
+      font-size: 16px
+      > a.item
+        color: #337ab7
+        border-radius: 0 !important
+        &.active
+          background-color: #337ab7
+          color: white
+          border: none !important
+        &:hover
+          background-color: lighten(#337ab7, 10%)
+          color: white
+
+  #content
+    margin-left: 19%
+    width: 81%
+    margin-top: 3em
+    padding-left: 3em
+    float: left
+
+    > .ui.grid
+      padding-right: 4em
+      padding-bottom: 3em
+
+    h1
+      font-size: 36px
+
+    .ui.divider:not(.hidden)
+      margin: 0
+
+    table.ui.table
+      border: none
+      thead th
+        border-bottom: 2px solid #eee !important

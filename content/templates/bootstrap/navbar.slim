@@ -1,0 +1,109 @@
+.ui.grid.container
+  .computer.only.row
+    .ui.borderless.huge.fluid.menu
+      a.header.item Project Name
+      a.active.item Home
+      a.item About
+      a.item Contact
+      a.ui.dropdown.item
+        | Dropdown
+        i.dropdown.icon
+        .menu
+          .item Action
+          .item Another action
+          .item Something else here
+          .ui.divider
+          .header Navbar header
+          .item Seperated link
+          .item One more seperated link
+                    
+      .right.menu
+        a.active.item href="#" Default
+        a.item  href="/templates/bootstrap/navbar-static-top/" Static top
+        a.item  href="/templates/bootstrap/navbar-fixed-top/" Fixed top
+
+  .tablet.mobile.only.row
+    .ui.borderless.huge.fluid.menu
+      a.header.item  Project Name
+      .right.menu
+        a.menu.item
+          .ui.basic.icon.toggle.button
+            i.content.icon
+    .ui.vertical.accordion.borderless.fluid.menu
+      a.active.item  Home
+      a.item  About
+      a.item  Contact
+      .item
+        .title
+          | Dropdown
+          i.dropdown.icon
+        .content
+          .item Action
+          .item Another action
+          .item Something else here
+          .ui.divider
+          .header.item Navbar header
+          .item Seperated link
+          .item One more seperated link
+      .ui.divider
+      a.active.item href="#" Default
+      a.item  href="/templates/bootstrap/navbar-static-top/" Static top
+      a.item  href="/templates/bootstrap/navbar-fixed-top/" Fixed top
+
+  .row
+    .ui.message
+      h1.ui.huge.header Navbar example 
+      p.lead
+        | This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.
+      a.ui.big.primary.button View navbar docs &raquo; 
+                       
+
+script src='/static/dist/semantic-ui/semantic.min.js'
+
+sass:
+  .ui.borderless.huge.menu
+    background-color: rgb(248, 248, 248)
+    .header.item
+      font-size: 1.2em
+  
+  .ui.vertical.menu
+
+    // by default, this menu is hidden
+    display: none
+    background-color: rgb(248, 248, 248)
+
+    // keep the dropdown icon close to "Dropdown" text
+    .item .title .dropdown.icon
+      float: none
+
+    .item .content .item
+      padding: 0.5em 1em
+
+    // transform the header in vertical menu to uppercase
+    .header.item
+      text-transform: uppercase
+
+  .ui.message
+    background-color: rga(238, 238, 238)
+    box-shadow: none
+    padding: 5em 4em
+
+    h1.ui.header
+      font-size: 4.5em
+
+    p.lead
+      font-size: 1.3em
+      color: rgb(51, 51, 51)
+      line-height: 1.4
+      font-weight: 300
+
+javascript:
+  $(document).ready(function() {
+    $('.ui.dropdown').dropdown();
+    $('.ui.accordion').accordion();
+
+    // bind "hide and show vertical menu" event to top right icon button 
+    $('.ui.toggle.button').click(function() {
+      $('.ui.vertical.menu').toggle("250", "linear")
+    });
+  });

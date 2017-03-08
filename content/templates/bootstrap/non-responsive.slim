@@ -1,0 +1,95 @@
+.ui.fixed.borderless.big.menu
+  .ui.container
+    a.header.item Project Name
+    a.active.item Home
+    a.item About
+    a.item Contact
+    a.ui.dropdown.item
+      | Dropdown
+      i.dropdown.icon
+      .menu
+        .item Action
+        .item Another action
+        .item Something else here
+        .ui.divider
+        .header Navbar header
+        .item Seperated link
+        .item One more seperated link
+    .item
+      .ui.form
+        .inline.field
+          .ui.input
+            input type="text" placeholder="Search"
+          .ui.button Submit
+    .right.menu
+      a.item href="#" Link
+      a.item href="#" Link
+      a.item href="#" Link
+
+.ui.container.grid
+  .column.row
+    .ui.basic.segment
+      h1.ui.huge.header  Non-responsive Semantic-UI
+      p.lead In fact, Semantic-UI's grid system, container and many other components are by default "non-responsive", they will <b>grow</b> or <b>shrink</b> as screen width changes, but they will not stack vertically on a small screen, unless you add "stackable" to it. You can also fix the container's width with simple CSS.
+      p.lead Here are some keywords related to responsiveness:
+      .ui.bulleted.list
+        .item <b>Stackable</b>: stack the items vertically on small screens
+        .item <b>Doubling</b>: double the items' width on every screen width breakpoint jump
+        .item <b>Computer, tablet, mobile only</b>: only show the elements on specific devices.
+        .item <b>Fluid</b>: make the elements take all the possible space horizontally
+        .item <b>Unstackable</b>: never stack the elements even on small screens
+      .ui.section.divider
+
+      h2.ui.big.header What changes
+      p Note that we have set the container's width to 970px and max-width to none on this page, so on small screens or narrower browser viewport, some contents will be compressed together and not be visible.
+      h2.ui.big.header Regarding navbars
+      p Navbars or menus in Semantic-UI are also non stackable by default, if you want, you can set a "ui stackable menu", which will become vertically stacked on small screens. As for collapsing navbar, you can use "computer only", "tablet only" or "mobile only" to control the actions on differnt screens, here is an example: <a href="/templates/bootstrap/navbar-fixed-top/">reponsive navbar fixed at top</a>.
+      h2.ui.big.header Browsers, scrolling, and fixed elements
+      p Non-responsive layouts highlight a key drawback to fixed elements. Any fixed component, such as a fixed navbar, will not be scrollable when the viewport becomes narrower than the page content. In other words, given the non-responsive container width of 970px and a viewport of 800px, you'll potentially hide 170px of content.
+      p There is no way around this as it's default browser behavior. The only solution is a responsive layout or using a non-fixed element.
+      h2.ui.big.header Non-responsive grid system
+      .ui.three.column.grid
+        .column
+          p One third
+        .column
+          p One third
+        .column
+          p One third
+
+
+script src='/static/dist/semantic-ui/semantic.min.js'
+
+sass:
+  body > .ui.fixed.menu
+    background-color: #f5f5f5
+    .ui.container
+      width: 970px
+      max-width: none !important
+    .item
+      padding-top: 0
+      padding-bottom: 0
+
+  body > .ui.container.grid
+    width: 970px !important
+    max-width: none !important
+    > .column.row
+      margin-top: 4em
+    h1
+      font-size: 36px
+
+    .row .ui.grid
+      .column
+        background-color: rgba(86, 61, 124, 0.15)
+        border: solid 1px rgba(85, 61, 124, 0.2)
+        margin-top: 1em
+        margin-bottom: 1em
+
+  p.lead
+    font-size: 16px
+    line-height: 1.4
+
+
+javascript:
+  $(document).ready(function() {
+    $('.ui.dropdown').dropdown();
+  });

@@ -1,0 +1,68 @@
+.ui.center.aligned.grid
+  .ui.container
+    h1.ui.huge.header Please sign in 
+    form.ui.large.form
+      .field
+        .ui.left.icon.input
+          i.user.icon
+          input name="email" placeholder=("E-mail address") type="text" /
+      .field
+        .ui.left.icon.input
+          i.lock.icon
+          input name="password" placeholder="Password" type="password" /
+      .field
+        .ui.checkbox
+          input type="checkbox" tabindex="0" class="hidden" /
+          label Remember me
+      .ui.fluid.large.primary.submit.button Sign in
+
+script src='/static/dist/semantic-ui/semantic.min.js'
+
+sass:
+  body
+    background-color: #eee 
+  
+  .ui.container 
+    margin-top: 6em 
+    max-width: 22em !important
+
+javascript:
+  $(document)
+    .ready(function() {
+      $('.ui.checkbox').checkbox();
+      $('.ui.form')
+        .form({
+          fields: {
+            email: {
+              identifier  : 'email',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter your e-mail'
+                },
+                {
+                  type   : 'email',
+                  prompt : 'Please enter a valid e-mail'
+                }
+              ]
+            },
+            password: {
+              identifier  : 'password',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter your password'
+                },
+                {
+                  type   : 'length[6]',
+                  prompt : 'Your password must be at least 6 characters'
+                }
+              ]
+            }
+          },
+          inline: true,
+          on: 'blur'
+        })
+      ;
+    })
+  ;
