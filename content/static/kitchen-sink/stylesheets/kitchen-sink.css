@@ -206,3 +206,12 @@ h4 + .dimmer.demo {
 .example > i.code.icon:before {
   content: '\f121';
 }
+
+/* Tab component's last bottom attached segment's margin-bottom */
+.ui.segment[class*="bottom attached"]:last-child {
+  margin-bottom: 1em;
+}
+
+.ui.tab.segment:last-child {
+  margin-bottom: 1em;
+}
