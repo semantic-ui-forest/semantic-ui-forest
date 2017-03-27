@@ -1,5 +1,5 @@
 css:
-  - /static/dist/semantic-ui/semantic.lumen.min.css
+  - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.lumen.min.css
 
 meta:
   header: Lumen

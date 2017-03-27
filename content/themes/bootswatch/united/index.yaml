@@ -1,5 +1,5 @@
 css:
-  - /static/dist/semantic-ui/semantic.united.min.css
+  - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.united.min.css
 
 meta:
   header: United

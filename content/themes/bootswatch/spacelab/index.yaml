@@ -1,5 +1,5 @@
 css:
-  - /static/dist/semantic-ui/semantic.spacelab.min.css
+  - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.spacelab.min.css
 
 meta:
   header: Spacelab

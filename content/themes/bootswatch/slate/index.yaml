@@ -1,5 +1,5 @@
 css:
-  - /static/dist/semantic-ui/semantic.slate.min.css
+  - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.slate.min.css
 
 meta:
   header: Slate

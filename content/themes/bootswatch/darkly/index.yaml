@@ -1,5 +1,5 @@
 css:
-  - /static/dist/semantic-ui/semantic.darkly.min.css
+  - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.darkly.min.css
 
 meta:
   header: Darkly

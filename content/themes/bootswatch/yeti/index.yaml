@@ -1,5 +1,5 @@
 css:
-  - /static/dist/semantic-ui/semantic.yeti.min.css
+  - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.yeti.min.css
 
 meta:
   header: Yeti

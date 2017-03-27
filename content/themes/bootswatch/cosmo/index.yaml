@@ -1,5 +1,5 @@
 css:
-  - /static/dist/semantic-ui/semantic.cosmo.min.css
+  - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.cosmo.min.css
 
 meta:
   header: Cosmo

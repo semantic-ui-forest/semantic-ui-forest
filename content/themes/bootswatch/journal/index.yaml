@@ -1,5 +1,5 @@
 css:
-  - /static/dist/semantic-ui/semantic.journal.min.css
+  - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.journal.min.css
 
 meta:
   header: Journal

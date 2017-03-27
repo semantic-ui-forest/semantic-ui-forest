@@ -1,5 +1,5 @@
 css:
-  - /static/dist/semantic-ui/semantic.twitter.min.css
+  - /static/dist/semantic-ui/forest-themes/semantic-ui/semantic.twitter.min.css
 
 meta:
   header: Twitter

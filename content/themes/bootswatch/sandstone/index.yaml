@@ -1,5 +1,5 @@
 css:
-  - /static/dist/semantic-ui/semantic.sandstone.min.css
+  - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.sandstone.min.css
 
 meta:
   header: Sandstone
