@@ -93,7 +93,8 @@ end
 # compile '/partials/**/*' do ; end
 
 # let route rule return nil, so that no output file is created
-route '/partials/**/*' do ; nil ; end
+route '/partials/**/*' do; nil; end
+route '/themes/_base.slim' do; nil; end
 
 compile '**/*' do
   if item.binary?
