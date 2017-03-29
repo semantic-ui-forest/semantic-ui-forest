@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /static
 Allow: /static/image
-Sitemap: http://nanoc-template.github.io/sitemap.xml
+Sitemap: http://semantic-ui-forest.com/sitemap.xml
