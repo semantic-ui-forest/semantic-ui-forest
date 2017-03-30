@@ -2,7 +2,7 @@ doctype html
 html
   head
     == render '/header.*'
-  body lang == (@item[:lang] || 'cn')
+  body
     .pusher
       #content
         == render '/menu.*'
