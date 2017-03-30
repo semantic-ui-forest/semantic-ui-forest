@@ -42,13 +42,13 @@ nav.ui.borderless.menu
     a.item href="/posts" Blog
     a.item href="/notes" Help
     .right.menu
-      .item.desktop-only
-        form.ui.form target="_blank" method="get" action="https://www.google.com/search"
-          input type="hidden" value="site:semantic-ui-forest.com" name="q"
-          .ui.left.icon.input
-            input type="text" placeholder="Search..." name="q"
-            i.search.icon
       a.item href="https://github.com/semantic-ui-forest"
         i.github.icon
       a.item.desktop-only href="/atom.xml"
         i.feed.icon
+      .item.desktop-only
+        form.ui.form target="_blank" method="get" action="https://www.google.com/search"
+          input type="hidden" value="site:semantic-ui-forest.com" name="q"
+          .ui.left.icon.transparent.input
+            input type="text" placeholder="Search..." name="q"
+            i.search.icon
