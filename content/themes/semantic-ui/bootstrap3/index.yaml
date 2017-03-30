@@ -1,5 +1,6 @@
 css:
   - /static/dist/semantic-ui/forest-themes/semantic-ui/semantic.bootstrap3.min.css
+  - /static/stylesheets/rail.css
 
 meta:
   header: Bootstrap3

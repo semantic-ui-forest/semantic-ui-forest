@@ -1,5 +1,6 @@
 css:
   - /static/dist/semantic-ui/forest-themes/semantic-ui/semantic.github.min.css
+  - /static/stylesheets/rail.css
 
 meta:
   header: Github

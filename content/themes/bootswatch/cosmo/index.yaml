@@ -1,5 +1,6 @@
 css:
   - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.cosmo.min.css
+  - /static/stylesheets/rail.css
 
 meta:
   header: Cosmo
