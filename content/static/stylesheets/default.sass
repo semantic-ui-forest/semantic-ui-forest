@@ -7,10 +7,19 @@
   font-feature-settings: "smcp" $smcp, "onum" $onum
 
 /* Basic style for some HTML elements
-body
+body.default
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   text-rendering: optimizeLegibility
+  background-image: url("/static/images/common/texturetastic_gray.png") !important
+  background-repeat: repeat !important
+
+  & .ui.menu
+    background: none
+  & nav.ui.menu
+    border-radius: 0
+    box-shadow: none
+    margin-bottom: 0
 
 footer
   &.center.aligned p
@@ -75,8 +84,6 @@ img
     margin: 3rem 0 1rem
 
 nav.ui.menu
-  box-shadow: none
-  border-radius: 0
   &.ui.container
     > a.item:first-child
       margin-left: -1.14285714em
@@ -85,13 +92,10 @@ nav.ui.menu
       padding-right: 0
 
 /* Styles for semantic-ui elements
-.ui
-  &.alternative.segment
-    background: #FFFFFF
-  &.vertical.stripe.segment
-    padding: 4rem 0
-  &.vertical.segment
-    padding: 2rem 0
+.ui.vertical.stripe.segment
+  padding: 4rem 0
+  &:nth-child(odd)
+    background-color: rgba(125, 129, 133, 0.1)
 
 .ui
   &.menu
