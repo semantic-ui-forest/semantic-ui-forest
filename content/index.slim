@@ -6,28 +6,56 @@ lang: en
   .ui.container
     img.logo src="/static/logo/gravatar/gravatar.svg"
 
-    h1 Semantic-UI-Forest
-    iframe src="https://ghbtns.com/github-btn.html?user=semantic-ui-forest&repo=semantic-ui-forest&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="24"
-    iframe src="https://ghbtns.com/github-btn.html?user=semantic-ui-forest&repo=semantic-ui-forest&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="75" height="24"
+    h1.ui.header Semantic-UI-Forest
     p Collection of design, themes and templates for <a href="http://semantic-ui.com/">Semantic-UI</a>.
+    .ui.hidden.divider
+    a.ui.labeled.icon.primary.button href="https://semantic-ui-forest.slack.com"
+      i.slack.icon
+      | Slack
+    a.ui.right.labeled.icon.primary.button href="https://github.com/semantic-ui-forest/"
+      i.github.icon
+      | Github
+
 
 .ui.vertical.stripe.segment
   .ui.grid.stackable.container
     .row
-      .column
-        h2 Features
-    .row
       .ui.three.column.stackable.divided.grid
         .row
           .column
-            h4 Open Source
-            p Semantic-UI-Forest themes and templates are released under BSD 3-clause License.
+            h3.ui.header
+              i.green.paint.brush.icon
+              | Themes
+            p Prebuilt and ported 20+ packed themes from Semantic-UI and the charming <a href="https://bootswatch.com/">Bootswatch</a>.
           .column
-            h4 Simple
-            p Simply download a CSS file and replace the one in <a href="http://semantic-ui.com/">Semantic-UI</a>.
+            h3.ui.header
+              i.green.dashboard.icon
+              | Templates
+            p Packed and ported 20+ templates from Semantic-UI and <a href="https://getbootstrap.com/getting-started/#examples">Bootstrap</a> examples.
           .column
-            h4 Updated
-            p All themes and templates are tuned for lastet Semantic-UI release.
+            h3.ui.header
+              i.green.laptop.icon
+              | Awesome
+            p Drafted an <a href="https://github.com/semantic-ui-forest/awesome-semantic-ui">awesome list</a> of documentations, libraries, tools and sites built with Semantic-UI.
+
+        .ui.hidden.divider
+
+        .row
+          .column
+            h3.ui.header
+              i.green.code.icon
+              | Free & Open Source
+            p All free semantic-ui-forest themes and templates are released under <a href="https://github.com/semantic-ui-forest/forest-themes/blob/master/LICENSE">BSD 3-clause</a> license.
+          .column
+            h3.ui.header
+              i.green.check.icon
+              | Easy & Simple
+            p Provide preview and download links for each theme and template, which will <b>save you tons of time</b>.
+          .column
+            h3.ui.header
+              i.green.star.icon
+              | Tuned & Updated
+            p All themes and templates are tuned and updated based on the lastest stable version of Semantic-UI.
 
 .ui.vertical.stripe.segment
   .ui.grid.stackable.container
