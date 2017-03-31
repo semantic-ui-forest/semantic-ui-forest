@@ -14,12 +14,21 @@ body.default
   background-image: url("/static/images/common/concrete_seamless.png") !important
   background-repeat: repeat !important
 
-  & .ui.menu
+  .ui.menu
     background: none
-  & nav.ui.menu
+  nav.ui.menu
     border-radius: 0
     box-shadow: none
     margin-bottom: 0
+
+    .item:last-child
+      margin-right: -1.1428rem
+
+    .brand.item
+      margin-left: -1.1428rem
+
+      img
+        margin-right: 1rem
 
 footer
   background-color: rgba(64, 64, 64, 0.08)
