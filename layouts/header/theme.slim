@@ -14,9 +14,6 @@ title == @item[:title] || config[:meta][:title]
 link href="/static/stylesheets/default.css" rel="stylesheet" type="text/css"
 link href="/static/stylesheets/pandoc-code-highlight.css" rel="stylesheet" type="text/css"
 
-- unless @item.identifier.to_s.start_with?('/themes/')
-  link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css"
-
 - not @item[:css].nil? || @item[:css].each do |css|
   link href="#{css}" rel="stylesheet" type="text/css"
 
