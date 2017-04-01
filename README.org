@@ -2,6 +2,9 @@
 
 * Semantic-UI-Forest(http://semantic-ui-forest.com)
 
+  #+ATTR_HTML: title="Join the chat at https://gitter.im/semantic-ui-forest/forest"
+  [[https://gitter.im/semantic-ui-forest/forest?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge][file:https://badges.gitter.im/semantic-ui-forest/forest.svg]]
+
 ** Introduction
 
 Semantic-UI-Forest is a collection of design, themes and templates for [[http://semantic-ui.com/][Semantic-UI]].
