@@ -1,0 +1,27 @@
+.ui.vertical.stripe.segment
+  .ui.container
+    h1.ui.header
+      | Blog
+      .sub.header.quote
+
+.ui.vertical.stripe.segment
+  .ui.divided.grid.stackable.container
+    .row
+      article.eleven.wide.column
+       - sorted_articles.each do |article|
+          .ui.vertical.segment
+            h2.ui.header
+              == link_to(article[:title], article.path)
+              .sub.header
+                == article[:created_at].to_date
+            == summary(article)
+      aside.five.wide.column
+        .ui.small.header Categories
+        .ui.small.vertical.fluid.menu
+          - all_attributes(:category).each do |category|
+              == link_attribute(:category, category)
+
+        .ui.small.header Tags
+        .ui.small.vertical.fluid.menu
+          - all_attributes(:tags).each do |tags|
+              == link_attribute(:tags, tags)

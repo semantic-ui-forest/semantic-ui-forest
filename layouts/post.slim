@@ -1,35 +1,40 @@
-header.row.article-head
-  .column
-    h1 == @item[:title]
-    hr
-.row.article-body
-  section.twelve.wide.column
-    == yield
-    hr
-    div#disqus_thread
-    noscript Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-  aside.four.wide.column
-    .ui.small.header Committed
-    date
-      == @item[:created_at].to_date
+.ui.vertical.stripe.segment
+  .ui.container
+    h1.ui.header
+      == @item[:title]
+      .sub.header.quote
 
-    .ui.small.header Category
-    .ui.list
-      .item
-        a href="/categories##{@item[:category].downcase}"
-          .ui.label
+.ui.vertical.stripe.segment
+  .ui.divided.grid.stackable.container
+    .row
+      article.eleven.wide.column
+        == yield
+        hr
+        div#disqus_thread
+        noscript Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+      aside.five.wide.column
+        .ui.small.header Committed
+        date
+          i.calendar.icon
+          == @item[:created_at].to_date
+
+        .ui.small.header Category
+        .ui.small.vertical.fluid.menu
+          a.item href="/categories##{@item[:category].downcase}"
             = @item[:category]
             sup == articles_with_attribute(:category, @item[:category]).length
 
-    .ui.small.header Tags
-    .ui.list
-      - @item[:tags].each do |tag|
-        .item
-          a href="/tags##{tag.downcase}"
-            .ui.label
+        .ui.small.header Tags
+        .ui.small.vertical.fluid.menu
+          - @item[:tags].each do |tag|
+            a.item href="/tags##{tag.downcase}"
               = tag
               sup == articles_with_attribute(:tags, tag).length
-    .ui.small.header Links
-    .ui.small.two.item.menu
-      == previous_link
-      == next_link
+
+        .ui.small.header Links
+        .ui.small.two.item.fluid.menu
+          == previous_link
+          == next_link
+
+javascript:
+  $('article > h2').addClass('ui').addClass('dividing').addClass('header');

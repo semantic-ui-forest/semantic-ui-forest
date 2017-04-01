@@ -1,0 +1,25 @@
+---
+title: Tags
+---
+
+.ui.vertical.stripe.segment
+  .ui.container
+    h1.ui.header == @item[:title]
+
+.ui.vertical.stripe.segment
+  .ui.divided.grid.stackable.container
+    .row
+      article.eleven.wide.column
+        - articles_by_attribute(:tags).each_pair do |tag, articles|
+          h2.ui.dividing.header id=tag
+            == tag
+            sup == articles.length
+          .ui.bulleted.list
+            - articles.each do |article|
+              li.item
+                .content
+                  .title.font-kai == link_to(article[:title], article.path)
+      aside.five.wide.column
+        .ui.small.vertical.fluid.sticky.menu
+          - all_attributes(:tags).each do |tag|
+              == link_attribute(:tags, tag)

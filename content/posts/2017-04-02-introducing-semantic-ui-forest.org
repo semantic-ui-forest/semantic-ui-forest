@@ -1,0 +1,28 @@
+** Overview
+
+[[https://semantic-ui.com][Semantic-UI]] is a UI component framework based around useful principles from
+natural language. As its motto said, "User interface is the language of the
+web." It allows developers to build beautiful websites fast, with *concise
+HTML*, *intuitive javascript*, and *simplified debugging*, helping
+make front-end development a delightful experience.
+
+The key features of Semantic-UI:
+- 50+ UI elements
+- 3000 + CSS variables
+- 3 Levels of variable inheritance (similar to SublimeText)
+- Built with EM values for responsive design
+- Flexbox friendly
+
+Now it's the time to ask that very important question --- of course I
+know that you will finally shout it out loud --- "Tell me, what's the
+difference between Bootstrap and Semantic-UI?" Aha, this is a huge
+question. Actually, Semantic-UI has already show us an [[http://learnsemantic.com/preface/whats-different.html][answer]].
+
+*** Semantic-UI-Forest
+
+Semantic-UI-Forest provides collection of design, themes and templates for
+Semantic-UI.
+
+Years ago, when I first met Semantic-UI, I fall in love with it, made serveral
+websites with it. I have to say that it's quite a delightful experience. And
+soon Semantic-UI becames my favourite frontend CSS framework.

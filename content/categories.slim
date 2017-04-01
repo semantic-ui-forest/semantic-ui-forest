@@ -1,0 +1,25 @@
+---
+title: Categories
+---
+
+.ui.vertical.stripe.segment
+  .ui.container
+    h1.ui.header == @item[:title]
+
+.ui.vertical.stripe.segment
+  .ui.divided.grid.stackable.container
+    .row
+      article.eleven.wide.column
+        - articles_by_attribute(:category).each_pair do |category, articles|
+          h2.ui.dividing.header id=category
+            == category
+            sup == articles.length
+          .ui.bulleted.list
+            - articles.each do |article|
+              li.item
+                .content
+                  .title.font-kai == link_to(article[:title], article.path)
+      aside.five.wide.column
+        .ui.small.vertical.fluid.sticky.menu
+          - all_attributes(:category).each do |category|
+              == link_attribute(:category, category)

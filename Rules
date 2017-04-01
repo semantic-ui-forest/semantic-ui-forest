@@ -57,7 +57,6 @@ compile '/posts/**/*' do
                                       :to => :html5}, :toc, :smart]
   end
   layout '/post.*'
-  layout '/content.*'
   layout item[:layout] || '/default.*'
 end
 
