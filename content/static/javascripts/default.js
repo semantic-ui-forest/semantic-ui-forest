@@ -11,7 +11,7 @@ function get_quote() {
       + " practice, there is.",
     "The best way to predict future, is to create it.",
     "Hope is a good thing, maybe the best of things, and no good thing ever"
-      + " dies",
+      + " dies.",
     "Most of the world's major problems result from machines that fail to work,"
       + " and people who fail to think.",
     "When you don’t create things, you become defined by your tastes rather than"
