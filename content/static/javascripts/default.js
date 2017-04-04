@@ -21,6 +21,14 @@ function get_quote() {
   return quotes[get_random_int(0, quotes.length - 1)];
 }
 
+function show_disqus_comments(event) {
+  $.ajaxSetup({cache: true});
+  $.getScript("http://semantic-ui-forest.disqus.com/embed.js");
+  $.ajaxSetup({cache: false});
+  setTimeout(function () {
+    $('#show-disqus-comments').parent().fadeOut(3000);
+  });
+}
 
 $(document).ready(function() {
   // put your code here.

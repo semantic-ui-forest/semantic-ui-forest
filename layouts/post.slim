@@ -9,7 +9,9 @@
     .row
       article.eleven.wide.column
         == yield
-        hr
+        .ui.divider
+        .ui.small.one.item.menu
+          a.item id='show-disqus-comments' onclick='show_disqus_comments()' Show Disqus Comments
         div#disqus_thread
         noscript Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
       aside.five.wide.column
