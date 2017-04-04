@@ -1,3 +1,9 @@
+body.theme {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
 .example {
   margin: 2em 0em;
   padding: 2em 0em;
