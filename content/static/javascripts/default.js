@@ -35,7 +35,7 @@ $(document).ready(function() {
   $('.ui.sticky').sticky();
   $('.ui.dropdown').dropdown({on: 'click'});
   $('.item[data-tab]').tab();
-  $('.ui.menu:not(nav) .item').on('click', function() {
+  $('.ui.menu:not(nav) .item:not(.dropdown)').on('click', function() {
     $(this).addClass('active').siblings().removeClass('active');
   });
   $(".quote").html(get_quote());
