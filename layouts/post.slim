@@ -20,6 +20,10 @@
           i.calendar.icon
           == @item[:created_at].to_date
 
+        .ui.small.header License
+        a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          img.cc-license src="/static/images/common/cc_byncsa.flat.guokr.svg"
+
         .ui.small.header Category
         .ui.small.vertical.fluid.menu
           a.item href="/categories##{@item[:category].downcase}"

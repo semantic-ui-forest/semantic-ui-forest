@@ -1,28 +1,173 @@
 ** Overview
 
+#+BEGIN_QUOTE
+The goal of Semantic UI is to narrow the divide between how we create meaning
+personally, through language, and how we construct meaning for computers.
+
+— http://learnsemantic.com/preface/introduction.html
+#+END_QUOTE
+
 [[https://semantic-ui.com][Semantic-UI]] is a UI component framework based around useful principles from
 natural language. As its motto said, "User interface is the language of the
 web." It allows developers to build beautiful websites fast, with *concise
-HTML*, *intuitive javascript*, and *simplified debugging*, helping
+HTML*, *intuitive JavaScript*, and *simplified debugging*, helping
 make front-end development a delightful experience.
 
-The key features of Semantic-UI:
+Key features of Semantic-UI:
 - 50+ UI elements
 - 3000 + CSS variables
-- 3 Levels of variable inheritance (similar to SublimeText)
+- 3 Levels of variable inheritance (similar to Sublime Text)
 - Built with EM values for responsive design
 - Flexbox friendly
 
-Now it's the time to ask that very important question --- of course I
-know that you will finally shout it out loud --- "Tell me, what's the
-difference between Bootstrap and Semantic-UI?" Aha, this is a huge
-question. Actually, Semantic-UI has already show us an [[http://learnsemantic.com/preface/whats-different.html][answer]].
 
-*** Semantic-UI-Forest
+*** Compared with Bootstrap?
+
+Now it's the time to ask that very important question --- of course I know that
+you will finally shout it out loud --- "Tell me, what's the difference between
+[[https://getbootstrap.com/][Bootstrap]] and Semantic-UI?" Aha, this is a huge question. Actually, Semantic-UI
+has already show us an official [[http://learnsemantic.com/preface/whats-different.html][answer]].
+
+Bootstrap has a much much more mature ecosystem than Semantic-UI --- it has tons
+of free and commercial templates and themes, while Semantic-UI has few --- and
+that's why we spent several hundreds of hours building this website for you,
+smart fellow developers.
+
+Besides, in our own experience, we feel more delightful when developing with
+Semantic-UI. Maybe code speaks more than words:
+
+*** Grid
+
+Semantic-UI:
+
+#+BEGIN_SRC html
+<main class="ui three column grid">
+  <aside class="column">1</aside>
+  <section class="column">2</section>
+  <section class="column">3</section>
+</main>
+#+END_SRC
+
+#+HTML: <div class="ui horizontal divider">VS</div>
+
+Bootstrap:
+
+#+BEGIN_SRC html
+<div class="row">
+  <div class="col-lg-4">1</div>
+  <div class="col-lg-4">2</div>
+  <div class="col-lg-4">3</div>
+</div>
+#+END_SRC
+
+*** Menu
+
+Semantic-UI:
+
+#+BEGIN_SRC html
+<nav class="ui menu">
+  <h3 class="header item">Title</h3>
+  <a class="active item">Home</a>
+  <a class="item">Link</a>
+  <a class="item">Link</a>
+  <span class="right floated text item">
+    Signed in as <a href="#">user</a>
+  </span>
+</nav>
+#+END_SRC
+
+#+HTML: <div class="ui horizontal divider">VS</div>
+
+Bootstrap:
+
+#+BEGIN_SRC html
+<div class="navbar">
+  <a class="navbar-brand" href="#">Title</a>
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Link</a></li>
+    <li><a href="#">Link</a></li>
+    <p class="navbar-text pull-right">Signed in as <a href="#" class="navbar-link">User</a></p>
+  </ul>
+</div>
+#+END_SRC
+
+*** Button
+
+Semantic UI:
+
+#+BEGIN_SRC html
+<button class="ui large button">
+  <i class="heart icon"></i>
+  Like it
+</button>
+#+END_SRC
+
+#+HTML: <div class="ui horizontal divider">VS</div>
+
+Bootstrap:
+
+#+BEGIN_SRC html
+<button type="button" class="btn btn-primary btn-lg">
+  <span class="glyphicon glyphicon-heart"></span>
+  Like
+</button>
+#+END_SRC
+
+** Semantic-UI-Forest
 
 Semantic-UI-Forest provides collection of design, themes and templates for
 Semantic-UI.
 
-Years ago, when I first met Semantic-UI, I fall in love with it, made serveral
-websites with it. I have to say that it's quite a delightful experience. And
-soon Semantic-UI becames my favourite frontend CSS framework.
+Years ago, when I first met Semantic-UI, I suddenly fall in love with it, made
+several websites with it. I have to say that it's quite a delightful experience.
+And soon Semantic-UI becames my favourite frontend CSS framework.
+
+As we said before, compared with Bootstrap, the ecosystem of Semantic-UI is
+small, so we decided to make some contributions, and then Semantic-UI-Forest was
+born. With several hundreds hours of work, it grew up to present with 22
+well-tested templates and 24 beautiful themes --- and yes, it's all free,
+released under BSD 3-clause license.
+
+*** Themes
+
+We have ported all 16 themes on famous [[https://bootswatch.com/][Bootswatch]], from Bootstrap to
+Semantic-UI, so you can use these most popular themes along with Semantic-UI
+right now. [[http://semantic-ui-forest.com/themes/bootswatch/cerulean/][Cerulean]], [[http://semantic-ui-forest.com/themes/bootswatch/cyborg/][Cyborg]], [[http://semantic-ui-forest.com/themes/bootswatch/journal/][Journal]], [[http://semantic-ui-forest.com/themes/bootswatch/superhero/][Superhero]], [[http://semantic-ui-forest.com/themes/bootswatch/united/][United]], etc., all these
+gorgeous themes are available for Semantic-UI. We've also prebuilt some
+Semantic-UI's bundled theme for you, such as [[http://localhost:3000/themes/semantic-ui/amazon/][Amazon]], [[http://localhost:3000/themes/semantic-ui/github/][Github]], [[http://localhost:3000/themes/semantic-ui/material/][Material]], [[http://localhost:3000/themes/semantic-ui/twitter/][Twitter]],
+etc.
+
+It's also ultra easy to apply themes. You could just click the ~Download~
+button, and replace the original ~semantic.min.css~ with the CSS files of the
+theme you've downloaded, that's it. With a new theme, your site would become
+unique, fresh and more impressive! Check it out by yourself:
+[[http://semantic-ui.forest.com/themes][http://semantic-ui.forest.com/themes]].
+
+*** Templates
+
+For those looking for templates to start a prototype quickly, we've also ported
+all official Bootstrap [[https://getbootstrap.com/getting-started/#examples][examples]] to Semantic-UI. Popular layouts such as [[http://semantic-ui-forest.com/templates/bootstrap/blog/][blog]],
+[[http://semantic-ui-forest.com/templates/bootstrap/dashboard/][dashboard]], [[http://localhost:3000/templates/bootstrap/navbar-static-top/][fixed navbar]], [[http://semantic-ui-forest.com/templates/semantic-ui/login/][login form]], [[http://semantic-ui-forest.com/templates/bootstrap/jumbotron/][jumbotron]], etc., are ready for any kinds of
+application right now. Of course, you can easily customize them with handy
+Semantic-UI classes at your will. Hit now:
+[[http://semantic-ui-forest.com/templates][http://semantic-ui-forest.com/templates]].
+
+** Contribute
+
+All themes, templates and even the site itself are open source on GitHub:
+
+- [[https://github.com/semantic-ui-forest/forest-themes][semantic-ui-forest/forest-themes]]: a collection of themes for Semantic UI.
+- [[https://github.com/semantic-ui-forest/semantic-ui-forest][semantic-ui-forest/semantic-ui-forest]]: source code for this website.
+- [[https://github.com/semantic-ui-forest/awesome-semantic-ui][semantic-ui-forest/awesome-semantic-ui]]: a curated list of awesome semantic-ui
+  documentations, libraries and resources.
+
+If you have any problems, feel free to open an issue, and, as we all know, "Pull
+requests are always welcome".
+
+Last but not least, we'd like to give many thanks and show our respect to
+[[https://semantic-ui.com/][Semantic-UI]] for this wonderful front-end framework, to [[https://nanoc.ws/][Nanoc]] for building static
+website easily and quickly, to [[https://bootswatch.com/][Bootswatch]] and [[https://getbootstrap.com/][Bootstrap]] that inspired us a lot,
+and to Github for hosting all of our work for free.
+
+Happy designing and coding!
