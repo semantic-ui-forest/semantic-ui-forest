@@ -135,7 +135,7 @@ We have ported all 16 themes on famous [[https://bootswatch.com/][Bootswatch]], 
 Semantic-UI, so you can use these most popular themes along with Semantic-UI
 right now. [[http://semantic-ui-forest.com/themes/bootswatch/cerulean/][Cerulean]], [[http://semantic-ui-forest.com/themes/bootswatch/cyborg/][Cyborg]], [[http://semantic-ui-forest.com/themes/bootswatch/journal/][Journal]], [[http://semantic-ui-forest.com/themes/bootswatch/superhero/][Superhero]], [[http://semantic-ui-forest.com/themes/bootswatch/united/][United]], etc., all these
 gorgeous themes are available for Semantic-UI. We've also prebuilt some
-Semantic-UI's bundled theme for you, such as [[http://localhost:3000/themes/semantic-ui/amazon/][Amazon]], [[http://localhost:3000/themes/semantic-ui/github/][Github]], [[http://localhost:3000/themes/semantic-ui/material/][Material]], [[http://localhost:3000/themes/semantic-ui/twitter/][Twitter]],
+Semantic-UI's bundled theme for you, such as [[http://semantic-ui-forest.com/themes/semantic-ui/amazon/][Amazon]], [[http://semantic-ui-forest.com/themes/semantic-ui/github/][Github]], [[http://semantic-ui-forest.com/themes/semantic-ui/material/][Material]], [[http://semantic-ui-forest.com/themes/semantic-ui/twitter/][Twitter]],
 etc.
 
 It's also ultra easy to apply themes. You could just click the ~Download~
@@ -148,7 +148,7 @@ unique, fresh and more impressive! Check it out by yourself:
 
 For those looking for templates to start a prototype quickly, we've also ported
 all official Bootstrap [[https://getbootstrap.com/getting-started/#examples][examples]] to Semantic-UI. Popular layouts such as [[http://semantic-ui-forest.com/templates/bootstrap/blog/][blog]],
-[[http://semantic-ui-forest.com/templates/bootstrap/dashboard/][dashboard]], [[http://localhost:3000/templates/bootstrap/navbar-static-top/][fixed navbar]], [[http://semantic-ui-forest.com/templates/semantic-ui/login/][login form]], [[http://semantic-ui-forest.com/templates/bootstrap/jumbotron/][jumbotron]], etc., are ready for any kinds of
+[[http://semantic-ui-forest.com/templates/bootstrap/dashboard/][dashboard]], [[http://semantic-ui-forest.com/templates/bootstrap/navbar-static-top/][fixed navbar]], [[http://semantic-ui-forest.com/templates/semantic-ui/login/][login form]], [[http://semantic-ui-forest.com/templates/bootstrap/jumbotron/][jumbotron]], etc., are ready for any kinds of
 application right now. Of course, you can easily customize them with handy
 Semantic-UI classes at your will. Hit now:
 [[http://semantic-ui-forest.com/templates][http://semantic-ui-forest.com/templates]].
