@@ -142,7 +142,7 @@ It's also ultra easy to apply themes. You could just click the ~Download~
 button, and replace the original ~semantic.min.css~ with the CSS files of the
 theme you've downloaded, that's it. With a new theme, your site would become
 unique, fresh and more impressive! Check it out by yourself:
-[[http://semantic-ui.forest.com/themes][http://semantic-ui.forest.com/themes]].
+[[http://semantic-ui-forest.com/themes][http://semantic-ui-forest.com/themes]].
 
 *** Templates
 
