@@ -1,0 +1,14 @@
+.ui.vertical.segment
+  .ui.container
+    h2.ui.huge.header
+      == @item[:meta][:header]
+      .sub.header
+        == @item[:meta][:sub_header]
+
+    .ui.four.item.stackable.tabs.menu
+      a.item.active data-tab="elements" Elements
+      a.item data-tab="collections" Collections
+      a.item data-tab="views" Views
+      a.item data-tab="modules" Modules
+
+== @items['/themes/_base.slim'].compiled_content
