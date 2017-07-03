@@ -1,0 +1,181 @@
+If you come here, we suppose you know what HTML and CSS are and have heard
+of Semantic-UI, that's enough and let's get started!
+
+** Without =npm=
+
+If you do not want to delve into =node=, =npm=, =gulp= or something like that, you can simply put the prebuilt CSS and JavaScript files into your HTML header to start using Semantic-UI immediately, almost the same way with jQuery.
+
+*** Create your =index.html=
+
+#+BEGIN_SRC html
+<html>
+  <head>
+  </head>
+  <body>
+    <div>
+      Default
+    </div>
+
+    <div>
+      <div>
+        Item A
+      </div>
+      <div>
+        Item B
+      </div>
+      <div>
+        Item C
+      </div>
+    </div>
+  </body>
+</html>
+#+END_SRC
+
+It looks like this:
+
+#+NAME: Simple HTML without Semantic-UI
+[[file:/static/images/posts/2017-06-29/simple-html.png]]
+
+*** Download the prebuilt Semantic-UI CSS and JS files
+
+Those files are in the official Semantic-UI repository on GitHub: https://github.com/Semantic-Org/Semantic-UI/tree/master/dist
+
+#+NAME: Prebuilt CSS and JS files in official Semantic-UI repo on GitHub
+[[file:/static/images/posts/2017-06-29/prebuilt-dist.png]]
+
+What we need here are =semantic.min.css= and =semantic.min.js=, add them to the header:
+
+#+BEGIN_SRC html
+<head>
+  <link href="./semantic.min.css" rel="stylesheet" type="text/css">
+  <script src="./jquery.min.js"></script>
+  <script src="./semantic.min.js"></script>
+</head>
+#+END_SRC
+
+Surely you detect the =jquery.min.js=, yes, dynamic Semantic-UI components like tab, sticky and all APIs need jQuery as a prerequisite. If you do not need JavaScript at all (like this example), you can remove the two =script= lines.
+
+For convenience, here is a link to jQuery library:
+https://code.jquery.com/jquery-3.1.1.min.js
+
+*** Write =ui= classes for =div= elements
+
+#+BEGIN_SRC html
+<body>
+  <div class="ui button">
+    Default
+  </div>
+
+  <div class="ui menu">
+    <div class="item">
+      Item A
+    </div>
+    <div class="item">
+      Item B
+    </div>
+    <div class="item">
+      Item C
+    </div>
+  </div>
+</body>
+#+END_SRC
+
+The page then looks like this now:
+
+#+NAME: HTML with prebuilt CSS and JS files
+[[file:/static/images/posts/2017-06-29/html-with-sui.png]]
+
+So you may be able to conclude that, =ui= plus =button= means a button style element,  =ui= plus =label= means a label style element and etc.. In Semantic-UI, all you need is merely the powerful keyword =ui=.
+
+The directory structure is intuitive:
+
+#+NAME: Simplest directory structure
+[[file:/static/images/posts/2017-06-29/simple-directory.png]]
+
+This example just show how you start to use Semantic-UI from scratch, for more detailed documentations on button, label, menu, grid, and other 50+ components, please refer to the official doc site:
+https://semantic-ui.com
+
+#+BEGIN_HTML
+<iframe width="640" height="360" src="https://www.youtube.com/embed/JyBKcfLUabc?list=PLya0UkqAf0pK31ArVGKpGMMM-1YKpct0V" frameborder="0" allowfullscreen></iframe>
+#+END_HTML
+
+
+** With =npm=
+
+If you feel comfortable with =npm= modules and building tools like =gulp=, that's fantastic, it's also extremely convenient to use Semantic-UI with these tools.
+
+Again, we start with the same =index.html= in the current working directory:
+
+#+NAME: Single index.html file
+[[file:/static/images/posts/2017-06-29/only-index.png]]
+
+If you do not install =gulp= yet, you can install it globally in your computer:
+
+#+BEGIN_SRC bash
+npm install -g gulp
+#+END_SRC
+
+
+*** Initiate =npm=
+
+#+BEGIN_SRC bash
+npm init
+#+END_SRC
+
+It will ask you for some information like project name, but you could press Enter to skip them all. The command will create a file named =package.json= in the current directory.
+
+#+NAME: package.json file
+[[file:/static/images/posts/2017-06-29/package-json.png]]
+
+Don't forget to do this initialization, or you may get trapped into some tricky directory path problems.
+
+*** Install Semantic-UI
+
+#+BEGIN_SRC bash
+npm install --save semantic-ui
+#+END_SRC
+
+This will takes several minutes according to the network.  After this, the directory has 3 more items:
+
+#+NAME: Directory items after installing Semantic-UI with npm
+[[file:/static/images/posts/2017-06-29/sui-installed.png]]
+
+And you can look up the structure of the =semantic/= directory:
+
+#+NAME: Semantic-UI directory structure
+[[file:/static/images/posts/2017-06-29/semantic-dir.png]]
+
+*** Build Semantic-UI CSS and JS
+
+#+BEGIN_SRC bash
+cd semantic
+gulp build
+#+END_SRC
+
+If your installed =gulp= is good to use, this procedure will take about 20 seconds on a laptop with decent hardware.
+
+The cookie is ready now:
+#+NAME: Semantic-UI dist directory after executing gulp build
+[[file:/static/images/posts/2017-06-29/gulp-build.png]]
+
+*** Add prebuilt CSS and JS to your header
+
+#+BEGIN_SRC html
+<head>
+  <link href="./semantic/dist/semantic.min.css" rel="stylesheet" type="text/css">
+  <script src="./jquery.min.js"></script>
+  <script src="./semantic/dist/semantic.min.js"></script>
+</head>
+#+END_SRC
+
+Just for explanation here, in fact it's better to put the second =script= line at the end of body tag for faster page loading, you know that.
+
+Everything is good to go, the rest is completely the same as the first example, play freely with =ui= classes in your HTMl elements as you like.
+
+#+BEGIN_HTML
+<iframe width="640" height="360" src="https://www.youtube.com/embed/F_iTE_j7erw?list=PLya0UkqAf0pK31ArVGKpGMMM-1YKpct0V" frameborder="0" allowfullscreen></iframe>
+#+END_HTML
+
+Next time, we will show you how to cut the size of =semantic.min.css= and =semantic.min.js= by removing unused components, and apply Gzip compression on these files with Nginx to boost your websites' performance.
+
+Happy coding!
