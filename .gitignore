@@ -8,6 +8,7 @@ tmp
 
 .sass-cache
 vendor/local
+vendor
 crash.log
 
 todo.org
