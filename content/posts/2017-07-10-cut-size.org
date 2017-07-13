@@ -1,0 +1,212 @@
+Semantic-UI is comfortable to work with, however, you may hesitate to use it in 
+production because of its relatively huge size.
+
+We understand that, so we create this tutorial.
+
+** Method One: OCOF (One Component, One File)
+
+The simplest way to reduce the size of Semantic-UI is to use only the specific
+CSS file of the component you need. For example, if you only need those fancy
+buttons of Semantic-UI, then you can only add the =button.min.css= to your HTML
+=<head>= part.
+
+#+BEGIN_SRC html
+<html>
+  <head>
+    <link href="./semantic/dist/components/button.min.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div>
+      <button class="ui mini red button">Mini Red</button>
+      <button class="ui tiny orange button">Tiny Orange</button>
+      <button class="ui small yellow button">Small Yellow</button>
+      <button class="ui medium olive button">Medium Olive</button>
+    </div>
+    <div>
+      <button class="ui large green button">Large Green</button>
+      <button class="ui big teal button">Big Teal</button>
+      <button class="ui huge blue button">Huge Blue</button>
+      <button class="ui massive violet button">Massive Violet</button>
+    </div>
+    <div>
+      <button class="ui massive purple button">Massive Purple</button>
+      <button class="ui huge pink button">Huge Pink</button>
+      <button class="ui big brown button">Big Brown</button>
+      <button class="ui large grey button">Large Grey</button>
+    </div>
+    <div>
+      <button class="ui medium black button">Medium Black</button>
+      <button class="ui small violet inverted button">Small Violet Inverted</button>
+      <button class="ui tiny green inverted button">Tiny Green Inverted</button>
+      <button class="ui mini red inverted button">Mini Red Inverted</button>
+    <div>
+  </body>
+</html>
+#+END_SRC
+
+#+NAME: Semantic-UI buttons
+[[file:/static/images/posts/2017-07-10/buttons.png]]
+
+You can see the =button.min.css= file is in =./semantic/dist/components=, in
+fact, you can find all components there.
+
+Or, you could also download a single file from Semantic-UI official repo on GitHub:
+https://github.com/Semantic-Org/Semantic-UI/tree/master/dist/components
+
+#+NAME: Semantic-UI repository's components directory on GitHub
+[[file:/static/images/posts/2017-07-10/dist-components.png]]
+
+Commands:
+
+#+BEGIN_SRC bash
+git clone https://github.com/Semantic-Org/Semantic-UI
+cd Semantic-UI/dist/components
+#+END_SRC
+
+Another way, go to the button's page of Semantic-UI, and click 'Download' button:
+https://semantic-ui.com/elements/button.html
+
+#+NAME: Semantic-UI buttons
+[[file:/static/images/posts/2017-07-10/download-button.png]]
+
+Choose the 'standalone' version and you will get a ZIP file, inside which is the
+=button.min.css= you need.
+
+
+** Method Two: ACOF (All Components, One file)
+
+Mostly, Semantic-UI applies the ACOF way, so if you want to keep it like
+this and cut the size of CSS and JS at the same time, you have to delve into the
+powerful file =semantic.json= a little bit.
+
+I suppose you have install Semantic-UI successfully in your project, if you do not know how, please refer to another blog on our site:
+http://semantic-ui-forest.com/posts/2017-06-29-start-semantic-ui/
+
+There you will find a detailed guide and a practical video to start.
+
+The directory structure:
+
+#+NAME: Semantic-UI directory structure
+[[file:/static/images/posts/2017-07-10/dir.png]]
+
+By default, =semantic.json= contains key/value pairs similar to these:
+
+#+BEGIN_SRC bash
+{
+  "base": "semantic/",
+  "paths": {
+    "source": {
+      "config": "src/theme.config",
+      "definitions": "src/definitions/",
+      "site": "src/site/",
+      "themes": "src/themes/"
+    },
+    "output": {
+      "packaged": "dist/",
+      "uncompressed": "dist/components/",
+      "compressed": "dist/components/",
+      "themes": "dist/themes/"
+    },
+    "clean": "dist/"
+  },
+  "permission": false,
+  "autoInstall": false,
+  "rtl": false,
+  "version": "2.2.10",
+}
+#+END_SRC
+
+If we run =gulp build= with the above configuration, the final sizes of =semantic.min.css= and =semantic.min.js= are respectively 548KB and 276KB, besides the =jquery.min.js=.
+
+#+NAME: Full size of semantic.min.css and semantic.min.js
+[[file:/static/images/posts/2017-07-10/full-size.png]]
+
+However, in real world development, you may have only used some of the components 
+in your website. Then you can add only the specific components involved into a 
+list after the =components= key in the =semantic.json=, like this:
+
+#+BEGIN_SRC bash
+  ...(keep the same)...
+  "permission": false,
+  "autoInstall": false,
+  "rtl": false,
+  "version": "2.2.10",
+  "components": [
+    "button",
+    "container",
+    "divider",
+    "header",
+    "icon",
+    "image",
+    "label",
+    "list",
+    "segment",
+    "grid",
+    "menu",
+    "item",
+    "accordion",
+    "dropdown"
+  ]
+}
+#+END_SRC
+
+Note: don't forget to add a comma after the =version= line.
+
+With the most popular components listed, we now have relatively smaller CSS and
+JS files, as shown below:
+
+#+NAME: Smaller size with only components used in project
+[[file:/static/images/posts/2017-07-10/smaller-size.png]]
+
+It's nearly half the size of CSS and JS with all components. And you might discover that grid, button, icon and menu components are the real big shots.
+
+We have also made a simple video to show how to do this lively, check it out if interested:
+
+#+BEGIN_HTML
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OVf5IFGYzpI" frameborder="0" allowfullscreen></iframe>
+#+END_HTML
+
+
+** Final nuclear weapon: Gzip
+
+Sometimes 300KB is still way too large for a static site, luckily, we have another powerful weapon---Gzip.
+
+There are various HTTP server programs on the market, here I just show how to
+configure Gzip compression on a Nginx server. The principle is the same on Apache or
+other servers, but the syntax may vary.
+
+On a typical CentOS or Ubuntu operating system, the configuration file of Nginx 
+server would be located at =/etc/ngnix/conf.d/default.conf= or
+=/etc/nginx/nginx.conf=. Find it and add these lines:
+
+#+BEGIN_SRC bash
+gzip on;
+gzip_disable "MSIE [1-6]\.";
+gzip_http_version 1.1;
+gzip_comp_level 6;
+gzip_min_length 1100;
+gzip_buffers 16 8k;
+gzip_proxied any;
+gzip_static on;
+gzip_vary on;
+gzip_types
+# text/html is always compressed by HttpGzipModule
+  text/css
+  text/javascript
+  text/xml
+  text/plain
+  application/javascript
+  image/svg+xml;
+#+END_SRC
+
+Be careful with semicolons and note that image files such as =image/png= and
+=image/jpg= have already been compressed in their own formats, so it's useless to add
+them to the =gzip_types= list again. Gzip has substantial effects on text files
+like CSS and JS, generally it will reduce 70% of the original size.
+
+Parameters like =gzip_version=, =gzip_cmp_level=, =gzip_min_length= and =gzip_buffers= do not matter too much.
+
+Above are some methods to cut the size of Semantic-UI for your websites. Enjoy!
+
+Next time, we will discuss how to change the themes of Semantic-UI to fresh your
+sites.
