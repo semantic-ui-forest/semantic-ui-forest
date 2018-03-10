@@ -1,9 +1,0 @@
-language: ruby
-sudo: required
-rvm:
-  - 2.3.0
-script:
-  - bash -x ./.travis/deploy-to-github-pages.sh
-notifications:
-  email:
-    on_failure: always

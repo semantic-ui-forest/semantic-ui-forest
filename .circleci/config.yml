@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/ruby:2.5
+      
+    working_directory: ~/semantic-ui-forest
+
+    steps:
+      - checkout
+
+      - run: bundle install 
+
+      - run: bash -x .circleci/deploy-to-github-pages.sh
