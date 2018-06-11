@@ -1,0 +1,7 @@
+css:
+  - /static/dist/semantic-ui/forest-themes/bootswatch-v4/semantic.flatly.min.css
+  - /static/stylesheets/rail.css
+
+meta:
+  header: Flatly
+  sub_header: "Bootswatch's flatly theme"

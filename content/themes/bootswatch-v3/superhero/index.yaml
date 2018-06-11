@@ -1,0 +1,7 @@
+css:
+  - /static/dist/semantic-ui/forest-themes/bootswatch-v3/semantic.superhero.min.css
+  - /static/stylesheets/rail.css
+
+meta:
+  header: Superhero
+  sub_header: "Bootswatch's superhero theme"

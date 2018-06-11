@@ -1,0 +1,7 @@
+css:
+  - /static/dist/semantic-ui/forest-themes/bootswatch-v3/semantic.yeti.min.css
+  - /static/stylesheets/rail.css
+
+meta:
+  header: Yeti
+  sub_header: "Bootswatch's yeti theme"

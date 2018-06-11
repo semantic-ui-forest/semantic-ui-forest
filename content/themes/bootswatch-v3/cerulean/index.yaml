@@ -1,0 +1,7 @@
+css:
+  - /static/dist/semantic-ui/forest-themes/bootswatch-v3/semantic.cerulean.min.css
+  - /static/stylesheets/rail.css
+
+meta:
+  header: Cerulean
+  sub_header: "Bootswatch's cerulean theme"

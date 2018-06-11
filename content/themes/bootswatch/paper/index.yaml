@@ -1,7 +1,0 @@
-css:
-  - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.paper.min.css
-  - /static/stylesheets/rail.css
-
-meta:
-  header: Paper
-  sub_header: "Bootswatch's paper theme"

@@ -1,7 +1,0 @@
-css:
-  - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.cyborg.min.css
-  - /static/stylesheets/rail.css
-
-meta:
-  header: Cyborg
-  sub_header: "Bootswatch's cyborg theme"

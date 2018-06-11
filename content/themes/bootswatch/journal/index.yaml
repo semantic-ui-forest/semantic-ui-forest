@@ -1,7 +1,0 @@
-css:
-  - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.journal.min.css
-  - /static/stylesheets/rail.css
-
-meta:
-  header: Journal
-  sub_header: "Bootswatch's journal theme"

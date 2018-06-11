@@ -1,0 +1,7 @@
+css:
+  - /static/dist/semantic-ui/forest-themes/bootswatch-v3/semantic.lumen.min.css
+  - /static/stylesheets/rail.css
+
+meta:
+  header: Lumen
+  sub_header: "Bootswatch's lumen theme"

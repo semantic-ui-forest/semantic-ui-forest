@@ -1,7 +1,0 @@
-css:
-  - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.readable.min.css
-  - /static/stylesheets/rail.css
-
-meta:
-  header: Readable
-  sub_header: "Bootswatch's readable theme"

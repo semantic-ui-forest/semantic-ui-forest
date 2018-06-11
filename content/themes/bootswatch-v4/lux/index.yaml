@@ -1,0 +1,7 @@
+css:
+  - /static/dist/semantic-ui/forest-themes/bootswatch-v4/semantic.lux.min.css
+  - /static/stylesheets/rail.css
+
+meta:
+  header: Lux
+  sub_header: "Bootswatch's lux theme"

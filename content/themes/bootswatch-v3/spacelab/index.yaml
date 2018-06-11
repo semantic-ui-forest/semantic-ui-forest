@@ -1,0 +1,7 @@
+css:
+  - /static/dist/semantic-ui/forest-themes/bootswatch-v3/semantic.spacelab.min.css
+  - /static/stylesheets/rail.css
+
+meta:
+  header: Spacelab
+  sub_header: "Bootswatch's spacelab theme"

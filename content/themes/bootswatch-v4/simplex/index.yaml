@@ -1,0 +1,7 @@
+css:
+  - /static/dist/semantic-ui/forest-themes/bootswatch-v4/semantic.simplex.min.css
+  - /static/stylesheets/rail.css
+
+meta:
+  header: Simplex
+  sub_header: "Bootswatch's simplex theme"

@@ -1,0 +1,7 @@
+css:
+  - /static/dist/semantic-ui/forest-themes/bootswatch-v4/semantic.united.min.css
+  - /static/stylesheets/rail.css
+
+meta:
+  header: United
+  sub_header: "Bootswatch's united theme"

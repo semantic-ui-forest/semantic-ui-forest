@@ -1,0 +1,7 @@
+css:
+  - /static/dist/semantic-ui/forest-themes/bootswatch-v4/semantic.materia.min.css
+  - /static/stylesheets/rail.css
+
+meta:
+  header: Materia
+  sub_header: "Bootswatch's materia theme"

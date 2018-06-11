@@ -1,0 +1,7 @@
+css:
+  - /static/dist/semantic-ui/forest-themes/bootswatch-v3/semantic.solar.min.css
+  - /static/stylesheets/rail.css
+
+meta:
+  header: Solar
+  sub_header: "Bootswatch's solar theme"

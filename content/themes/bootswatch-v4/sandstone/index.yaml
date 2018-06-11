@@ -1,0 +1,7 @@
+css:
+  - /static/dist/semantic-ui/forest-themes/bootswatch-v4/semantic.sandstone.min.css
+  - /static/stylesheets/rail.css
+
+meta:
+  header: Sandstone
+  sub_header: "Bootswatch's sandstone theme"

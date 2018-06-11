@@ -1,0 +1,7 @@
+css:
+  - /static/dist/semantic-ui/forest-themes/bootswatch-v3/semantic.darkly.min.css
+  - /static/stylesheets/rail.css
+
+meta:
+  header: Darkly
+  sub_header: "Bootswatch's darkly theme"

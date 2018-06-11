@@ -1,7 +1,0 @@
-css:
-  - /static/dist/semantic-ui/forest-themes/bootswatch/semantic.slate.min.css
-  - /static/stylesheets/rail.css
-
-meta:
-  header: Slate
-  sub_header: "Bootswatch's slate theme"
