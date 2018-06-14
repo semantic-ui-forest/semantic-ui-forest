@@ -1,7 +1,0 @@
-css:
-  - /static/dist/semantic-ui/forest-themes/bootswatch-v4/semantic.pulse.min.css
-  - /static/stylesheets/rail.css
-
-meta:
-  header: Pulse
-  sub_header: "Bootswatch's pulse theme"

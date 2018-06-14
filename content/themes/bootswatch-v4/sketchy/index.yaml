@@ -1,7 +1,0 @@
-css:
-  - /static/dist/semantic-ui/forest-themes/bootswatch-v4/semantic.sketchy.min.css
-  - /static/stylesheets/rail.css
-
-meta:
-  header: Sketchy
-  sub_header: "Bootswatch's sketchy theme"
