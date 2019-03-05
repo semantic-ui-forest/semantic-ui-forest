@@ -1,3 +1,9 @@
+**ARCHIVED**
+
+This repo is archived. 
+
+The website has been refactored from bottom up in new tech stacks.
+
 [[/content/static/logo/gravatar/gravatar-128x128.png]]
 
 * Semantic-UI-Forest(http://semantic-ui-forest.com)
